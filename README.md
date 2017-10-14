@@ -11,6 +11,8 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
 
 - [x] Elegir un juego: Ants de Google. Véase [informe de actividades](#informe-de-actividades).
 - [ ] Planificar las distintas ligas.
+  - [ ] Planificar la agrupación y los equipos.
+  - [ ] Planificar el modo de clasificación.
 - [ ] Escribir las plantillas de código.
   - [ ] Opcional: Hacer una encuesta para conocer qué lenguajes de programación se quieren usar.
   - [ ] Listado de algoritmos y herramientas a ofrecer.
