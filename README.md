@@ -9,7 +9,7 @@ Un resumen de las distintas actividades se [puede ver aquí](https://github.com/
 
 He aquí un listado de los hitos para trabajar sobre la actividad.
 
-- [ ] Elegir un juego. Véase [informe de actividades](#informe-de-actividades).
+- [x] Elegir un juego: Ants de Google. Véase [informe de actividades](#informe-de-actividades).
 - [ ] Planificar las distintas ligas.
 - [ ] Escribir las plantillas de código.
   - [ ] Opcional: Hacer una encuesta para conocer qué lenguajes de programación se quieren usar.
