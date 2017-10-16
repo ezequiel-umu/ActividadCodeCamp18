@@ -10,9 +10,6 @@ RUN apk add --no-cache python openjdk7-jre git
 
 RUN npm install && npm run build
 
-#Bug
-RUN mkdir game_logs
-
 #Listen here
 EXPOSE 3000
 
