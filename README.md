@@ -10,9 +10,16 @@ Un resumen de las distintas actividades se [puede ver aquí](https://github.com/
 He aquí un listado de los hitos para trabajar sobre la actividad.
 
 - [x] Elegir un juego: Ants de Google. Véase [informe de actividades](#informe-de-actividades).
-- [ ] Planificar las distintas ligas.
-  - [ ] Planificar la agrupación y los equipos.
-  - [ ] Planificar el modo de clasificación.
+- [x] Planificar las distintas ligas.
+  - [x] Planificar la agrupación y los equipos.
+  - [x] Planificar el modo de clasificación.
+- [ ] Escribir el juez automático.
+  - [x] API de usuario y contraseña.
+  - [x] Base de datos de las partidas y sus puntuaciones.
+  - [ ] Script automático para comprobar y compilar/preparar los bots.
+  - [x] Una cola generadora de partidas.
+  - [ ] Separación por distintas ligas.
+  - [ ] Emparejador automático.
 - [ ] Escribir las plantillas de código.
   - [ ] Opcional: Hacer una encuesta para conocer qué lenguajes de programación se quieren usar.
   - [ ] Listado de algoritmos y herramientas a ofrecer.

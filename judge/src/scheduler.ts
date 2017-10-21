@@ -3,49 +3,15 @@ import { spawn } from "child_process";
 import { config } from "./config";
 import { mapList, mapName } from "./maplist";
 import { AsyncArray } from "ts-modern-async/lib";
+import { Game, registerFinishedGame } from "./games";
 
-export const HighPriorityQueue: AsyncArray<Game> = new AsyncArray();
-export const LowPriorityQueue: AsyncArray<Game> = new AsyncArray();
-
-export async function game(players: string[][], id: number, turns: number = 1000) {
-  return new Promise<Array<string | Buffer>>((res, rej) => {
-    const maps = Object.keys(mapList).filter((key: mapName) => mapList[key] === players.length);
-    const randomMap = maps[(Math.random() * maps.length) | 0]
-
-    const args = [config.antsPath + "/playgame.py",
-      "-g", "" + id,
-      "-S",
-      "-m", config.antsPath + "/" + randomMap,
-      "--player_seed", "" + ((Math.random() * 65535) | 0),
-      "--end_wait", "0.5",
-      "--verbose",
-      "--log_dir", config.gameInProgressPath,
-      "--turns", "" + turns];
-    players.forEach((p) => {
-      args.push(`"${p.reduce((a, b) => a + " " + b)}"`);
-    })
-
-    const process = spawn("/bin/sh", [], {shell: true});
-    const result = [] as Array<string | Buffer>;
-
-    process.stdout.on("data", (data) => {
-      // console.log(data.toString());
-      result.push(data);
-    });
-
-    // console.log("python " + args.reduce((a, b) => a + " " + b) + " ; exit\n");
-    process.stdin.write("python " + args.reduce((a, b) => a + " " + b) + " ; exit\n")
-
-    process.on("exit", (code) => {
-
-      if (code === 0) {
-        res(result);
-      } else {
-        rej(code);
-      }
-    });
-  });
+interface GameInProgress {
+  game: () => Promise<Game>;
+  id: number;
 }
+
+export const HighPriorityQueue: AsyncArray<GameInProgress> = new AsyncArray();
+export const LowPriorityQueue: AsyncArray<GameInProgress> = new AsyncArray();
 
 class FunnelPriorityArray<T> extends AsyncArray<T> {
   private indexes: number[];
@@ -89,7 +55,7 @@ class FunnelPriorityArray<T> extends AsyncArray<T> {
   }
 }
 
-async function consumeGamesLoop(queues: AsyncArray<Game>[]) {
+async function consumeGamesLoop(queues: AsyncArray<GameInProgress>[]) {
   const gameQueue = new FunnelPriorityArray(queues);
   let broken = false;
   function breakLoop() {
@@ -99,11 +65,12 @@ async function consumeGamesLoop(queues: AsyncArray<Game>[]) {
     while (!broken) {
       const g = await gameQueue.consume();
       console.log("Calculating game " + g.id + ".");
-      await g.game();
-      console.log("Finished game " + g.id + ".");
+      const gameResult = await g.game();
+      console.log("Finished game " + gameResult.id + ".");
       fs.renameSync(config.gameInProgressPath + "/" + g.id + ".stream", config.gameFinishedPath + "/" + g.id + ".stream");
+      registerFinishedGame(gameResult);
     }
-  }, 0)
+  }, 0);
   return breakLoop;
 }
 
