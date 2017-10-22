@@ -8,30 +8,20 @@ import { findTeamByLogin, restartElo } from "./teams";
 import { acl } from "./acl";
 import { game } from "./games";
 
+function silentMkdir(dir: string) { 
+  try {
+    fs.mkdirSync(dir);
+    return null;
+  } catch (e) {
+    return e;
+  }
+}
+
 // Create game directories.
-try {
-  fs.mkdirSync(config.gameFinishedPath);
-} catch (e) {
-
-}
-
-try {
-  fs.mkdirSync(config.gameInProgressPath);
-} catch (e) {
-
-}
-
-try {
-  fs.mkdirSync(config.botsPath);
-} catch (e) {
-
-}
-
-try {
-  fs.mkdirSync(config.htmlPath);
-} catch (e) {
-
-}
+silentMkdir(config.gameFinishedPath);
+silentMkdir(config.gameInProgressPath);
+silentMkdir(config.botsPath);
+silentMkdir(config.htmlPath);
 
 // Id of the last game.
 let lastId = 0;
