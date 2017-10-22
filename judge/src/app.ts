@@ -4,7 +4,7 @@ import express = require("express");
 import session = require("express-session");
 import { HighPriorityQueue } from "./scheduler";
 import { AsyncArray } from "ts-modern-async";
-import { findTeamByLogin } from "./teams";
+import { findTeamByLogin, restartElo } from "./teams";
 import { acl } from "./acl";
 import { game } from "./games";
 
@@ -14,13 +14,21 @@ try {
 } catch (e) {
 
 }
+
 try {
   fs.mkdirSync(config.gameInProgressPath);
 } catch (e) {
 
 }
+
 try {
   fs.mkdirSync(config.botsPath);
+} catch (e) {
+
+}
+
+try {
+  fs.mkdirSync(config.htmlPath);
 } catch (e) {
 
 }
@@ -69,8 +77,9 @@ api.get("/", acl, (req, res) => {
 
   HighPriorityQueue.produce({
     id,
-    game: () => game(["python ../ants/linux/sample_bots/python/HunterBot.py",
-      "python ../ants/linux/sample_bots/python/LeftyBot.py"], id)
+    game: () => game(["hunter",
+      "lefty",
+      "influence"], id),
   });
   res.send("Generating game with id " + id + ".");
 });
@@ -101,6 +110,9 @@ app.ws("/ws", (ws, req, res) => {
 
 });
 
+restartElo();
+
 app.listen(config.port, () => {
   console.log("Listening to port " + config.port);
 });
+

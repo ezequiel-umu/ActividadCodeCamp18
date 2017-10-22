@@ -16,10 +16,16 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
 - [ ] Escribir el juez automático.
   - [x] API de usuario y contraseña.
   - [x] Base de datos de las partidas y sus puntuaciones.
-  - [ ] Script automático para comprobar y compilar/preparar los bots.
+  - [x] Script automático para comprobar y compilar/preparar los bots.
   - [x] Una cola generadora de partidas.
-  - [ ] Separación por distintas ligas.
+  - [x] Separación por distintas ligas (usar varias copias del juez con distintas cuentas).
+  - [ ] API para subir el nuevo bot de cada equipo. 
   - [ ] Emparejador automático.
+- [ ] Una página web de interfaz de usuario
+  - [ ] Página de login.
+  - [ ] Página para subir el nuevo bot.
+  - [ ] Clasificación actual de la liga.
+  - [ ] Visualizador HTML de las partidas jugadas. 
 - [ ] Escribir las plantillas de código.
   - [ ] Opcional: Hacer una encuesta para conocer qué lenguajes de programación se quieren usar.
   - [ ] Listado de algoritmos y herramientas a ofrecer.
@@ -28,4 +34,5 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
   - [ ] Plantilla en Java.
 - [ ] Empaquetar todo (eliminar todas las posibles dependencias de internet).
 - [ ] Preparar un tutorial para los alumnos.
+  - [ ] Preparar un previo también para los alumnos de primero (Pascal o C?).
 - [ ] Preparar una presentación (breve).  

@@ -1,5 +1,6 @@
 node_modules/
 game_finished/
 game_logs/
+db/
 bin/
 *.pyc

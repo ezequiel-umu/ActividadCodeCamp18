@@ -382,6 +382,7 @@ class House:
                                                     universal_newlines=True,
                                                     cwd=working_directory)
         except OSError as err:
+            print(err, working_directory, shell_command)
             raise SandboxError('Failed to start {0}'.format(shell_command))
         self._is_alive = True
         stdout_monitor = Thread(target=_monitor_file,

@@ -2,6 +2,7 @@ import { mapList, mapName } from "./maplist";
 import { config } from "./config";
 import { spawn } from "child_process";
 import { gameDB } from "./db";
+import { updateElo } from "./teams";
 
 export interface Game {
   scores: number[];
@@ -55,7 +56,7 @@ export async function game(players: string[], id: number, options = defaultOptio
       "--log_dir", config.gameInProgressPath,
       "--turns", "" + options.turns];
     players.forEach((p) => {
-      args.push(`"${p}"`);
+      args.push(`"sh ${config.botsPath}/${p}/bot.sh exec"`);
     })
 
     const process = spawn("/bin/sh", [], { shell: true });
@@ -65,7 +66,7 @@ export async function game(players: string[], id: number, options = defaultOptio
       result.push(data);
     });
 
-    // console.log("python " + args.reduce((a, b) => a + " " + b) + " ; exit\n");
+    console.log("python " + args.reduce((a, b) => a + " " + b) + " ; exit\n");
     process.stdin.write("python " + args.reduce((a, b) => a + " " + b) + " ; exit\n")
 
     process.on("exit", (code) => {
@@ -96,4 +97,5 @@ export async function game(players: string[], id: number, options = defaultOptio
 
 export function registerFinishedGame(g: Game) {
   gameDB.push(`/${g.id}`, g);
+  updateElo(g);
 }

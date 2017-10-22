@@ -5,4 +5,7 @@ export const config = {
   gameInProgressPath: "./game_logs",
   gameFinishedPath: "./game_finished",
   botsPath: "./bots",
+  initialElo: 50,
+  eloBet: 5,
+  htmlPath: "html",
 }

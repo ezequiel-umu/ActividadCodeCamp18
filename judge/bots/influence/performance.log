@@ -1,0 +1,3033 @@
+turn 1
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 2
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 4
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 4
+raze_influence.start = 4
+defense_influence.start = 4
+explore_influence.start = 4
+influences.finish = 5
+explore_influence.diffuse().start = 5
+explore_influence.diffuse().finish = 9
+merging map.start = 9
+merging map.finish = 9
+self.avoidance_explore.finish = 9
+self.normal_explore.finish = 9
+endturn: my_ants count = 1, time_elapsed = 9
+turn 2
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 8
+merging map.start = 8
+merging map.finish = 8
+self.avoidance_explore.finish = 8
+self.normal_explore.finish = 8
+endturn: my_ants count = 1, time_elapsed = 8
+turn 3
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 3
+explore_influence.start = 3
+influences.finish = 3
+explore_influence.diffuse().start = 3
+explore_influence.diffuse().finish = 8
+merging map.start = 8
+merging map.finish = 8
+self.avoidance_explore.finish = 8
+self.normal_explore.finish = 8
+endturn: my_ants count = 1, time_elapsed = 8
+turn 4
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 1
+influences.finish = 1
+explore_influence.diffuse().start = 1
+explore_influence.diffuse().finish = 8
+merging map.start = 8
+merging map.finish = 8
+self.avoidance_explore.finish = 8
+self.normal_explore.finish = 8
+endturn: my_ants count = 1, time_elapsed = 8
+turn 5
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 10
+merging map.start = 10
+merging map.finish = 10
+self.avoidance_explore.finish = 10
+self.normal_explore.finish = 10
+endturn: my_ants count = 1, time_elapsed = 10
+turn 6
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 9
+merging map.start = 9
+merging map.finish = 9
+self.avoidance_explore.finish = 9
+self.normal_explore.finish = 9
+endturn: my_ants count = 2, time_elapsed = 9
+turn 7
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 10
+merging map.start = 10
+merging map.finish = 10
+self.avoidance_explore.finish = 10
+self.normal_explore.finish = 10
+endturn: my_ants count = 2, time_elapsed = 10
+turn 8
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 12
+merging map.start = 12
+merging map.finish = 12
+self.avoidance_explore.finish = 12
+self.normal_explore.finish = 12
+endturn: my_ants count = 2, time_elapsed = 12
+turn 9
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 1])
+self.combat_time = 1
+self.explore_time = -1
+issue_combat_task.start = 0
+issue_combat_task.finish = 0
+food_influence.start = 0
+set_influence.merge start: 1
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 10
+merging map.start = 10
+merging map.finish = 10
+self.avoidance_explore.finish = 10
+self.normal_explore.finish = 11
+endturn: my_ants count = 3, time_elapsed = 11
+turn 10
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 1, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 0
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 11
+merging map.start = 11
+merging map.finish = 11
+self.avoidance_explore.finish = 11
+self.normal_explore.finish = 12
+endturn: my_ants count = 3, time_elapsed = 12
+turn 11
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 1, 0, 1])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 11
+merging map.start = 11
+merging map.finish = 11
+self.avoidance_explore.finish = 11
+self.normal_explore.finish = 12
+endturn: my_ants count = 3, time_elapsed = 12
+turn 12
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 1, 0, 1, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 13
+merging map.start = 13
+merging map.finish = 13
+self.avoidance_explore.finish = 13
+self.normal_explore.finish = 13
+endturn: my_ants count = 3, time_elapsed = 13
+turn 13
+self.diffuse_time = 0
+self.combat_time_history = deque([1, 0, 1, 0, 0])
+self.combat_time = 1
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 13
+merging map.start = 13
+merging map.finish = 14
+self.avoidance_explore.finish = 14
+self.normal_explore.finish = 14
+endturn: my_ants count = 3, time_elapsed = 14
+turn 14
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 1, 0, 0, 0])
+self.combat_time = 1
+self.explore_time = -1
+issue_combat_task.start = 0
+issue_combat_task.finish = 0
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 13
+merging map.start = 13
+merging map.finish = 13
+self.avoidance_explore.finish = 13
+self.normal_explore.finish = 14
+endturn: my_ants count = 3, time_elapsed = 14
+turn 15
+self.diffuse_time = 0
+self.combat_time_history = deque([1, 0, 0, 0, 1])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 13
+merging map.start = 13
+merging map.finish = 13
+self.avoidance_explore.finish = 13
+self.normal_explore.finish = 14
+endturn: my_ants count = 3, time_elapsed = 14
+turn 16
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 1, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 0
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 14
+merging map.start = 14
+merging map.finish = 14
+self.avoidance_explore.finish = 14
+self.normal_explore.finish = 14
+endturn: my_ants count = 4, time_elapsed = 14
+turn 17
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 1, 0, 1])
+self.combat_time = 1
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 15
+merging map.start = 16
+merging map.finish = 16
+self.avoidance_explore.finish = 16
+self.normal_explore.finish = 16
+endturn: my_ants count = 4, time_elapsed = 16
+turn 18
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 1, 0, 1, 0])
+self.combat_time = 1
+self.explore_time = -1
+issue_combat_task.start = 0
+issue_combat_task.finish = 0
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 15
+merging map.start = 15
+merging map.finish = 15
+self.avoidance_explore.finish = 16
+self.normal_explore.finish = 16
+endturn: my_ants count = 4, time_elapsed = 16
+turn 19
+self.diffuse_time = 0
+self.combat_time_history = deque([1, 0, 1, 0, 1])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 3
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+defense_influence.start = 3
+explore_influence.start = 3
+influences.finish = 3
+explore_influence.diffuse().start = 4
+explore_influence.diffuse().finish = 18
+merging map.start = 18
+merging map.finish = 18
+self.avoidance_explore.finish = 18
+self.normal_explore.finish = 19
+endturn: my_ants count = 4, time_elapsed = 19
+turn 20
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 1, 0, 1, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 17
+merging map.start = 17
+merging map.finish = 17
+self.avoidance_explore.finish = 17
+self.normal_explore.finish = 17
+endturn: my_ants count = 4, time_elapsed = 17
+turn 21
+self.diffuse_time = 0
+self.combat_time_history = deque([1, 0, 1, 0, 0])
+self.combat_time = 1
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 16
+merging map.start = 16
+merging map.finish = 17
+self.avoidance_explore.finish = 17
+self.normal_explore.finish = 17
+endturn: my_ants count = 5, time_elapsed = 17
+turn 22
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 1, 0, 0, 0])
+self.combat_time = 1
+self.explore_time = -1
+issue_combat_task.start = 0
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 17
+merging map.start = 17
+merging map.finish = 17
+self.avoidance_explore.finish = 17
+self.normal_explore.finish = 18
+endturn: my_ants count = 5, time_elapsed = 18
+turn 23
+self.diffuse_time = 0
+self.combat_time_history = deque([1, 0, 0, 0, 1])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 17
+merging map.start = 18
+merging map.finish = 18
+self.avoidance_explore.finish = 18
+self.normal_explore.finish = 18
+endturn: my_ants count = 5, time_elapsed = 18
+turn 24
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 1, 0])
+self.combat_time = 1
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 18
+merging map.start = 18
+merging map.finish = 18
+self.avoidance_explore.finish = 18
+self.normal_explore.finish = 19
+endturn: my_ants count = 5, time_elapsed = 19
+turn 25
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 1, 0, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 18
+merging map.start = 19
+merging map.finish = 19
+self.avoidance_explore.finish = 19
+self.normal_explore.finish = 19
+endturn: my_ants count = 5, time_elapsed = 19
+turn 26
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 1, 0, 0, 0])
+self.combat_time = 1
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 3
+influences.finish = 3
+explore_influence.diffuse().start = 3
+explore_influence.diffuse().finish = 20
+merging map.start = 20
+merging map.finish = 20
+self.avoidance_explore.finish = 20
+self.normal_explore.finish = 21
+endturn: my_ants count = 6, time_elapsed = 21
+turn 27
+self.diffuse_time = 0
+self.combat_time_history = deque([1, 0, 0, 0, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 19
+merging map.start = 19
+merging map.finish = 19
+self.avoidance_explore.finish = 19
+self.normal_explore.finish = 19
+endturn: my_ants count = 6, time_elapsed = 19
+turn 28
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 19
+merging map.start = 19
+merging map.finish = 19
+self.avoidance_explore.finish = 19
+self.normal_explore.finish = 20
+endturn: my_ants count = 7, time_elapsed = 20
+turn 29
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 0
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 1
+influences.finish = 1
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 19
+merging map.start = 19
+merging map.finish = 19
+self.avoidance_explore.finish = 19
+self.normal_explore.finish = 20
+endturn: my_ants count = 7, time_elapsed = 20
+turn 30
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 1])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 21
+merging map.start = 21
+merging map.finish = 21
+self.avoidance_explore.finish = 21
+self.normal_explore.finish = 21
+endturn: my_ants count = 7, time_elapsed = 22
+turn 31
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 1, 0])
+self.combat_time = 1
+self.explore_time = -1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 1
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 19
+merging map.start = 19
+merging map.finish = 19
+self.avoidance_explore.finish = 19
+self.normal_explore.finish = 20
+endturn: my_ants count = 8, time_elapsed = 20
+turn 32
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 1, 0, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 22
+merging map.start = 23
+merging map.finish = 23
+self.avoidance_explore.finish = 23
+self.normal_explore.finish = 24
+endturn: my_ants count = 9, time_elapsed = 24
+turn 33
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 1, 0, 0, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 22
+merging map.start = 22
+merging map.finish = 22
+self.avoidance_explore.finish = 22
+self.normal_explore.finish = 23
+endturn: my_ants count = 10, time_elapsed = 23
+turn 34
+self.diffuse_time = 0
+self.combat_time_history = deque([1, 0, 0, 0, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 20
+merging map.start = 21
+merging map.finish = 21
+self.avoidance_explore.finish = 21
+self.normal_explore.finish = 22
+endturn: my_ants count = 10, time_elapsed = 22
+turn 35
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 21
+merging map.start = 21
+merging map.finish = 21
+self.avoidance_explore.finish = 21
+self.normal_explore.finish = 22
+endturn: my_ants count = 10, time_elapsed = 22
+turn 36
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 21
+merging map.start = 21
+merging map.finish = 21
+self.avoidance_explore.finish = 21
+self.normal_explore.finish = 22
+endturn: my_ants count = 10, time_elapsed = 22
+turn 37
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 21
+merging map.start = 21
+merging map.finish = 21
+self.avoidance_explore.finish = 21
+self.normal_explore.finish = 22
+endturn: my_ants count = 10, time_elapsed = 22
+turn 38
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 1
+influences.finish = 1
+explore_influence.diffuse().start = 1
+explore_influence.diffuse().finish = 21
+merging map.start = 21
+merging map.finish = 21
+self.avoidance_explore.finish = 21
+self.normal_explore.finish = 22
+endturn: my_ants count = 11, time_elapsed = 22
+turn 39
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 1
+influences.finish = 1
+explore_influence.diffuse().start = 1
+explore_influence.diffuse().finish = 22
+merging map.start = 22
+merging map.finish = 22
+self.avoidance_explore.finish = 22
+self.normal_explore.finish = 23
+endturn: my_ants count = 11, time_elapsed = 23
+turn 40
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 1
+influences.finish = 1
+explore_influence.diffuse().start = 1
+explore_influence.diffuse().finish = 21
+merging map.start = 21
+merging map.finish = 21
+self.avoidance_explore.finish = 21
+self.normal_explore.finish = 22
+endturn: my_ants count = 11, time_elapsed = 22
+turn 41
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 1
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 22
+merging map.start = 22
+merging map.finish = 22
+self.avoidance_explore.finish = 22
+self.normal_explore.finish = 23
+endturn: my_ants count = 11, time_elapsed = 23
+turn 42
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 1
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 22
+merging map.start = 22
+merging map.finish = 22
+self.avoidance_explore.finish = 22
+self.normal_explore.finish = 24
+endturn: my_ants count = 11, time_elapsed = 24
+turn 43
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 24
+merging map.start = 24
+merging map.finish = 25
+self.avoidance_explore.finish = 25
+self.normal_explore.finish = 26
+endturn: my_ants count = 11, time_elapsed = 26
+turn 44
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 0
+issue_combat_task.finish = 0
+food_influence.start = 0
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 1
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 23
+merging map.start = 23
+merging map.finish = 23
+self.avoidance_explore.finish = 23
+self.normal_explore.finish = 24
+endturn: my_ants count = 11, time_elapsed = 24
+turn 45
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 0
+issue_combat_task.finish = 0
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 24
+merging map.start = 24
+merging map.finish = 24
+self.avoidance_explore.finish = 25
+self.normal_explore.finish = 26
+endturn: my_ants count = 12, time_elapsed = 26
+turn 46
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 0
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 1
+explore_influence.start = 1
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 24
+merging map.start = 24
+merging map.finish = 24
+self.avoidance_explore.finish = 24
+self.normal_explore.finish = 26
+endturn: my_ants count = 12, time_elapsed = 26
+turn 47
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 26
+merging map.start = 26
+merging map.finish = 26
+self.avoidance_explore.finish = 27
+self.normal_explore.finish = 28
+endturn: my_ants count = 12, time_elapsed = 28
+turn 48
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 1, 1, 0])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 1
+raze_influence.start = 1
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 27
+merging map.start = 27
+merging map.finish = 27
+self.avoidance_explore.finish = 27
+self.normal_explore.finish = 28
+endturn: my_ants count = 12, time_elapsed = 28
+turn 49
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 1, 1, 0, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 28
+merging map.start = 28
+merging map.finish = 28
+self.avoidance_explore.finish = 28
+self.normal_explore.finish = 29
+endturn: my_ants count = 12, time_elapsed = 29
+turn 50
+self.diffuse_time = 0
+self.combat_time_history = deque([1, 1, 0, 0, 0])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 28
+merging map.start = 28
+merging map.finish = 28
+self.avoidance_explore.finish = 28
+self.normal_explore.finish = 30
+endturn: my_ants count = 12, time_elapsed = 30
+turn 51
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 0, 0, 0, 0])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 29
+merging map.start = 29
+merging map.finish = 29
+self.avoidance_explore.finish = 29
+self.normal_explore.finish = 30
+endturn: my_ants count = 12, time_elapsed = 30
+turn 52
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 3
+influences.finish = 3
+explore_influence.diffuse().start = 3
+explore_influence.diffuse().finish = 30
+merging map.start = 30
+merging map.finish = 30
+self.avoidance_explore.finish = 30
+self.normal_explore.finish = 31
+endturn: my_ants count = 12, time_elapsed = 31
+turn 53
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 4
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 4
+raze_influence.start = 5
+defense_influence.start = 5
+explore_influence.start = 5
+influences.finish = 5
+explore_influence.diffuse().start = 5
+explore_influence.diffuse().finish = 34
+merging map.start = 34
+merging map.finish = 34
+self.avoidance_explore.finish = 34
+self.normal_explore.finish = 36
+endturn: my_ants count = 13, time_elapsed = 36
+turn 54
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 4
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 4
+raze_influence.start = 4
+defense_influence.start = 4
+explore_influence.start = 4
+influences.finish = 5
+explore_influence.diffuse().start = 5
+explore_influence.diffuse().finish = 33
+merging map.start = 33
+merging map.finish = 33
+self.avoidance_explore.finish = 33
+self.normal_explore.finish = 35
+endturn: my_ants count = 14, time_elapsed = 35
+turn 55
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (7, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+defense_influence.start = 3
+explore_influence.start = 3
+influences.finish = 3
+explore_influence.diffuse().start = 3
+explore_influence.diffuse().finish = 32
+merging map.start = 32
+merging map.finish = 32
+self.avoidance_explore.finish = 32
+self.normal_explore.finish = 34
+endturn: my_ants count = 14, time_elapsed = 34
+turn 56
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (7, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 3
+explore_influence.diffuse().finish = 33
+merging map.start = 33
+merging map.finish = 34
+self.avoidance_explore.finish = 34
+self.normal_explore.finish = 35
+endturn: my_ants count = 14, time_elapsed = 35
+turn 57
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (9, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 3
+explore_influence.start = 3
+influences.finish = 3
+explore_influence.diffuse().start = 3
+explore_influence.diffuse().finish = 32
+merging map.start = 32
+merging map.finish = 32
+self.avoidance_explore.finish = 32
+self.normal_explore.finish = 34
+endturn: my_ants count = 14, time_elapsed = 34
+turn 58
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (9, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+defense_influence.start = 3
+explore_influence.start = 3
+influences.finish = 3
+explore_influence.diffuse().start = 3
+explore_influence.diffuse().finish = 34
+merging map.start = 34
+merging map.finish = 34
+self.avoidance_explore.finish = 34
+self.normal_explore.finish = 36
+endturn: my_ants count = 14, time_elapsed = 36
+turn 59
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 0, 0, 0, 0])
+self.combat_time = 0
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (9, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+defense_influence.start = 3
+explore_influence.start = 3
+influences.finish = 3
+explore_influence.diffuse().start = 3
+explore_influence.diffuse().finish = 33
+merging map.start = 33
+merging map.finish = 33
+self.avoidance_explore.finish = 33
+self.normal_explore.finish = 34
+endturn: my_ants count = 14, time_elapsed = 34
+turn 60
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 0, 0, 0, 1])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 3
+explore_influence.start = 3
+influences.finish = 3
+explore_influence.diffuse().start = 3
+explore_influence.diffuse().finish = 33
+merging map.start = 33
+merging map.finish = 33
+self.avoidance_explore.finish = 33
+self.normal_explore.finish = 35
+endturn: my_ants count = 14, time_elapsed = 35
+turn 61
+self.diffuse_time = 0
+self.combat_time_history = deque([0, 0, 0, 1, 0])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 0
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 2
+explore_influence.diffuse().start = 2
+explore_influence.diffuse().finish = 33
+merging map.start = 33
+merging map.finish = 34
+self.avoidance_explore.finish = 34
+self.normal_explore.finish = 35
+endturn: my_ants count = 15, time_elapsed = 35
+turn 62
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 0, 1, 0, 1])
+self.combat_time = 1
+self.explore_time = 0
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+defense_influence.start = 2
+explore_influence.start = 2
+influences.finish = 3
+explore_influence.diffuse().start = 3
+explore_influence.diffuse().finish = 34
+merging map.start = 34
+merging map.finish = 34
+self.avoidance_explore.finish = 34
+self.normal_explore.finish = 36
+endturn: my_ants count = 16, time_elapsed = 36
+turn 63
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 1, 0, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 38
+merging map.start = 39
+merging map.finish = 39
+self.avoidance_explore.finish = 39
+self.normal_explore.finish = 41
+endturn: my_ants count = 17, time_elapsed = 41
+turn 64
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 0, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 38
+merging map.start = 38
+merging map.finish = 38
+self.avoidance_explore.finish = 38
+self.normal_explore.finish = 40
+endturn: my_ants count = 18, time_elapsed = 40
+turn 65
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 38
+merging map.start = 38
+merging map.finish = 38
+self.avoidance_explore.finish = 38
+self.normal_explore.finish = 40
+endturn: my_ants count = 19, time_elapsed = 40
+turn 66
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 3
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 38
+merging map.start = 38
+merging map.finish = 38
+self.avoidance_explore.finish = 38
+self.normal_explore.finish = 40
+endturn: my_ants count = 20, time_elapsed = 40
+turn 67
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 0])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 38
+merging map.start = 38
+merging map.finish = 38
+self.avoidance_explore.finish = 39
+self.normal_explore.finish = 40
+endturn: my_ants count = 20, time_elapsed = 41
+turn 68
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 0, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 39
+merging map.start = 39
+merging map.finish = 40
+self.avoidance_explore.finish = 40
+self.normal_explore.finish = 42
+endturn: my_ants count = 21, time_elapsed = 42
+turn 69
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 0, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 3
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 39
+merging map.start = 39
+merging map.finish = 40
+self.avoidance_explore.finish = 40
+self.normal_explore.finish = 42
+endturn: my_ants count = 22, time_elapsed = 42
+turn 70
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 0, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 6
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 40
+merging map.start = 40
+merging map.finish = 40
+self.avoidance_explore.finish = 40
+self.normal_explore.finish = 43
+endturn: my_ants count = 22, time_elapsed = 43
+turn 71
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 6
+defense_influence.start = 6
+explore_influence.start = 6
+influences.finish = 6
+explore_influence.diffuse().start = 6
+explore_influence.diffuse().finish = 38
+merging map.start = 38
+merging map.finish = 38
+self.avoidance_explore.finish = 38
+self.normal_explore.finish = 40
+endturn: my_ants count = 22, time_elapsed = 40
+turn 72
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 6
+defense_influence.start = 6
+explore_influence.start = 6
+influences.finish = 6
+explore_influence.diffuse().start = 6
+explore_influence.diffuse().finish = 40
+merging map.start = 40
+merging map.finish = 40
+self.avoidance_explore.finish = 40
+self.normal_explore.finish = 43
+endturn: my_ants count = 22, time_elapsed = 43
+turn 73
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 23, time_elapsed = 51
+turn 74
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 11
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 12
+defense_influence.start = 12
+explore_influence.start = 12
+influences.finish = 12
+explore_influence.diffuse().start = 12
+explore_influence.diffuse().finish = 50
+merging map.start = 50
+merging map.finish = 50
+self.avoidance_explore.finish = 50
+self.normal_explore.finish = 53
+endturn: my_ants count = 24, time_elapsed = 53
+turn 75
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+raze_influence.start = 2
+set_influence.merge start: 8
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 9
+defense_influence.start = 9
+explore_influence.start = 9
+influences.finish = 9
+explore_influence.diffuse().start = 9
+explore_influence.diffuse().finish = 46
+merging map.start = 46
+merging map.finish = 46
+self.avoidance_explore.finish = 46
+self.normal_explore.finish = 48
+endturn: my_ants count = 24, time_elapsed = 49
+turn 76
+self.diffuse_time = 2
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+raze_influence.start = 2
+set_influence.merge start: 8
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 9
+defense_influence.start = 9
+explore_influence.start = 9
+influences.finish = 10
+explore_influence.diffuse().start = 10
+explore_influence.diffuse().finish = 56
+merging map.start = 56
+merging map.finish = 56
+self.avoidance_explore.finish = 56
+self.normal_explore.finish = 58
+endturn: my_ants count = 24, time_elapsed = 58
+turn 77
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 11
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 12
+defense_influence.start = 12
+explore_influence.start = 12
+influences.finish = 12
+explore_influence.diffuse().start = 12
+explore_influence.diffuse().finish = 45
+merging map.start = 45
+merging map.finish = 45
+self.avoidance_explore.finish = 45
+self.normal_explore.finish = 47
+endturn: my_ants count = 24, time_elapsed = 47
+turn 78
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 11
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 12
+defense_influence.start = 12
+explore_influence.start = 12
+influences.finish = 12
+explore_influence.diffuse().start = 12
+explore_influence.diffuse().finish = 45
+merging map.start = 45
+merging map.finish = 45
+self.avoidance_explore.finish = 46
+self.normal_explore.finish = 48
+endturn: my_ants count = 24, time_elapsed = 48
+turn 79
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 1
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 10
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 11
+defense_influence.start = 11
+explore_influence.start = 11
+influences.finish = 12
+explore_influence.diffuse().start = 12
+explore_influence.diffuse().finish = 46
+merging map.start = 46
+merging map.finish = 46
+self.avoidance_explore.finish = 47
+self.normal_explore.finish = 49
+endturn: my_ants count = 24, time_elapsed = 49
+turn 80
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 0])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 11
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 12
+defense_influence.start = 12
+explore_influence.start = 12
+influences.finish = 13
+explore_influence.diffuse().start = 13
+explore_influence.diffuse().finish = 47
+merging map.start = 47
+merging map.finish = 47
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 50
+endturn: my_ants count = 24, time_elapsed = 50
+turn 81
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 0, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 14
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 15
+defense_influence.start = 15
+explore_influence.start = 16
+influences.finish = 16
+explore_influence.diffuse().start = 16
+explore_influence.diffuse().finish = 62
+merging map.start = 62
+merging map.finish = 62
+self.avoidance_explore.finish = 63
+self.normal_explore.finish = 65
+endturn: my_ants count = 25, time_elapsed = 65
+turn 82
+self.diffuse_time = 2
+self.combat_time_history = deque([1, 1, 0, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 13
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 14
+defense_influence.start = 14
+explore_influence.start = 14
+influences.finish = 14
+explore_influence.diffuse().start = 14
+explore_influence.diffuse().finish = 54
+merging map.start = 54
+merging map.finish = 54
+self.avoidance_explore.finish = 55
+self.normal_explore.finish = 57
+endturn: my_ants count = 25, time_elapsed = 57
+turn 83
+self.diffuse_time = 2
+self.combat_time_history = deque([1, 0, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 12
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 14
+defense_influence.start = 14
+explore_influence.start = 14
+influences.finish = 14
+explore_influence.diffuse().start = 14
+explore_influence.diffuse().finish = 49
+merging map.start = 49
+merging map.finish = 49
+self.avoidance_explore.finish = 50
+self.normal_explore.finish = 52
+endturn: my_ants count = 25, time_elapsed = 52
+turn 84
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 3
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 12
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 13
+defense_influence.start = 14
+explore_influence.start = 14
+influences.finish = 14
+explore_influence.diffuse().start = 14
+explore_influence.diffuse().finish = 49
+merging map.start = 49
+merging map.finish = 49
+self.avoidance_explore.finish = 49
+self.normal_explore.finish = 51
+endturn: my_ants count = 25, time_elapsed = 57
+turn 85
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 2])
+self.combat_time = 2
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 11
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 13
+defense_influence.start = 13
+explore_influence.start = 13
+influences.finish = 13
+explore_influence.diffuse().start = 13
+explore_influence.diffuse().finish = 49
+merging map.start = 49
+merging map.finish = 49
+self.avoidance_explore.finish = 49
+self.normal_explore.finish = 52
+endturn: my_ants count = 25, time_elapsed = 52
+turn 86
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 2, 1])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 11
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 12
+defense_influence.start = 12
+explore_influence.start = 12
+influences.finish = 13
+explore_influence.diffuse().start = 13
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 49
+self.normal_explore.finish = 51
+endturn: my_ants count = 25, time_elapsed = 51
+turn 87
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 2, 1, 1])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 11
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 13
+defense_influence.start = 13
+explore_influence.start = 13
+influences.finish = 13
+explore_influence.diffuse().start = 13
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 50
+endturn: my_ants count = 25, time_elapsed = 50
+turn 88
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 2, 1, 1, 1])
+self.combat_time = 2
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 12
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 13
+defense_influence.start = 13
+explore_influence.start = 13
+influences.finish = 14
+explore_influence.diffuse().start = 14
+explore_influence.diffuse().finish = 63
+merging map.start = 63
+merging map.finish = 63
+self.avoidance_explore.finish = 64
+self.normal_explore.finish = 70
+endturn: my_ants count = 25, time_elapsed = 70
+turn 89
+self.diffuse_time = 2
+self.combat_time_history = deque([2, 1, 1, 1, 1])
+self.combat_time = 2
+self.explore_time = 5
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 4
+raze_influence.start = 4
+set_influence.merge start: 18
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 19
+defense_influence.start = 19
+explore_influence.start = 19
+influences.finish = 19
+explore_influence.diffuse().start = 19
+explore_influence.diffuse().finish = 56
+merging map.start = 56
+merging map.finish = 56
+self.avoidance_explore.finish = 56
+self.normal_explore.finish = 58
+endturn: my_ants count = 25, time_elapsed = 58
+turn 90
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 4
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 12
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 14
+defense_influence.start = 14
+explore_influence.start = 14
+influences.finish = 14
+explore_influence.diffuse().start = 14
+explore_influence.diffuse().finish = 50
+merging map.start = 50
+merging map.finish = 50
+self.avoidance_explore.finish = 50
+self.normal_explore.finish = 52
+endturn: my_ants count = 25, time_elapsed = 52
+turn 91
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 3
+set_influence.merge start: 11
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 13
+defense_influence.start = 13
+explore_influence.start = 13
+influences.finish = 13
+explore_influence.diffuse().start = 13
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 49
+self.avoidance_explore.finish = 49
+self.normal_explore.finish = 51
+endturn: my_ants count = 26, time_elapsed = 51
+turn 92
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 2
+issue_combat_task.finish = 4
+food_influence.start = 4
+set_influence.merge start: 5
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 5
+raze_influence.start = 5
+set_influence.merge start: 14
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 16
+defense_influence.start = 16
+explore_influence.start = 16
+influences.finish = 16
+explore_influence.diffuse().start = 16
+explore_influence.diffuse().finish = 53
+merging map.start = 53
+merging map.finish = 53
+self.avoidance_explore.finish = 54
+self.normal_explore.finish = 57
+endturn: my_ants count = 26, time_elapsed = 57
+turn 93
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 2])
+self.combat_time = 2
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 12
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 14
+defense_influence.start = 14
+explore_influence.start = 14
+influences.finish = 14
+explore_influence.diffuse().start = 14
+explore_influence.diffuse().finish = 50
+merging map.start = 50
+merging map.finish = 50
+self.avoidance_explore.finish = 50
+self.normal_explore.finish = 53
+endturn: my_ants count = 27, time_elapsed = 53
+turn 94
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 2, 1])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 11
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 13
+defense_influence.start = 13
+explore_influence.start = 13
+influences.finish = 13
+explore_influence.diffuse().start = 13
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 27, time_elapsed = 51
+turn 95
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 2, 1, 1])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 3
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 4
+raze_influence.start = 4
+set_influence.merge start: 12
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 13
+defense_influence.start = 13
+explore_influence.start = 13
+influences.finish = 13
+explore_influence.diffuse().start = 13
+explore_influence.diffuse().finish = 49
+merging map.start = 49
+merging map.finish = 49
+self.avoidance_explore.finish = 50
+self.normal_explore.finish = 52
+endturn: my_ants count = 27, time_elapsed = 52
+turn 96
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 2, 1, 1, 2])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 2
+issue_combat_task.finish = 4
+food_influence.start = 4
+set_influence.merge start: 5
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 5
+raze_influence.start = 5
+set_influence.merge start: 14
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 16
+defense_influence.start = 16
+explore_influence.start = 16
+influences.finish = 16
+explore_influence.diffuse().start = 16
+explore_influence.diffuse().finish = 55
+merging map.start = 56
+merging map.finish = 56
+self.avoidance_explore.finish = 56
+self.normal_explore.finish = 60
+endturn: my_ants count = 28, time_elapsed = 60
+turn 97
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 1, 1, 2, 2])
+self.combat_time = 2
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 4
+food_influence.start = 4
+set_influence.merge start: 5
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 5
+raze_influence.start = 5
+set_influence.merge start: 14
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 16
+defense_influence.start = 16
+explore_influence.start = 16
+influences.finish = 16
+explore_influence.diffuse().start = 17
+explore_influence.diffuse().finish = 55
+merging map.start = 55
+merging map.finish = 55
+self.avoidance_explore.finish = 55
+self.normal_explore.finish = 59
+endturn: my_ants count = 29, time_elapsed = 59
+turn 98
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 2, 2, 3])
+self.combat_time = 3
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 4
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 4
+raze_influence.start = 4
+set_influence.merge start: 13
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 14
+defense_influence.start = 14
+explore_influence.start = 14
+influences.finish = 14
+explore_influence.diffuse().start = 14
+explore_influence.diffuse().finish = 52
+merging map.start = 52
+merging map.finish = 52
+self.avoidance_explore.finish = 53
+self.normal_explore.finish = 55
+endturn: my_ants count = 29, time_elapsed = 55
+turn 99
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 2, 2, 3, 2])
+self.combat_time = 3
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 4
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 4
+raze_influence.start = 4
+set_influence.merge start: 13
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 14
+defense_influence.start = 14
+explore_influence.start = 14
+influences.finish = 14
+explore_influence.diffuse().start = 15
+explore_influence.diffuse().finish = 53
+merging map.start = 53
+merging map.finish = 53
+self.avoidance_explore.finish = 54
+self.normal_explore.finish = 56
+endturn: my_ants count = 29, time_elapsed = 56
+turn 100
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 2, 3, 2, 2])
+self.combat_time = 3
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 4
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 5
+raze_influence.start = 5
+set_influence.merge start: 13
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 14
+defense_influence.start = 15
+explore_influence.start = 15
+influences.finish = 15
+explore_influence.diffuse().start = 15
+explore_influence.diffuse().finish = 53
+merging map.start = 53
+merging map.finish = 54
+self.avoidance_explore.finish = 54
+self.normal_explore.finish = 56
+endturn: my_ants count = 29, time_elapsed = 56
+turn 101
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 3, 2, 2, 2])
+self.combat_time = 3
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 3
+set_influence.merge start: 4
+np_temp_maps.shape = (7, 39, 111)
+set_influence.finish: 4
+raze_influence.start = 4
+set_influence.merge start: 13
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 14
+defense_influence.start = 14
+explore_influence.start = 14
+influences.finish = 14
+explore_influence.diffuse().start = 14
+explore_influence.diffuse().finish = 53
+merging map.start = 53
+merging map.finish = 53
+self.avoidance_explore.finish = 53
+self.normal_explore.finish = 55
+endturn: my_ants count = 30, time_elapsed = 56
+turn 102
+self.diffuse_time = 1
+self.combat_time_history = deque([3, 2, 2, 2, 2])
+self.combat_time = 3
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 5
+np_temp_maps.shape = (8, 39, 111)
+set_influence.finish: 5
+raze_influence.start = 5
+set_influence.merge start: 14
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 15
+defense_influence.start = 15
+explore_influence.start = 15
+influences.finish = 15
+explore_influence.diffuse().start = 15
+explore_influence.diffuse().finish = 54
+merging map.start = 54
+merging map.finish = 54
+self.avoidance_explore.finish = 54
+self.normal_explore.finish = 56
+endturn: my_ants count = 30, time_elapsed = 57
+turn 103
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 2, 2, 2, 2])
+self.combat_time = 2
+self.explore_time = 1
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 4
+np_temp_maps.shape = (7, 39, 111)
+set_influence.finish: 5
+raze_influence.start = 5
+set_influence.merge start: 10
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 11
+defense_influence.start = 11
+explore_influence.start = 11
+influences.finish = 11
+explore_influence.diffuse().start = 11
+explore_influence.diffuse().finish = 50
+merging map.start = 50
+merging map.finish = 50
+self.avoidance_explore.finish = 50
+self.normal_explore.finish = 53
+endturn: my_ants count = 29, time_elapsed = 53
+turn 104
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 2, 2, 2, 2])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 8
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 9
+defense_influence.start = 9
+explore_influence.start = 9
+influences.finish = 9
+explore_influence.diffuse().start = 9
+explore_influence.diffuse().finish = 50
+merging map.start = 51
+merging map.finish = 51
+self.avoidance_explore.finish = 51
+self.normal_explore.finish = 54
+endturn: my_ants count = 30, time_elapsed = 54
+turn 105
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 2, 2, 2, 1])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 8
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 9
+defense_influence.start = 9
+explore_influence.start = 9
+influences.finish = 9
+explore_influence.diffuse().start = 9
+explore_influence.diffuse().finish = 49
+merging map.start = 49
+merging map.finish = 49
+self.avoidance_explore.finish = 49
+self.normal_explore.finish = 52
+endturn: my_ants count = 31, time_elapsed = 52
+turn 106
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 2, 2, 1, 1])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 8
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 9
+defense_influence.start = 9
+explore_influence.start = 9
+influences.finish = 9
+explore_influence.diffuse().start = 9
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 49
+self.normal_explore.finish = 51
+endturn: my_ants count = 31, time_elapsed = 51
+turn 107
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 2, 1, 1, 1])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 8
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 9
+explore_influence.diffuse().start = 9
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 31, time_elapsed = 51
+turn 108
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 1, 1, 1, 1])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 31, time_elapsed = 51
+turn 109
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 47
+merging map.start = 47
+merging map.finish = 48
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 31, time_elapsed = 51
+turn 110
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 46
+merging map.start = 46
+merging map.finish = 46
+self.avoidance_explore.finish = 46
+self.normal_explore.finish = 49
+endturn: my_ants count = 31, time_elapsed = 49
+turn 111
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 46
+merging map.start = 46
+merging map.finish = 46
+self.avoidance_explore.finish = 46
+self.normal_explore.finish = 49
+endturn: my_ants count = 32, time_elapsed = 49
+turn 112
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 33, time_elapsed = 51
+turn 113
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 1])
+self.combat_time = 1
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 3
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 47
+merging map.start = 47
+merging map.finish = 47
+self.avoidance_explore.finish = 47
+self.normal_explore.finish = 50
+endturn: my_ants count = 34, time_elapsed = 50
+turn 114
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 2])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 3
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 47
+merging map.start = 47
+merging map.finish = 47
+self.avoidance_explore.finish = 47
+self.normal_explore.finish = 50
+endturn: my_ants count = 35, time_elapsed = 50
+turn 115
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 2, 2])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 3
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 47
+merging map.start = 47
+merging map.finish = 47
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 50
+endturn: my_ants count = 36, time_elapsed = 50
+turn 116
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 2, 2, 2])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 47
+merging map.start = 47
+merging map.finish = 47
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 37, time_elapsed = 51
+turn 117
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 2, 2, 2, 1])
+self.combat_time = 2
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 3
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 4
+raze_influence.start = 4
+set_influence.merge start: 8
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 9
+explore_influence.start = 9
+influences.finish = 9
+explore_influence.diffuse().start = 9
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 37, time_elapsed = 51
+turn 118
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 2, 2, 1, 2])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 3
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 4
+set_influence.merge start: 8
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 9
+explore_influence.diffuse().start = 9
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 49
+self.normal_explore.finish = 52
+endturn: my_ants count = 37, time_elapsed = 52
+turn 119
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 2, 1, 2, 2])
+self.combat_time = 2
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (2, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 46
+merging map.start = 46
+merging map.finish = 46
+self.avoidance_explore.finish = 47
+self.normal_explore.finish = 50
+endturn: my_ants count = 36, time_elapsed = 50
+turn 120
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 1, 2, 2, 0])
+self.combat_time = 2
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 49
+merging map.start = 49
+merging map.finish = 49
+self.avoidance_explore.finish = 50
+self.normal_explore.finish = 53
+endturn: my_ants count = 36, time_elapsed = 53
+turn 121
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 2, 2, 0, 1])
+self.combat_time = 2
+self.explore_time = 3
+issue_combat_task.start = 2
+issue_combat_task.finish = 4
+food_influence.start = 4
+set_influence.merge start: 5
+np_temp_maps.shape = (3, 39, 111)
+set_influence.finish: 5
+raze_influence.start = 5
+set_influence.merge start: 10
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 11
+defense_influence.start = 11
+explore_influence.start = 11
+influences.finish = 12
+explore_influence.diffuse().start = 12
+explore_influence.diffuse().finish = 51
+merging map.start = 51
+merging map.finish = 52
+self.avoidance_explore.finish = 53
+self.normal_explore.finish = 57
+endturn: my_ants count = 36, time_elapsed = 57
+turn 122
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 2, 0, 1, 2])
+self.combat_time = 2
+self.explore_time = 4
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (4, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 4
+set_influence.merge start: 8
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 9
+explore_influence.diffuse().start = 9
+explore_influence.diffuse().finish = 47
+merging map.start = 47
+merging map.finish = 48
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 36, time_elapsed = 51
+turn 123
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 0, 1, 2, 1])
+self.combat_time = 2
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 4
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 4
+raze_influence.start = 4
+set_influence.merge start: 8
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 9
+defense_influence.start = 9
+explore_influence.start = 9
+influences.finish = 9
+explore_influence.diffuse().start = 9
+explore_influence.diffuse().finish = 49
+merging map.start = 49
+merging map.finish = 49
+self.avoidance_explore.finish = 49
+self.normal_explore.finish = 52
+endturn: my_ants count = 36, time_elapsed = 52
+turn 124
+self.diffuse_time = 1
+self.combat_time_history = deque([0, 1, 2, 1, 1])
+self.combat_time = 2
+self.explore_time = 2
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 47
+merging map.start = 47
+merging map.finish = 47
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 35, time_elapsed = 51
+turn 125
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 2, 1, 1, 1])
+self.combat_time = 2
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 3
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 8
+defense_influence.start = 8
+explore_influence.start = 8
+influences.finish = 8
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 47
+merging map.start = 47
+merging map.finish = 47
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 35, time_elapsed = 51
+turn 126
+self.diffuse_time = 1
+self.combat_time_history = deque([2, 1, 1, 1, 1])
+self.combat_time = 2
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 3
+food_influence.start = 3
+set_influence.merge start: 5
+np_temp_maps.shape = (6, 39, 111)
+set_influence.finish: 5
+raze_influence.start = 5
+set_influence.merge start: 9
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 10
+defense_influence.start = 11
+explore_influence.start = 11
+influences.finish = 11
+explore_influence.diffuse().start = 11
+explore_influence.diffuse().finish = 51
+merging map.start = 51
+merging map.finish = 51
+self.avoidance_explore.finish = 52
+self.normal_explore.finish = 57
+endturn: my_ants count = 35, time_elapsed = 57
+turn 127
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 1, 2])
+self.combat_time = 2
+self.explore_time = 5
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 7
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 8
+explore_influence.diffuse().finish = 48
+merging map.start = 48
+merging map.finish = 48
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 35, time_elapsed = 51
+turn 128
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 1, 2, 1])
+self.combat_time = 2
+self.explore_time = 4
+issue_combat_task.start = 1
+issue_combat_task.finish = 2
+food_influence.start = 2
+set_influence.merge start: 2
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 3
+raze_influence.start = 3
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 7
+defense_influence.start = 7
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 49
+merging map.start = 49
+merging map.finish = 50
+self.avoidance_explore.finish = 50
+self.normal_explore.finish = 53
+endturn: my_ants count = 36, time_elapsed = 53
+turn 3
+self.diffuse_time = 1
+self.combat_time_history = deque([1, 1, 2, 1, 1])
+self.combat_time = 2
+self.explore_time = 3
+issue_combat_task.start = 1
+issue_combat_task.finish = 1
+food_influence.start = 1
+set_influence.merge start: 2
+np_temp_maps.shape = (5, 39, 111)
+set_influence.finish: 2
+raze_influence.start = 2
+set_influence.merge start: 6
+np_temp_maps.shape = (1, 39, 111)
+set_influence.finish: 6
+defense_influence.start = 6
+explore_influence.start = 7
+influences.finish = 7
+explore_influence.diffuse().start = 7
+explore_influence.diffuse().finish = 47
+merging map.start = 47
+merging map.finish = 47
+self.avoidance_explore.finish = 48
+self.normal_explore.finish = 51
+endturn: my_ants count = 36, time_elapsed = 51
