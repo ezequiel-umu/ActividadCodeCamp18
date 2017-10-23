@@ -1,0 +1,4 @@
+*.pyc
+cython_ext2.c
+cython_ext2.so
+build/

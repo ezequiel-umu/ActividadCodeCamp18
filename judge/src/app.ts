@@ -43,16 +43,18 @@ app.use(session({
   saveUninitialized: false,
 }));
 
+app.use(express.static("static"));
+
 const api = express.Router();
 
-api.get("/:id", acl, (req, res) => {
+api.get("/:id", (req, res) => {
   const id = parseInt(req.params.id, 10);
   if (fs.existsSync(config.gameInProgressPath + "/" + id + ".stream")) {
     res.statusCode = 404;
     res.send("Game in progress.");
-  } else if (fs.existsSync(config.gameFinishedPath + "/" + id + ".stream")) {
-    res.setHeader("content-type", "text/plain");
-    fs.createReadStream(config.gameFinishedPath + "/" + id + ".stream").pipe(res);
+  } else if (fs.existsSync(config.htmlPath + "/" + id + ".html")) {
+    res.setHeader("content-type", "text/html");
+    fs.createReadStream(config.htmlPath + "/" + id + ".html").pipe(res);
   } else {
     res.statusCode = 404;
     res.send("Not found");

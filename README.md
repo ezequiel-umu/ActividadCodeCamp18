@@ -25,7 +25,7 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
   - [ ] Página de login.
   - [ ] Página para subir el nuevo bot.
   - [ ] Clasificación actual de la liga.
-  - [ ] Visualizador HTML de las partidas jugadas. 
+  - [x] Visualizador HTML de las partidas jugadas. 
 - [ ] Escribir las plantillas de código.
   - [ ] Opcional: Hacer una encuesta para conocer qué lenguajes de programación se quieren usar.
   - [ ] Listado de algoritmos y herramientas a ofrecer.

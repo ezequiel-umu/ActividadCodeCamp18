@@ -3,6 +3,7 @@ import { config } from "./config";
 import { spawn } from "child_process";
 import { gameDB } from "./db";
 import { updateElo } from "./teams";
+import { readFileSync } from "fs";
 
 export interface Game {
   scores: number[];
@@ -20,26 +21,26 @@ const defaultOptions = {
   turnTime: 0.5,
 }
 
-function grep(haystack: Array<string | Buffer>, needle: RegExp) {
+// function grep(haystack: Array<string | Buffer>, needle: RegExp) {
 
-  function searchInLine(line: string) {
-    return needle.test(line);
-  }
+//   function searchInLine(line: string) {
+//     return needle.test(line);
+//   }
 
-  let acum = "";
-  for (const k of haystack) {
-    acum += k.toString();
-    let m;
-    while (m = /^(.*)\n/.exec(acum)) {
-      const line = m[1];
-      if (searchInLine(line)) {
-        return line;
-      } else {
-        acum = acum.substring(line.length + 1);
-      }
-    }
-  }
-}
+//   let acum = "";
+//   for (const k of haystack) {
+//     acum += k.toString();
+//     let m;
+//     while (m = /^(.*)\n/.exec(acum)) {
+//       const line = m[1];
+//       if (searchInLine(line)) {
+//         return line;
+//       } else {
+//         acum = acum.substring(line.length + 1);
+//       }
+//     }
+//   }
+// }
 
 export async function game(players: string[], id: number, options = defaultOptions) {
   return new Promise<Game>((res, rej) => {
@@ -48,13 +49,15 @@ export async function game(players: string[], id: number, options = defaultOptio
 
     const args = [config.antsPath + "/playgame.py",
       "-g", "" + id,
-      "-S",
+      "--nolaunch",
       "-m", config.antsPath + "/" + randomMap,
       "--player_seed", "" + ((Math.random() * 65535) | 0),
       "--end_wait", "" + options.turnTime,
       "--verbose",
       "--log_dir", config.gameInProgressPath,
-      "--turns", "" + options.turns];
+      "--html=replay." + id + ".html",
+      "--turns", "" + options.turns,
+    ];
     players.forEach((p) => {
       args.push(`"sh ${config.botsPath}/${p}/bot.sh exec"`);
     })
@@ -71,23 +74,12 @@ export async function game(players: string[], id: number, options = defaultOptio
 
     process.on("exit", (code) => {
       if (code === 0) {
-        const score = grep(result, /^score/);
-        if (score) {
-          const m = /^score ([0-9 ]+)$/.exec(score);
-          if (m) {
-            const scores = m[1].split(" ").map((e) => parseInt(e, 10));
-            res({
-              id,
-              teams: players,
-              scores,
-            });
-          } else {
-            rej(new Error("Score incorrectly parsed in game " + id));
-          }
-        } else {
-          console.log(result.reduce((a,b) => a + b.toString(), ""));
-          rej(new Error("Score not found in game " + id));
-        }
+        const replay = JSON.parse(readFileSync(config.gameInProgressPath + "/" + id + ".replay").toString());
+        res({
+          id,
+          teams: players,
+          scores: replay.score,
+        });
       } else {
         rej(code);
       }

@@ -9,13 +9,13 @@ usage() {
 
 # Compilar el bot
 build() {
-  ulimit -Sv 131072   
+  ulimit -Sv 262144 
   python -m py_compile $dir/*.py
 }
 
 # Ejecutar el bot
 execute() {
-  ulimit -Sv 131072 
+  ulimit -Sv 262144 
   python $dir/$pyscript.pyc
 }
 

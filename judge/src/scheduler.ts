@@ -26,7 +26,9 @@ async function consumeGamesLoop(queues: AsyncArray<GameInProgress>[]) {
       console.log("Calculating game " + g.id + ".");
       const gameResult = await g.game();
       console.log("Finished game " + gameResult.id + ".");
-      fs.renameSync(config.gameInProgressPath + "/" + g.id + ".stream", config.gameFinishedPath + "/" + g.id + ".stream");
+      fs.renameSync(config.gameInProgressPath + "/" + g.id + ".replay", config.gameFinishedPath + "/" + g.id + ".replay");
+      fs.renameSync(config.gameInProgressPath + "/replay." + g.id + ".html", config.htmlPath + "/" + g.id + ".html");
+      fs.writeFileSync(config.htmlPath + "/" + g.id + ".html", fs.readFileSync(config.htmlPath + "/" + g.id + ".html").toString().replace(/\.\.\/\.\.\/ants\/linux/g, ""));
       registerFinishedGame(gameResult);
     }
   }, 0);
