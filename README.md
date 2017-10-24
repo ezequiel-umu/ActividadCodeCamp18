@@ -22,10 +22,11 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
   - [ ] API para subir el nuevo bot de cada equipo. 
   - [ ] Emparejador automático.
 - [ ] Una página web de interfaz de usuario
-  - [ ] Página de login.
+  - [x] Página de login.
   - [ ] Página para subir el nuevo bot.
   - [ ] Clasificación actual de la liga.
   - [x] Visualizador HTML de las partidas jugadas. 
+  - [ ] Estilo que no dé sida.
 - [ ] Escribir las plantillas de código.
   - [ ] Opcional: Hacer una encuesta para conocer qué lenguajes de programación se quieren usar.
   - [ ] Listado de algoritmos y herramientas a ofrecer.

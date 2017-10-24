@@ -43,7 +43,9 @@ app.use(session({
   saveUninitialized: false,
 }));
 
-app.use(express.static("static"));
+app.use(express.static("static", {
+  
+}));
 
 const api = express.Router();
 
