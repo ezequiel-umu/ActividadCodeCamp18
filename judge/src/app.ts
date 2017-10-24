@@ -7,8 +7,9 @@ import { AsyncArray } from "ts-modern-async";
 import { findTeamByLogin, restartElo } from "./teams";
 import { acl } from "./acl";
 import { game } from "./games";
+import { teamDB } from "./db";
 
-function silentMkdir(dir: string) { 
+function silentMkdir(dir: string) {
   try {
     fs.mkdirSync(dir);
     return null;
@@ -49,9 +50,21 @@ app.use(express.static("static", {
 
 const api = express.Router();
 
+api.get("/clasification", acl, (req, res) => {
+  const teams = teamDB.getData("/");
+  const arrTeams = [];
+  for (const k in teams) {
+    arrTeams.push({
+      team: k,
+      elo: teams[k].elo as number
+    });
+  }
+  res.send(arrTeams.sort((a,b) => a.elo - b.elo));
+});
+
 api.get("/:id", (req, res) => {
   const id = parseInt(req.params.id, 10);
-  if (fs.existsSync(config.gameInProgressPath + "/" + id + ".stream")) {
+  if (fs.existsSync(config.gameInProgressPath + "/" + id + ".replay")) {
     res.statusCode = 404;
     res.send("Game in progress.");
   } else if (fs.existsSync(config.htmlPath + "/" + id + ".html")) {

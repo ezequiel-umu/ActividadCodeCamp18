@@ -277,7 +277,7 @@ def run_rounds(opts,args):
         ''' get the name of a bot from the command line '''
         for i, part in enumerate(reversed(cmd.split())):
             if os.path.exists(part):
-                return os.path.basename(part)
+                return part.split("/")[-2]
 # this split of options is not needed, but left for documentation
     game_options = {
         "map": opts.map,

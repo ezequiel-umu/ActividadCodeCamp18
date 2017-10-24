@@ -19,8 +19,6 @@
   <button type="submit" class="btn btn-primary">Enviar</button>	
   </div>
   </form>
-
-  <iframe id="visualizador" hidden="hidden"></iframe>
 </div>
 </div>
 </body>
@@ -34,8 +32,7 @@
     console.log("ev");
     ev.preventDefault();
     const id = valueFromSelector("#id-partida");
-    document.querySelector("#visualizador").hidden = false;
-    document.querySelector("#visualizador").src = "/api/"+id;
+    document.location = "/api/"+id;
   }
 </script>
 
