@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CodeCamp18 - Visualizador</title>
+  <meta charset="utf-8" />
+  <script src="/js/API.js"></script>
+</head>
+
+<body>
+  <table id="classification">
+
+  </table>
+</body>
+
+<script>
+  function valueFromSelector(selector) {
+    return document.querySelector(selector).value;
+  }
+
+  (function() {
+    doGet("/api/classification")
+      .then((data) => {
+        const json = JSON.parse(data).reverse();
+        const table = document.querySelector("#classification");
+        for (team of json) {
+          const row = table.appendChild(document.createElement("tr"));
+          const tdName = row.appendChild(document.createElement("td"));
+          const tdElo = row.appendChild(document.createElement("td"));
+          tdName.textContent = team.team;
+          tdElo.textContent = "" + team.elo;
+        }
+      }).catch((err) => {
+        alert(err);
+      })
+  })()
+</script>
+
+</html>

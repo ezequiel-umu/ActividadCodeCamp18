@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CodeCamp18 - Login</title>
+  <script src="/js/API.js"></script>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+
+</head>
+
+<body>
+  <form method="post" onsubmit="botSubmit(event)">
+    <input id="files" type="file" accept="application/gzip" />
+    <input type="submit" />
+  </form>
+</body>
+<script>
+  function filesFromSelector(selector) {
+    return document.querySelector(selector).files;
+  }
+
+  function botSubmit(ev) {
+    ev.preventDefault();
+    const files = filesFromSelector("#files");
+    doPost("/api/bot", files[0]).then((e) => {
+      document.location = "/";
+    }).catch((e) => {
+      alert(e);
+    });
+  }
+</script>
+
+</html>

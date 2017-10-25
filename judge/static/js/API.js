@@ -12,7 +12,11 @@ async function doGet(url, data) {
       }
     };
     xhttp.onerror = rej;
-    xhttp.open("GET", url + "?" + encodeObject(data), true);
+    if (data) {
+      xhttp.open("GET", url + "?" + encodeObject(data), true);
+    } else {
+      xhttp.open("GET", url, true);      
+    }
     xhttp.send();
   });
 }
@@ -32,11 +36,17 @@ async function doPost(url, data) {
     };
     xhttp.onerror = rej;
     xhttp.open("POST", url, true);
-    if (typeof data === "object") {
-      console.log(data);
+    console.log(data);
+    if (data instanceof File) {
+      const fd = new FormData();
+      fd.append("bot.tar.gz", data);
+      console.log("seding file");
+      xhttp.send(fd);
+    } else if (typeof data === "object") {
       xhttp.setRequestHeader("Content-Type", "application/json");
-      data = JSON.stringify(data);
+      xhttp.send(JSON.stringify(data));            
+    } else {
+      xhttp.send(data);      
     }
-    xhttp.send(data);
   });
 }

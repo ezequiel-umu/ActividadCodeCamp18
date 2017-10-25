@@ -1,4 +1,6 @@
-import fs = require("fs");
+import fs = require("mz/fs");
+import tar = require("tar");
+import multer = require("multer");
 import { config } from "./config";
 import express = require("express");
 import session = require("express-session");
@@ -8,6 +10,7 @@ import { findTeamByLogin, restartElo } from "./teams";
 import { acl } from "./acl";
 import { game } from "./games";
 import { teamDB } from "./db";
+import { expressAsync } from "./utils";
 
 function silentMkdir(dir: string) {
   try {
@@ -23,6 +26,7 @@ silentMkdir(config.gameFinishedPath);
 silentMkdir(config.gameInProgressPath);
 silentMkdir(config.botsPath);
 silentMkdir(config.htmlPath);
+silentMkdir(config.uploadPath);
 
 // Id of the last game.
 let lastId = 0;
@@ -36,6 +40,18 @@ try {
 const app = express();
 require("express-ws")(app);
 const bodyParser = require("body-parser");
+const uploader = multer({
+  dest: config.uploadPath,
+  limits: {
+    fileSize: 524288, // 512KiB
+  },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === "application/gzip")
+      cb(null, true);
+    else
+      cb(null, false);
+  }
+});
 
 app.use(bodyParser.json());
 app.use(session({
@@ -45,12 +61,12 @@ app.use(session({
 }));
 
 app.use(express.static("static", {
-  
+
 }));
 
 const api = express.Router();
 
-api.get("/clasification", acl, (req, res) => {
+api.get("/classification", acl, (req, res) => {
   const teams = teamDB.getData("/");
   const arrTeams = [];
   for (const k in teams) {
@@ -59,7 +75,7 @@ api.get("/clasification", acl, (req, res) => {
       elo: teams[k].elo as number
     });
   }
-  res.send(arrTeams.sort((a,b) => a.elo - b.elo));
+  res.send(arrTeams.sort((a, b) => a.elo - b.elo));
 });
 
 api.get("/:id", (req, res) => {
@@ -91,6 +107,26 @@ api.get("/", acl, (req, res) => {
   res.send("Generating game with id " + id + ".");
 });
 
+api.post("/bot", acl, uploader.single("bot.tar.gz"), expressAsync(async (req, res) => {
+  const teamName = req.session && req.session.login as string;
+  const team = teamDB.getData("/" + teamName);
+  const file = req.file;
+  if (team && file) {
+    team.elo = config.initialElo;
+    teamDB.push("/" + teamName, team);
+    silentMkdir(config.botsPath + "/" + teamName);
+    await tar.x({
+      cwd: config.botsPath + "/" + teamName,
+      file: file.path
+    });
+    await fs.unlink(file.path);
+    res.send("OK");
+  } else {
+    res.statusCode = 400;
+    res.send("Something wrong");
+  }
+}));
+
 api.post("/login", (req, res) => {
   const { login, password } = req.body;
   if (typeof login === "string" && typeof password === "string") {
@@ -117,7 +153,7 @@ app.ws("/ws", (ws, req, res) => {
 
 });
 
-restartElo();
+// restartElo();
 
 app.listen(config.port, () => {
   console.log("Listening to port " + config.port);

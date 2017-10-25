@@ -8,4 +8,5 @@ export const config = {
   initialElo: 50,
   eloBet: 5,
   htmlPath: "html",
+  uploadPath: "uploads"
 }
