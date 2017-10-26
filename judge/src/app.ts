@@ -6,10 +6,10 @@ import express = require("express");
 import session = require("express-session");
 import { HighPriorityQueue } from "./scheduler";
 import { AsyncArray } from "ts-modern-async";
-import { findTeamByLogin, restartElo } from "./teams";
+import { findTeamByLogin, restartElo, Team, BotRuntimeList, isBotRuntime } from "./teams";
 import { acl } from "./acl";
-import { game } from "./games";
-import { teamDB } from "./db";
+import { game, Game } from "./games";
+import { teamDB, gameDB } from "./db";
 import { expressAsync } from "./utils";
 
 function silentMkdir(dir: string) {
@@ -78,7 +78,7 @@ api.get("/classification", acl, (req, res) => {
   res.send(arrTeams.sort((a, b) => a.elo - b.elo));
 });
 
-api.get("/:id", (req, res) => {
+api.get("/game/:id", (req, res) => {
   const id = parseInt(req.params.id, 10);
   if (fs.existsSync(config.gameInProgressPath + "/" + id + ".replay")) {
     res.statusCode = 404;
@@ -90,6 +90,11 @@ api.get("/:id", (req, res) => {
     res.statusCode = 404;
     res.send("Not found");
   }
+});
+
+api.get("/game", (req, res) => {
+  const games = gameDB.getData("/") as Game[];
+  res.send(games);
 });
 
 api.get("/", acl, (req, res) => {
@@ -109,10 +114,12 @@ api.get("/", acl, (req, res) => {
 
 api.post("/bot", acl, uploader.single("bot.tar.gz"), expressAsync(async (req, res) => {
   const teamName = req.session && req.session.login as string;
-  const team = teamDB.getData("/" + teamName);
+  const team = teamDB.getData("/" + teamName) as Team;
   const file = req.file;
-  if (team && file) {
+  const kind = req.query.kind;
+  if (team && file && isBotRuntime(kind)) {
     team.elo = config.initialElo;
+    team.botRuntime = kind;
     teamDB.push("/" + teamName, team);
     silentMkdir(config.botsPath + "/" + teamName);
     await tar.x({

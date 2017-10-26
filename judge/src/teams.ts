@@ -2,10 +2,24 @@ import { teamDB, gameDB } from "./db";
 import { config } from "./config";
 import { Game } from "./games";
 
-interface Team {
+export const BotRuntimeList = {
+  "C++": true,
+  "Java": true,
+  "Pascal": true,
+  "Python": true,
+} 
+
+type BotRuntime = keyof typeof BotRuntimeList;
+
+export interface Team {
   login: string;
   password: string;
   elo: number;
+  botRuntime: BotRuntime;
+}
+
+export function isBotRuntime(runtime: string): runtime is BotRuntime {
+  return runtime in BotRuntimeList;
 }
 
 /**

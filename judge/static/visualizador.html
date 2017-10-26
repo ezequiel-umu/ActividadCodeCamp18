@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>CodeCamp18 - Visualizador</title>
+  <title>CodeCamp18 - Visualizador</title>
   <script src="/js/API.js"></script>
   <meta charset="utf-8" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
 
 </head>
+
 <body>
 
-<nav class="navbar navbar-default"></nav>
+  <nav class="navbar navbar-default"></nav>
 
-<div class="container">
-<div class="jumbotron">
-  <form onsubmit="visualizarPartida(event)">
-  <div class="form-group">
-    <input id="id-partida" name="partida" type="number" required="required" placeholder="Número de partida" size="4" />
-  <button type="submit" class="btn btn-primary">Enviar</button>	
+  <div class="container">
+    <div class="jumbotron">
+      <form onsubmit="visualizarPartida(event)">
+        <div class="form-group">
+          <table id="games">
+
+          </table>
+        </div>
+      </form>
+    </div>
   </div>
-  </form>
-</div>
-</div>
 </body>
 
 <script>
@@ -28,12 +32,23 @@
     return document.querySelector(selector).value;
   }
 
-  function visualizarPartida(ev) {
-    console.log("ev");
-    ev.preventDefault();
-    const id = valueFromSelector("#id-partida");
-    document.location = "/api/"+id;
-  }
+  (function () {
+    doGet("/api/game")
+      .then((data) => {
+        const json = JSON.parse(data);
+        const table = document.querySelector("#games");
+        for (k in json) {
+          const game = json[k];
+          const row = table.appendChild(document.createElement("tr"));
+          const tdId = row.appendChild(document.createElement("td"));
+          const tdTeams = row.appendChild(document.createElement("td"));
+          tdId.innerHTML = `<a href="/api/game/${game.id}">Partida número ${game.id}</a>`;
+          tdTeams.textContent = game.teams.map((team, i) =>  `${team}(${game.scores[i]})`).reduce((a, b) => a + ", " + b);
+        }
+      }).catch((err) => {
+        alert(err);
+      })
+  })()
 </script>
 
 </html>

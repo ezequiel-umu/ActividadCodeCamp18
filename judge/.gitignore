@@ -3,4 +3,5 @@ game_finished/
 game_logs/
 db/
 bin/
+upload/
 *.pyc

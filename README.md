@@ -20,6 +20,7 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
   - [x] Una cola generadora de partidas.
   - [x] Separación por distintas ligas (usar varias copias del juez con distintas cuentas).
   - [x] API para subir el nuevo bot de cada equipo.
+  - [ ] API para una lista de partidas.
   - [ ] Comprobaciones mínimas de seguridad. 
   - [ ] Emparejador automático.
 - [ ] Una página web de interfaz de usuario
