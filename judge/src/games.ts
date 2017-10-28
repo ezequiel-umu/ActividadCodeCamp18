@@ -3,7 +3,22 @@ import { config } from "./config";
 import { spawn } from "child_process";
 import { gameDB } from "./db";
 import { updateElo } from "./teams";
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
+
+// Id of the last game.
+let lastId = 0;
+try {
+  const importedId = require("../game_logs/lastid");
+  lastId = importedId.id;
+} catch (e) {
+
+}
+
+export function nextGameId() {
+  const id = ++lastId;
+  writeFileSync("game_logs/lastid.json", "{\"id\":" + id + "}");
+  return id;
+}
 
 export interface Game {
   scores: number[];

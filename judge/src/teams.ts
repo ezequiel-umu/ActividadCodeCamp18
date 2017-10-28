@@ -34,6 +34,20 @@ export function findTeamByLogin(login: string): Team | null {
   }
 }
 
+declare global {
+  interface Object {
+    values<T>(o: T): T[];
+    values(o: any): any[];
+  }
+}
+
+/**
+ * List teams. Complexity: O(n*log(n)).
+ */
+export function getTeamsSortByElo(): Team[] {
+  return Object.values<Team>(teamDB.getData(`/`)).sort((a,b) => a.elo - b.elo);
+}
+
 /**
  * Finds team, then checks password. Complexity: O(1)
  * @param login Team's login

@@ -8,7 +8,7 @@ import { HighPriorityQueue } from "./scheduler";
 import { AsyncArray } from "ts-modern-async";
 import { findTeamByLogin, restartElo, Team, BotRuntimeList, isBotRuntime } from "./teams";
 import { acl } from "./acl";
-import { game, Game } from "./games";
+import { game, Game, nextGameId } from "./games";
 import { teamDB, gameDB } from "./db";
 import { expressAsync } from "./utils";
 
@@ -27,15 +27,6 @@ silentMkdir(config.gameInProgressPath);
 silentMkdir(config.botsPath);
 silentMkdir(config.htmlPath);
 silentMkdir(config.uploadPath);
-
-// Id of the last game.
-let lastId = 0;
-try {
-  const importedId = require("../game_logs/lastid");
-  lastId = importedId.id;
-} catch (e) {
-
-}
 
 const app = express();
 require("express-ws")(app);
@@ -98,10 +89,7 @@ api.get("/game", (req, res) => {
 });
 
 api.get("/", acl, (req, res) => {
-  lastId = lastId + 1;
-  const id = lastId;
-
-  fs.writeFileSync("game_logs/lastid.json", "{\"id\":" + id + "}");
+  const id = nextGameId();
 
   HighPriorityQueue.produce({
     id,

@@ -41,10 +41,14 @@ export class FunnelPriorityArray<T> extends AsyncArray<T> {
     }
     return result;
   }
-} 
+}
 
 export function expressAsync(a: (req: core.Request, res: core.Response) => Promise<any>) {
   return (r: core.Request, rs: core.Response, next: core.NextFunction) => {
     a(r,rs).then((n) => next()).catch(next);
   }
+}
+
+export function randomInteger(min: number, max: number) {
+  return Math.round(min + Math.random() * (max - min));
 }
