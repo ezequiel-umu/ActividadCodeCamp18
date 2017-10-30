@@ -19,8 +19,10 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
   - [x] Script automático para comprobar y compilar/preparar los bots.
   - [x] Una cola generadora de partidas.
   - [x] Separación por distintas ligas (usar varias copias del juez con distintas cuentas).
+  - [x] API de clasificación.
   - [ ] API para subir el nuevo bot de cada equipo. 
   - [ ] Emparejador automático.
+  - [ ] **Opcional** API para pedir partidas manuales, sin ránking.
 - [ ] Una página web de interfaz de usuario
   - [x] Página de login.
   - [ ] Página para subir el nuevo bot.
@@ -34,6 +36,9 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
   - [ ] Plantilla en C/C++.
   - [ ] Plantilla en Java.
 - [ ] Empaquetar todo (eliminar todas las posibles dependencias de internet).
+  - [x] Preparar imagen de Docker.
+  - [ ] Probar las dependencias de Node.
+  - [ ] Hacer pruebas en entornos aislados, sin internet.
 - [ ] Preparar un tutorial para los alumnos.
   - [ ] Preparar un previo también para los alumnos de primero (Pascal o C?).
 - [ ] Preparar una presentación (breve).  

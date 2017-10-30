@@ -43,9 +43,9 @@
       login: valueFromSelector("#login"),
       password: valueFromSelector("#password"),
     }).then((e) => {
-      console.log(e);
+      document.location = "/";
     }).catch((e) => {
-      console.error(e);
+      alert("Login o contraseña inválido.")
     });
   }
 </script>
