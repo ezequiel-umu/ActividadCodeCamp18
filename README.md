@@ -20,13 +20,16 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
   - [x] Una cola generadora de partidas.
   - [x] Separación por distintas ligas (usar varias copias del juez con distintas cuentas).
   - [x] API de clasificación.
-  - [ ] API para subir el nuevo bot de cada equipo. 
-  - [ ] Emparejador automático.
+  - [x] API para subir el nuevo bot de cada equipo.
+  - [x] API para la lista de partidas.
+  - [x] Emparejador automático.
+  - [ ] Reiniciar el emparejador cuando un equipo sube un bot nuevo.
+  - [ ] Comprobaciones mínimas de seguridad. 
   - [ ] **Opcional** API para pedir partidas manuales, sin ránking.
 - [ ] Una página web de interfaz de usuario
   - [x] Página de login.
-  - [ ] Página para subir el nuevo bot.
-  - [ ] Clasificación actual de la liga.
+  - [x] Página para subir el nuevo bot.
+  - [x] Clasificación actual de la liga.
   - [x] Visualizador HTML de las partidas jugadas. 
   - [ ] Estilo que no dé sida.
 - [ ] Escribir las plantillas de código.

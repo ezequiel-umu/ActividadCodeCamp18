@@ -1,13 +1,16 @@
-import fs = require("fs");
+import fs = require("mz/fs");
+import tar = require("tar");
+import multer = require("multer");
 import { config } from "./config";
 import express = require("express");
 import session = require("express-session");
 import { HighPriorityQueue } from "./scheduler";
 import { AsyncArray } from "ts-modern-async";
-import { findTeamByLogin, restartElo } from "./teams";
+import { findTeamByLogin, restartElo, Team, BotRuntimeList, isBotRuntime } from "./teams";
 import { acl } from "./acl";
-import { game } from "./games";
-import { teamDB } from "./db";
+import { game, Game, nextGameId } from "./games";
+import { teamDB, gameDB } from "./db";
+import { expressAsync } from "./utils";
 
 function silentMkdir(dir: string) {
   try {
@@ -23,19 +26,23 @@ silentMkdir(config.gameFinishedPath);
 silentMkdir(config.gameInProgressPath);
 silentMkdir(config.botsPath);
 silentMkdir(config.htmlPath);
-
-// Id of the last game.
-let lastId = 0;
-try {
-  const importedId = require("../game_logs/lastid");
-  lastId = importedId.id;
-} catch (e) {
-
-}
+silentMkdir(config.uploadPath);
 
 const app = express();
 require("express-ws")(app);
 const bodyParser = require("body-parser");
+const uploader = multer({
+  dest: config.uploadPath,
+  limits: {
+    fileSize: 524288, // 512KiB
+  },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === "application/gzip")
+      cb(null, true);
+    else
+      cb(null, false);
+  }
+});
 
 app.use(bodyParser.json());
 app.use(session({
@@ -45,12 +52,12 @@ app.use(session({
 }));
 
 app.use(express.static("static", {
-  
+
 }));
 
 const api = express.Router();
 
-api.get("/clasification", acl, (req, res) => {
+api.get("/classification", acl, (req, res) => {
   const teams = teamDB.getData("/");
   const arrTeams = [];
   for (const k in teams) {
@@ -59,10 +66,10 @@ api.get("/clasification", acl, (req, res) => {
       elo: teams[k].elo as number
     });
   }
-  res.send(arrTeams.sort((a,b) => a.elo - b.elo));
+  res.send(arrTeams.sort((a, b) => a.elo - b.elo));
 });
 
-api.get("/:id", (req, res) => {
+api.get("/game/:id", (req, res) => {
   const id = parseInt(req.params.id, 10);
   if (fs.existsSync(config.gameInProgressPath + "/" + id + ".replay")) {
     res.statusCode = 404;
@@ -76,11 +83,13 @@ api.get("/:id", (req, res) => {
   }
 });
 
-api.get("/", acl, (req, res) => {
-  lastId = lastId + 1;
-  const id = lastId;
+api.get("/game", (req, res) => {
+  const games = gameDB.getData("/") as Game[];
+  res.send(games);
+});
 
-  fs.writeFileSync("game_logs/lastid.json", "{\"id\":" + id + "}");
+api.get("/", acl, (req, res) => {
+  const id = nextGameId();
 
   HighPriorityQueue.produce({
     id,
@@ -90,6 +99,28 @@ api.get("/", acl, (req, res) => {
   });
   res.send("Generating game with id " + id + ".");
 });
+
+api.post("/bot", acl, uploader.single("bot.tar.gz"), expressAsync(async (req, res) => {
+  const teamName = req.session && req.session.login as string;
+  const team = teamDB.getData("/" + teamName) as Team;
+  const file = req.file;
+  const kind = req.query.kind;
+  if (team && file && isBotRuntime(kind)) {
+    team.elo = config.initialElo;
+    team.botRuntime = kind;
+    teamDB.push("/" + teamName, team);
+    silentMkdir(config.botsPath + "/" + teamName);
+    await tar.x({
+      cwd: config.botsPath + "/" + teamName,
+      file: file.path
+    });
+    await fs.unlink(file.path);
+    res.send("OK");
+  } else {
+    res.statusCode = 400;
+    res.send("Something wrong");
+  }
+}));
 
 api.post("/login", (req, res) => {
   const { login, password } = req.body;
@@ -117,7 +148,7 @@ app.ws("/ws", (ws, req, res) => {
 
 });
 
-restartElo();
+// restartElo();
 
 app.listen(config.port, () => {
   console.log("Listening to port " + config.port);

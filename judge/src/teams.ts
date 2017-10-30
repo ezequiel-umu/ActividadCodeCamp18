@@ -2,10 +2,24 @@ import { teamDB, gameDB } from "./db";
 import { config } from "./config";
 import { Game } from "./games";
 
-interface Team {
+export const BotRuntimeList = {
+  "C++": true,
+  "Java": true,
+  "Pascal": true,
+  "Python": true,
+} 
+
+type BotRuntime = keyof typeof BotRuntimeList;
+
+export interface Team {
   login: string;
   password: string;
   elo: number;
+  botRuntime: BotRuntime;
+}
+
+export function isBotRuntime(runtime: string): runtime is BotRuntime {
+  return runtime in BotRuntimeList;
 }
 
 /**
@@ -18,6 +32,20 @@ export function findTeamByLogin(login: string): Team | null {
   } catch (e) {
     return null;
   }
+}
+
+declare global {
+  interface Object {
+    values<T>(o: T): T[];
+    values(o: any): any[];
+  }
+}
+
+/**
+ * List teams. Complexity: O(n*log(n)).
+ */
+export function getTeamsSortByElo(): Team[] {
+  return Object.values<Team>(teamDB.getData(`/`)).sort((a,b) => a.elo - b.elo);
 }
 
 /**

@@ -31,8 +31,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 <script>
-  console.log("ayylmao");
-
   function valueFromSelector(selector) {
     return document.querySelector(selector).value;
   }
@@ -45,7 +43,11 @@
     }).then((e) => {
       document.location = "/";
     }).catch((e) => {
+<<<<<<< HEAD
       alert("Login o contraseña inválido.")
+=======
+      alert(e);
+>>>>>>> f22a773ab8967ed55b12d86801b120b53025591f
     });
   }
 </script>
