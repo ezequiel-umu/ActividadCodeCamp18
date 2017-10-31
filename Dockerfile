@@ -2,6 +2,7 @@ FROM mhart/alpine-node:8
 
 COPY ants /usr/src/ants
 COPY judge /usr/src/judge
+COPY framework /usr/src/framework
 
 WORKDIR /usr/src/judge
 
