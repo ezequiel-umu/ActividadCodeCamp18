@@ -4,7 +4,7 @@ import { config } from "./config";
 import { mapList, mapName } from "./maplist";
 import { AsyncArray } from "ts-modern-async/lib";
 import { Game, registerFinishedGame, nextGameId, game } from "./games";
-import { FunnelPriorityArray, randomInteger } from "./utils";
+import { FunnelPriorityArray, randomInteger, move } from "./utils";
 import { getTeamsSortByElo, Team } from "./teams";
 
 interface GameInProgress {
@@ -28,8 +28,8 @@ async function consumeGamesLoop(queues: AsyncArray<GameInProgress>[]) {
       const gameResult = await g.game();
       console.log("Finished game " + gameResult.id + ".");
       // Mover las repeticiones 
-      fs.renameSync(config.gameInProgressPath + "/" + g.id + ".replay", config.gameFinishedPath + "/" + g.id + ".replay");
-      fs.renameSync(config.gameInProgressPath + "/replay." + g.id + ".html", config.htmlPath + "/" + g.id + ".html");
+      await move(config.gameInProgressPath + "/" + g.id + ".replay", config.gameFinishedPath + "/" + g.id + ".replay");
+      await move(config.gameInProgressPath + "/replay." + g.id + ".html", config.htmlPath + "/" + g.id + ".html");
       fs.writeFileSync(config.htmlPath + "/" + g.id + ".html", fs.readFileSync(config.htmlPath + "/" + g.id + ".html").toString().replace(/\.\.\/\.\.\/ants\/linux/g, ""));
 
       // Memorizar el orden actual de los equipos:
