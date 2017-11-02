@@ -17,9 +17,9 @@ export class FunnelPriorityArray<T> extends AsyncArray<T> {
         if (this.length === 0) {
           this.produce(t);
         } else {
-          console.log(this);
+          // console.log(this);
           Array.prototype.splice.call(this, this.indexes[i], 0, t);
-          console.log(this);
+          // console.log(this);
         }
         for (let j = i; j < this.indexes.length; j++) {
           this.indexes[j]++;

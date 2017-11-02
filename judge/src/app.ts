@@ -4,13 +4,13 @@ import multer = require("multer");
 import { config } from "./config";
 import express = require("express");
 import session = require("express-session");
-import { HighPriorityQueue } from "./scheduler";
+import { HighPriorityQueue, LowPriorityQueue } from "./scheduler";
 import { AsyncArray } from "ts-modern-async";
-import { findTeamByLogin, restartElo, Team, BotRuntimeList, isBotRuntime } from "./teams";
+import { findTeamByLogin, restartElo, Team, BotRuntimeList, isBotRuntime, getTeams } from "./teams";
 import { acl } from "./acl";
-import { game, Game, nextGameId } from "./games";
+import { game, Game, nextGameId, findOpponents } from "./games";
 import { teamDB, gameDB } from "./db";
-import { expressAsync } from "./utils";
+import { expressAsync, randomInteger } from "./utils";
 
 function silentMkdir(dir: string) {
   try {
@@ -63,7 +63,7 @@ api.get("/classification", acl, (req, res) => {
   for (const k in teams) {
     arrTeams.push({
       team: k,
-      elo: teams[k].elo as number
+      elo: (teams[k].elo as number)|0
     });
   }
   res.send(arrTeams.sort((a, b) => a.elo - b.elo));
@@ -89,15 +89,25 @@ api.get("/game", (req, res) => {
 });
 
 api.get("/", acl, (req, res) => {
-  const id = nextGameId();
+  const arrTeams = getTeams();
+  const teams = new Set<string>(arrTeams.map((t) => t.login));
+  while (teams.size) {
+    const id = nextGameId(); 
+    const team = teams.keys().next().value;
+    const size = randomInteger(2, Math.min(5, arrTeams.length));
 
-  HighPriorityQueue.produce({
-    id,
-    game: () => game(["hunter",
-      "lefty",
-      "influence"], id),
-  });
-  res.send("Generating game with id " + id + ".");
+    const opponents = findOpponents(team, size, arrTeams);
+    
+    for (const opponent of opponents) {
+      teams.delete(opponent);
+    }
+
+    LowPriorityQueue.produce({
+      id,
+      game: () => game(opponents, id),
+    });
+  }
+  res.send("Generating a whole round of games.");
 });
 
 api.post("/bot", acl, uploader.single("bot.tar.gz"), expressAsync(async (req, res) => {

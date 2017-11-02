@@ -3,7 +3,7 @@ import { spawn } from "child_process";
 import { config } from "./config";
 import { mapList, mapName } from "./maplist";
 import { AsyncArray } from "ts-modern-async/lib";
-import { Game, registerFinishedGame, nextGameId, game } from "./games";
+import { Game, registerFinishedGame, nextGameId, game, findOpponents } from "./games";
 import { FunnelPriorityArray, randomInteger } from "./utils";
 import { getTeamsSortByElo, Team } from "./teams";
 
@@ -56,25 +56,18 @@ async function consumeGamesLoop(queues: AsyncArray<GameInProgress>[]) {
       // Generar partidas para los equipos que han cambiado de puesto.
       while (highPriorityTeams.size) {
         const team = highPriorityTeams.keys().next().value;
-        const index = teams2.findIndex((e) => e.login === team);
         const size = randomInteger(2, Math.min(5, teams2.length));
-        const first = randomInteger(Math.max(0,index-size+1), Math.min(teams2.length-size, index));
 
-        console.log("team: " + team);
-        console.log("team index: " + index);
-        console.log("first: " + first);
-        console.log("size: " + size);
-
-        const gameTeams = [] as string[];
-        for (let i = first; i < teams2.length; i++) {
-          highPriorityTeams.delete(teams2[i].login);
-          gameTeams.push(teams2[i].login);
+        const opponents = findOpponents(team, size, teams2);
+        
+        for (const opponent of opponents) {
+          highPriorityTeams.delete(opponent);
         }
 
         const id = nextGameId();
         HighPriorityQueue.produce({
           id,
-          game: () => game(gameTeams, id),
+          game: () => game(opponents, id),
         });
       }
     }

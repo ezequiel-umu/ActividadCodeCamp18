@@ -1,9 +1,10 @@
 import { mapList, mapName } from "./maplist";
 import { config } from "./config";
 import { spawn } from "child_process";
-import { gameDB } from "./db";
-import { updateElo } from "./teams";
+import { gameDB, teamDB } from "./db";
+import { updateElo, Team, getTeamsSortByElo } from "./teams";
 import { readFileSync, writeFileSync } from "fs";
+import { randomInteger } from "./utils";
 
 // Id of the last game.
 let lastId = 0;
@@ -100,6 +101,34 @@ export async function game(players: string[], id: number, options = defaultOptio
       }
     });
   });
+}
+
+/**
+ * Generates an array of teams which are fair to play against t. `t` is always included in this array. 
+ * @param t Team which is going to participate.
+ * @param size (Integer) Size of game. Must be at least 2 and a valid value (not bigger than 10, not bigger than the amount of teams).
+ * @param ts (Optional) Array of teams.
+ */
+export function findOpponents(t: Team|string, size: number, ts?: Team[]) {
+  ts = ts || getTeamsSortByElo();
+  if (typeof t === "object") {
+    t = t.login;
+  }
+
+  const index = ts.findIndex((e) => e.login === t);
+  const first = randomInteger(Math.max(0,index-size+1), Math.min(ts.length-size, index));
+
+  // console.log("team: " + t);
+  // console.log("team index: " + index);
+  // console.log("first: " + first);
+  // console.log("size: " + size);
+
+  const gameTeams = [] as string[];
+  for (let i = first; i < first+size; i++) {
+    gameTeams.push(ts[i].login);
+  }
+
+  return gameTeams;
 }
 
 export function registerFinishedGame(g: Game) {
