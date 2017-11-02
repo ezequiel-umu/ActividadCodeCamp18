@@ -37,27 +37,6 @@ const defaultOptions = {
   turnTime: 0.5,
 }
 
-// function grep(haystack: Array<string | Buffer>, needle: RegExp) {
-
-//   function searchInLine(line: string) {
-//     return needle.test(line);
-//   }
-
-//   let acum = "";
-//   for (const k of haystack) {
-//     acum += k.toString();
-//     let m;
-//     while (m = /^(.*)\n/.exec(acum)) {
-//       const line = m[1];
-//       if (searchInLine(line)) {
-//         return line;
-//       } else {
-//         acum = acum.substring(line.length + 1);
-//       }
-//     }
-//   }
-// }
-
 export async function game(players: string[], id: number, options = defaultOptions) {
   return new Promise<Game>((res, rej) => {
     const maps = (Object.keys(mapList) as mapName[]).filter((key: mapName) => mapList[key] === players.length);

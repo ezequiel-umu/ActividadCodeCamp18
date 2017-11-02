@@ -52,7 +52,7 @@ app.use(session({
 }));
 
 app.use(express.static("static", {
-
+  
 }));
 
 const api = express.Router();
