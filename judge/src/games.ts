@@ -60,7 +60,7 @@ const defaultOptions = {
 
 export async function game(players: string[], id: number, options = defaultOptions) {
   return new Promise<Game>((res, rej) => {
-    const maps = Object.keys(mapList).filter((key: mapName) => mapList[key] === players.length);
+    const maps = (Object.keys(mapList) as mapName[]).filter((key: mapName) => mapList[key] === players.length);
     const randomMap = maps[(Math.random() * maps.length) | 0]
 
     const args = [config.antsPath + "/playgame.py",

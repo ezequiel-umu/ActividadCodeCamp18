@@ -1,0 +1,15 @@
+version: '3'
+services:
+  plataforma-codecamp18:
+    build: .
+    ports:
+        - 3000:3000
+    volumes:
+        - db:/usr/src/judge/db
+        - game_finished:/usr/src/judge/game_finished
+        - bots:/usr/src/judge/bots
+
+volumes:
+        db:
+        game_finished:
+        bots:

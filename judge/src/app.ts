@@ -17,7 +17,7 @@ function silentMkdir(dir: string) {
     fs.mkdirSync(dir);
     return null;
   } catch (e) {
-    return e;
+    return e as Error;
   }
 }
 
