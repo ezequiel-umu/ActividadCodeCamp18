@@ -1,9 +1,11 @@
+#include <climits>
 #include "Random.h"
 #include "../engine/State.h"
 #include "../engine/Location.h"
 
 Random::Random(Ant &worker) : Action(worker)
 {
+  times = INT_MAX;
 }
 
 Random::Random(Ant &worker, int times) : Action(worker), times(times)
@@ -40,4 +42,9 @@ void Random::next()
     size_t i = rand() % v.size();
     worker.walkTo(v[i]);
   }
+  times -= 1;
+}
+
+bool Random::finished() {
+  return times <= 0;
 }

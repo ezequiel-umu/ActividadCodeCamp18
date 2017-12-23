@@ -9,7 +9,13 @@ enum FWDirection {
   IMPOSSIBLE, // Imposible, error, no hay dirección...
 };
 
-FWDirection FDIRECTIONS[] = {N, E, S, W};
+/*
+    constants
+*/
+const int TDIRECTIONS = 4;
+const char CDIRECTIONS[4] = {'N', 'E', 'S', 'W'};
+const int DIRECTIONS[4][2] = { {-1, 0}, {0, 1}, {1, 0}, {0, -1} };      //{N, E, S, W}
+const FWDirection FDIRECTIONS[4] = {N, E, S, W};
 
 /*
     struct for representing locations in the grid.
@@ -69,16 +75,14 @@ struct Location
     }
   }
 
-  void wrap(const State &s)
-  {
-    col = (col + s.cols) % s.cols;
-    row = (row + s.rows) % s.rows;
-  }
-
   void wrap(size_t cols, size_t rows)
   {
-    col = (col + s.cols) % cols;
-    row = (row + s.rows) % rows;
+    col = (col + cols) % cols;
+    row = (row + rows) % rows;
+  }
+
+  int to1D(size_t cols) const {
+    return col + row * cols;
   }
 
   Location operator+(const Location &other) const

@@ -2,13 +2,15 @@
 
 P to2D(size_t i, size_t width) {
   return {
-    x: i % width,
-    y: i / width,
+    .x = (int)(i % width),
+    .y = (int)(i / width),
   };
 }
 
 void FloydWarshall::init(State &s)
 {
+  width = s.grid.size();
+
   size_t W = s.grid.size();
   
   // Cambiar el tamaño si el estado tiene un tamaño distinto.
@@ -28,4 +30,8 @@ void FloydWarshall::init(State &s)
       }
     }
   }
+}
+
+FWDirection FloydWarshall::nextStep(Location origin, Location target) {
+  return grid[origin.to1D(width)][origin.to1D(width)].nextStep;
 }

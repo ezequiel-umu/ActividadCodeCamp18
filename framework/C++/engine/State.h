@@ -17,13 +17,6 @@
 #include "Location.h"
 
 /*
-    constants
-*/
-const int TDIRECTIONS = 4;
-const char CDIRECTIONS[4] = {'N', 'E', 'S', 'W'};
-const int DIRECTIONS[4][2] = { {-1, 0}, {0, 1}, {1, 0}, {0, -1} };      //{N, E, S, W}
-
-/*
     struct to store current state information
 */
 struct State

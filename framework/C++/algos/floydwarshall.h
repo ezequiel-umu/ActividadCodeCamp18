@@ -3,14 +3,6 @@
 
 using std::vector;
 
-enum FWDirection {
-  N, 
-  E, 
-  S, 
-  W,
-  IMPOSSIBLE,
-};
-
 struct P {
   int x;
   int y;
@@ -20,13 +12,15 @@ P to2D(size_t i, size_t width);
 
 struct FWNode {
   size_t distance;
-  vector<vector<FWDirection>> nextStep;
+  FWDirection nextStep;
 };
 
 class FloydWarshall : public Algorithm
 {
 private:
-  vector<FWNode> grid;
+  vector<vector<FWNode>> grid;
+  int width;
 public:
   void init(State &s);
+  FWDirection nextStep(Location origin, Location target);
 };
