@@ -1,4 +1,6 @@
 #include "engine/Bot.h"
+#include "IA.h"
+#include "debug.h"
 
 using namespace std;
 
@@ -17,8 +19,11 @@ int main(int argc, char *argv[])
 {
     cout.sync_with_stdio(0); //this line makes your bot faster
 
-    Bot bot;
+    IA ia;
+
+    Bot bot(ia);
     bot.playGame();
 
     return 0;
 }
+

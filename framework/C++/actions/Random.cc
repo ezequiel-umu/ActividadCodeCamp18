@@ -2,6 +2,9 @@
 #include "Random.h"
 #include "../engine/State.h"
 #include "../engine/Location.h"
+#include "../debug.h"
+
+const std::string actionName = "RANDOM";
 
 Random::Random(Ant &worker) : Action(worker)
 {
@@ -34,7 +37,8 @@ void Random::next()
     {
       v.push_back(dir);
     }
-  } 
+  }
+
 
   if (v.size())
   {
@@ -42,9 +46,15 @@ void Random::next()
     size_t i = rand() % v.size();
     worker.walkTo(v[i]);
   }
+  
   times -= 1;
 }
 
 bool Random::finished() {
   return times <= 0;
+}
+
+
+const std::string & Random::actionName() const {
+  return ::actionName;
 }

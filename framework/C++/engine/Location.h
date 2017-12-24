@@ -1,6 +1,10 @@
 #ifndef LOCATION_H_
 #define LOCATION_H_
 
+#include <cstdlib>
+#include <iostream>
+#include "../debug.h"
+
 enum FWDirection {
   N,  // Norte, arriba
   E,  // Este, derecha
@@ -51,8 +55,8 @@ struct Location
   {
     if (dir != IMPOSSIBLE)
     {
-      this->col = pos[0] + DIRECTIONS[dir][0];
-      this->row = pos[1] + DIRECTIONS[dir][1];
+      this->col = pos[1] + DIRECTIONS[dir][1];
+      this->row = pos[0] + DIRECTIONS[dir][0];
     }
     else
     {
@@ -61,12 +65,12 @@ struct Location
     }
   }
 
-  Location(const Location &pos, const FWDirection dir)
+  Location(const Location &pos, FWDirection dir)
   {
     if (dir != IMPOSSIBLE)
     {
-      this->col = pos.col + DIRECTIONS[dir][0];
-      this->row = pos.row + DIRECTIONS[dir][1];
+      this->col = pos.col + DIRECTIONS[dir][1];
+      this->row = pos.row + DIRECTIONS[dir][0];
     }
     else
     {
@@ -92,6 +96,34 @@ struct Location
     result.row += other.row;
     return result;
   }
+
+  Location operator-(const Location &other) const 
+  {
+    Location result(*this);
+    result.col -= other.col;
+    result.row -= other.row;
+    return result;
+  }
+
+  int operator*(const Location & other) const {
+    return col * other.col + row * other.row;
+  }
+
+  FWDirection direction() const {
+    FWDirection dir = IMPOSSIBLE;
+    int m = 0;
+    for (int i = 0; i < TDIRECTIONS; i++) {
+      FWDirection d = FDIRECTIONS[i];
+      Location l(DIRECTIONS[i]);
+      if (this->operator*(l) > m) {
+        m = this->operator*(l);
+        dir = d;
+      }
+    }
+    return dir;
+  }
 };
+
+std::ostream & operator<<(std::ostream & o, const Location & l);
 
 #endif //LOCATION_H_

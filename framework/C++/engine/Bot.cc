@@ -1,9 +1,11 @@
 #include "Bot.h"
+#include "../defines.h"
+#include "../debug.h"
 
 using namespace std;
 
 //constructor
-Bot::Bot()
+Bot::Bot(Scheduler & sch) : sch{sch}
 {
 
 };
@@ -20,14 +22,25 @@ void Bot::playGame()
     while(cin >> state)
     {
         state.updateVisionInformation();
+        updateAlgorithms();
         makeMoves();
         endTurn();
     }
 };
 
+void Bot::updateAlgorithms() {
+
+}
+
 //makes the bots moves for the turn
 void Bot::makeMoves()
 {
+    sch.init();
+    
+    for (int ant = 0; ant < (int)state.theAnts.size(); ant++) {
+        sch.scheduleAnt(state.theAnts[ant]);
+    }
+
     state.bug << "turn " << state.turn << ":" << endl;
     state.bug << state << endl;
 

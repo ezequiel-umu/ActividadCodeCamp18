@@ -11,12 +11,13 @@ public:
    */
   Random(Ant &worker);
   /**
-   * Contruir la acción random, pero solo para andar aleatoriamente `times` veces
+   * Construir la acción random, pero solo para andar aleatoriamente `times` veces
    */
   Random(Ant &worker, int times);
-  bool canDo() = 0;
-  bool finished() = 0;
-  void next() = 0;
+  bool canDo();
+  bool finished();
+  void next();
+  const std::string & actionName() const;
 protected:
   int times;
 };

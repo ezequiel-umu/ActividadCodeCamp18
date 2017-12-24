@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-O3 -funroll-loops -c -std=c++11
 LDFLAGS=-O2 -lm
-SOURCES=engine/Bot.cc engine/State.cc algos/floydwarshall.cc main.cc
+SOURCES := $(shell find . -name '*.cc')
 OBJECTS=$(addsuffix .o, $(basename ${SOURCES}))
 EXECUTABLE=main
 

@@ -1,4 +1,6 @@
 #include "State.h"
+#include "Ant.h"
+#include "../debug.h"
 
 using namespace std;
 
@@ -26,6 +28,7 @@ void State::setup()
 void State::reset()
 {
     myAnts.clear();
+    theAnts.clear();
     enemyAnts.clear();
     myHills.clear();
     enemyHills.clear();
@@ -42,9 +45,20 @@ void State::makeMove(const Location &loc, int direction)
     cout << "o " << loc.row << " " << loc.col << " " << CDIRECTIONS[direction] << endl;
 
     Location nLoc = getLocation(loc, direction);
+    nLoc.wrap(cols, rows);
+    if (grid[nLoc.row][nLoc.col].ant != -1) {
+        getDebugger() << "crash" << endl;
+        getDebugger() << turn << " " << loc << "->" << nLoc << endl;
+    }
     grid[nLoc.row][nLoc.col].ant = grid[loc.row][loc.col].ant;
     grid[loc.row][loc.col].ant = -1;
 };
+
+bool State::canMoveTo(const Location & loc, int direction) {
+    Location nLoc = getLocation(loc, direction);
+    nLoc.wrap(cols, rows);
+    return grid[nLoc.row][nLoc.col].isWalkable();
+}
 
 //returns the euclidean distance between two locations with the edges wrapped
 double State::distance(const Location &loc1, const Location &loc2)
@@ -152,6 +166,7 @@ istream& operator>>(istream &is, State &state)
 {
     int row, col, player;
     string inputType, junk;
+    state.newWater = false;
 
     //finds out which turn it is
     while(is >> inputType)
@@ -219,6 +234,9 @@ istream& operator>>(istream &is, State &state)
             if(inputType == "w") //water square
             {
                 is >> row >> col;
+                if (!state.grid[row][col].isWater) {
+                    state.newWater = true;
+                }
                 state.grid[row][col].isWater = 1;
             }
             else if(inputType == "f") //food square
@@ -231,8 +249,12 @@ istream& operator>>(istream &is, State &state)
             {
                 is >> row >> col >> player;
                 state.grid[row][col].ant = player;
-                if(player == 0)
-                    state.myAnts.push_back(Location(row, col));
+                if(player == 0) {
+                    state.myAnts.push_back(Location(row, col));                    
+                    Ant ant(state);
+                    ant.position = Location(row, col);
+                    state.theAnts.push_back(ant);
+                }
                 else
                     state.enemyAnts.push_back(Location(row, col));
             }

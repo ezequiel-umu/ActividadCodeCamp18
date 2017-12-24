@@ -2,10 +2,7 @@
 #define BUG_H_
 
 #include <fstream>
-
-#ifndef DEBUG
-    //#define DEBUG
-#endif
+#include "../defines.h"
 
 /*
     struct for debugging - this is gross but can be used pretty much like an ofstream,
@@ -60,6 +57,7 @@ inline Bug& operator<<(Bug &bug, const T &t)
 {
     #ifdef DEBUG
         bug.file << t;
+        bug.file.flush();
     #endif
 
     return bug;

@@ -8,7 +8,6 @@ class Ant
 {
 public:
   Location position;
-  int team;
 
   Ant(State & s);
 

@@ -16,6 +16,8 @@
 #include "Square.h"
 #include "Location.h"
 
+class Ant;
+
 /*
     struct to store current state information
 */
@@ -27,6 +29,8 @@ struct State
     int rows, cols,
         turn, turns,
         noPlayers;
+
+    bool newWater;
     double attackradius, spawnradius, viewradius;
     double loadtime, turntime;
     std::vector<double> scores;
@@ -35,6 +39,7 @@ struct State
 
     std::vector<std::vector<Square> > grid;
     std::vector<Location> myAnts, enemyAnts, myHills, enemyHills, food;
+    std::vector<Ant> theAnts;
 
     Timer timer;
     Bug bug;
@@ -49,6 +54,7 @@ struct State
     void reset();
 
     void makeMove(const Location &loc, int direction);
+    bool canMoveTo(const Location &loc, int direction);
 
     double distance(const Location &loc1, const Location &loc2);
     double distance2(const Location &loc1, const Location &loc2);

@@ -1,4 +1,10 @@
 #include "Ant.h"
+#include "../debug.h"
+
+Ant::Ant(State & s) : s{s} {
+
+}
+
 
 bool Ant::canWalkTo(FWDirection fd)
 {
@@ -6,17 +12,12 @@ bool Ant::canWalkTo(FWDirection fd)
   {
     return false;
   }
-  // Calcular el punto en base a la dirección.
-  Location pWalkTo(position, fd);
-  // Si se sale por un lado del mapa, obtener su posición dentro.
-  pWalkTo.wrap(s);
-
-  Square sq = s.grid[pWalkTo.col][pWalkTo.row];
-  return sq.isWalkable();
+  return s.canMoveTo(position, fd);
 }
 
 void Ant::walkTo(FWDirection fd)
 {
   s.makeMove(position, fd);
   position = Location(position, fd);
+  position.wrap(s.cols, s.rows);
 }
