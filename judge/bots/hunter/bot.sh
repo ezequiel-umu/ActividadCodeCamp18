@@ -16,8 +16,9 @@ build() {
 
 # Ejecutar el bot
 execute() {
-  ulimit -Sv unlimited
-  java -cp $dir $java_class -Xmx256m
+  CONTAINER=$(docker create --rm -a stdin -a stdout -i --memory 300M openjdk:alpine java -cp $dir $java_class)
+  docker cp $dir/ $CONTAINER:/
+  docker start --attach --interactive $CONTAINER
 }
 
 if [ $# -ne 1 ]

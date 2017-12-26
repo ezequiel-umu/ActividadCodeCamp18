@@ -1,7 +1,7 @@
 # Versión Python del script de ejecución.
 
 dir=$(realpath --relative-to=`pwd` "$(dirname "$0")")
-pyscript=LeftyBot  
+program=main  
 
 usage() {
   echo "$0 (build|exec)" 
@@ -10,13 +10,14 @@ usage() {
 # Compilar el bot
 build() {
   ulimit 262144
-  python2 -m py_compile $dir/*.py
+  make clean
+  make
 }
 
 # Ejecutar el bot
 execute() {
-  CONTAINER=$(docker create --rm -a stdin -a stdout -i --memory 300M python:2.7-alpine3.7 python $pyscript.pyc)
-  docker cp $dir/ $CONTAINER:/
+  CONTAINER=$(docker create --rm -a stdin -a stdout -i --memory 300M debian:stretch-slim ./$program)
+  docker cp $dir/$program $CONTAINER:/
   docker start --attach --interactive $CONTAINER
 }
 
