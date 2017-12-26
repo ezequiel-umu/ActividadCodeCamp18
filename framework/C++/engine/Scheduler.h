@@ -1,22 +1,14 @@
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
-#include "../actions/Action.h"
-#include "Ant.h"
-#include <unordered_set>
+#include "State.h"
 #include <unordered_map>
 
-class Scheduler {
-protected:
-    std::unordered_map<std::string, int> statistics;
-    std::unordered_set<Ant *> conflicts;
-    virtual Action * commandAnt(Ant & ant, bool isConflict = false) = 0;
 
+class Scheduler {
 public:
-    void init();
-    void scheduleAnt(Ant & ant);
-    bool solveConflicts();
-    void finish();
+    virtual void init(State & s) = 0;
+    virtual void finish(State & s) = 0;
 };
 
 #endif

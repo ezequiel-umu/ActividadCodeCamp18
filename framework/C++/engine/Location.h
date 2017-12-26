@@ -20,6 +20,7 @@ const int TDIRECTIONS = 4;
 const char CDIRECTIONS[4] = {'N', 'E', 'S', 'W'};
 const int DIRECTIONS[4][2] = { {-1, 0}, {0, 1}, {1, 0}, {0, -1} };      //{N, E, S, W}
 const FWDirection FDIRECTIONS[4] = {N, E, S, W};
+const FWDirection OPPOSITE[4] = {S, W, N, E};
 
 /*
     struct for representing locations in the grid.
@@ -109,6 +110,14 @@ struct Location
     return col * other.col + row * other.row;
   }
 
+  bool operator==(const Location & other) const {
+    return other.row == row && other.col == col;
+  }
+
+  bool operator!=(const Location & other) const {
+    return !operator==(other);
+  }
+
   FWDirection direction() const {
     FWDirection dir = IMPOSSIBLE;
     int m = 0;
@@ -125,5 +134,20 @@ struct Location
 };
 
 std::ostream & operator<<(std::ostream & o, const Location & l);
+
+namespace std
+{
+    template<> struct hash<Location>
+    {
+        typedef Location argument_type;
+        typedef std::size_t result_type;
+        result_type operator()(argument_type const& s) const noexcept
+        {
+            result_type const h1 ( std::hash<int>{}(s.row) );
+            result_type const h2 ( std::hash<int>{}(s.col) );
+            return h1 ^ (h2 << 1); // or use boost::hash_combine (see Discussion)
+        }
+    };
+}
 
 #endif //LOCATION_H_

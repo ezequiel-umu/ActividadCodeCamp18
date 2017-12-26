@@ -3,6 +3,8 @@
 
 #include <vector>
 
+class Ant;
+
 /*
     struct for representing a square in the grid.
 */
@@ -10,6 +12,7 @@ struct Square
 {
   bool isVisible, isWater, isHill, isFood;
   int ant, hillPlayer;
+  Ant * theAnt;
   std::vector<int> deadAnts;
 
   Square()
@@ -33,6 +36,7 @@ struct Square
     isHill = 0;
     isFood = 0;
     ant = hillPlayer = -1;
+    theAnt = nullptr;
     deadAnts.clear();
   };
 };

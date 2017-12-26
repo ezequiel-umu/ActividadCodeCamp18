@@ -45,7 +45,6 @@ void State::makeMove(const Location &loc, int direction)
     cout << "o " << loc.row << " " << loc.col << " " << CDIRECTIONS[direction] << endl;
 
     Location nLoc = getLocation(loc, direction);
-    nLoc.wrap(cols, rows);
     if (grid[nLoc.row][nLoc.col].ant != -1) {
         getDebugger() << "crash" << endl;
         getDebugger() << turn << " " << loc << "->" << nLoc << endl;
@@ -56,7 +55,6 @@ void State::makeMove(const Location &loc, int direction)
 
 bool State::canMoveTo(const Location & loc, int direction) {
     Location nLoc = getLocation(loc, direction);
-    nLoc.wrap(cols, rows);
     return grid[nLoc.row][nLoc.col].isWalkable();
 }
 
@@ -86,6 +84,10 @@ Location State::getLocation(const Location &loc, int direction)
     return Location( (loc.row + DIRECTIONS[direction][0] + rows) % rows,
                      (loc.col + DIRECTIONS[direction][1] + cols) % cols );
 };
+
+const Square & State::getGrid(const Location & loc) const {
+    return this->grid[loc.row][loc.col];
+}
 
 /*
     This function will update the lastSeen value for any squares currently
@@ -251,9 +253,10 @@ istream& operator>>(istream &is, State &state)
                 state.grid[row][col].ant = player;
                 if(player == 0) {
                     state.myAnts.push_back(Location(row, col));                    
-                    Ant ant(state);
+                    state.theAnts.push_back(Ant(state));
+                    Ant & ant = *state.theAnts.rbegin();
                     ant.position = Location(row, col);
-                    state.theAnts.push_back(ant);
+                    state.grid[row][col].theAnt = &ant;
                 }
                 else
                     state.enemyAnts.push_back(Location(row, col));

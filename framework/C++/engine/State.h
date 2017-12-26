@@ -59,6 +59,7 @@ struct State
     double distance(const Location &loc1, const Location &loc2);
     double distance2(const Location &loc1, const Location &loc2);
     Location getLocation(const Location &startLoc, int direction);
+    const Square & getGrid(const Location & loc) const;
 
     void updateVisionInformation();
 };

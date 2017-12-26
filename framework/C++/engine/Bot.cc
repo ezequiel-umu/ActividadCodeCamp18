@@ -35,11 +35,7 @@ void Bot::updateAlgorithms() {
 //makes the bots moves for the turn
 void Bot::makeMoves()
 {
-    sch.init();
-    
-    for (int ant = 0; ant < (int)state.theAnts.size(); ant++) {
-        sch.scheduleAnt(state.theAnts[ant]);
-    }
+    sch.init(state);
 
     state.bug << "turn " << state.turn << ":" << endl;
     state.bug << state << endl;
@@ -58,6 +54,8 @@ void Bot::makeMoves()
             }
         }
     }
+
+    sch.finish(state);
 
     state.bug << "time taken: " << state.timer.getTime() << "ms" << endl << endl;
 };

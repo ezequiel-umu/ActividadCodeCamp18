@@ -10,12 +10,14 @@ public:
     GoTo() = delete;
     GoTo(Ant&) = delete; 
 
-    GoTo(Ant & ant, Location target);
+    GoTo(Ant & ant, FWDirection target);
 
     bool canDo();
     void next();
+    bool finished();
+    const std::string & actionName() const;
 protected:
-    Location target;
+    FWDirection target;
 };
 
 #endif

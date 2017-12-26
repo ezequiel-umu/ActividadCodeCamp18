@@ -1,8 +1,13 @@
 #include "Ant.h"
 #include "../debug.h"
+#include "../actions/Action.h"
 
 Ant::Ant(State & s) : s{s} {
 
+}
+
+Ant::~Ant() {
+  delete this->action;
 }
 
 

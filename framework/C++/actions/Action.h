@@ -12,7 +12,7 @@ public:
   virtual void next() = 0;
   virtual const std::string & actionName() const = 0;
 
-  virtual ~Action();
+  virtual ~Action() = 0;
 protected:
   Ant &worker;
 };
