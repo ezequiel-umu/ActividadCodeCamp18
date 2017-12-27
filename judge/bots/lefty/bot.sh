@@ -8,14 +8,22 @@ usage() {
 }
 
 # Compilar el bot
+# TODO : limitaciones kernel mem, etc. ¿--network none?
 build() {
-  ulimit 262144
-  python2 -m py_compile $dir/*.py
+  CONTAINER=$(docker create --memory 500M -w /myDir python:2.7-alpine3.7 \
+              python -m py_compile *.py) # <= Compilation command
+  docker cp $dir/ $CONTAINER:/myDir/
+  docker start --attach $CONTAINER    # Also print stdout stderr
+  if [ $? -eq 0 ] ; then
+    docker cp $CONTAINER:/myDir/. $dir
+  fi
+  docker rm $CONTAINER
 }
 
 # Ejecutar el bot
 execute() {
-  CONTAINER=$(docker create --rm -a stdin -a stdout -i --memory 300M python:2.7-alpine3.7 python $pyscript.pyc)
+  CONTAINER=$(docker create --rm -a stdin -a stdout -i --memory 300M --network none python:2.7-alpine3.7 \
+              python $pyscript.pyc) # <= Execution command
   docker cp $dir/ $CONTAINER:/
   docker start --attach --interactive $CONTAINER
 }

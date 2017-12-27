@@ -8,15 +8,22 @@ usage() {
 }
 
 # Compilar el bot
+# TODO : limitaciones kernel mem, etc. ¿ --network none?
 build() {
-  ulimit -Sv unlimited  
-  cd $dir/
-  javac $java_class.java
+  CONTAINER=$(docker create --memory 500M -w /myDir openjdk:alpine \
+              javac $java_class.java) # <= Compilation command
+  docker cp $dir/ $CONTAINER:/myDir/
+  docker start --attach $CONTAINER    # Also print stdout stderr
+  if [ $? -eq 0 ] ; then
+    docker cp $CONTAINER:/myDir/. $dir
+  fi
+  docker rm $CONTAINER
 }
 
 # Ejecutar el bot
 execute() {
-  CONTAINER=$(docker create --rm -a stdin -a stdout -i --memory 300M openjdk:alpine java -cp $dir $java_class)
+  CONTAINER=$(docker create --rm -a stdin -a stdout -i --memory 300M --network none openjdk:alpine \
+              java -cp $dir $java_class) # <= Execution command
   docker cp $dir/ $CONTAINER:/
   docker start --attach --interactive $CONTAINER
 }
