@@ -8,7 +8,6 @@
 using namespace std;
 
 Path findNearestAnt(const State & s, const Location & l, int team) {
-    getDebugger() << "begin" << endl;
     queue<Step> nodes;
     unordered_set<Step> visited; 
     Path path;
@@ -35,7 +34,6 @@ Path findNearestAnt(const State & s, const Location & l, int team) {
                         while (actSt.origin != IMPOSSIBLE) {
                             Location origin(st.point, st.origin);
                             origin.wrap(s.cols, s.rows);
-                            getDebugger() << origin << endl;
                             path.push_back(st);
                             auto it = visited.find(Step({origin, IMPOSSIBLE}));
                             if (it == visited.end()) {
@@ -50,7 +48,6 @@ Path findNearestAnt(const State & s, const Location & l, int team) {
         }
     }
 
-    getDebugger() << "end" << endl;
     
 
     return path;

@@ -3,7 +3,7 @@
 #include "../actions/Action.h"
 
 Ant::Ant(State & s) : s{s} {
-
+  action = nullptr;
 }
 
 Ant::~Ant() {

@@ -253,10 +253,10 @@ istream& operator>>(istream &is, State &state)
                 state.grid[row][col].ant = player;
                 if(player == 0) {
                     state.myAnts.push_back(Location(row, col));                    
+                    state.grid[row][col].theAnt = state.theAnts.size();
                     state.theAnts.push_back(Ant(state));
                     Ant & ant = *state.theAnts.rbegin();
                     ant.position = Location(row, col);
-                    state.grid[row][col].theAnt = &ant;
                 }
                 else
                     state.enemyAnts.push_back(Location(row, col));

@@ -1,8 +1,15 @@
 #include "GoTo.h"
 
-GoTo::GoTo(Ant &worker, FWDirection target) : Action(worker), target(target)
+#include "../debug.h"
+
+GoTo::GoTo(Ant &worker, FWDirection target) : Action(worker), target(target), distance(1)
 {
 
+}
+
+GoTo::GoTo(Ant &worker, const Path & target) : Action(worker), target(target[0].origin), distance(target.size())
+{
+  getDebugger() << "GoTo" << std::endl;
 }
 
 bool GoTo::canDo()
@@ -23,4 +30,8 @@ const std::string & GoTo::actionName() const {
 
 bool GoTo::finished() {
   return true;
+}
+
+int GoTo::getDistance() {
+  return this->distance;
 }
