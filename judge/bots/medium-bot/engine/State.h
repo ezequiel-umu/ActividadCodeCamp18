@@ -42,6 +42,7 @@ struct State
     std::vector<Ant> theAnts;
 
     Timer timer;
+    Bug bug;
 
     /*
         Functions
@@ -61,8 +62,6 @@ struct State
     const Square & getGrid(const Location & loc) const;
 
     void updateVisionInformation();
-
-    static State & getSingleton();
 };
 
 std::ostream& operator<<(std::ostream &os, const State &state);

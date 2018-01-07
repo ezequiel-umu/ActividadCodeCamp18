@@ -4,22 +4,18 @@
 
 using namespace std;
 
-State * singleton = nullptr;
-
 //constructor
 State::State()
 {
-    if (singleton) {
-        throw "You can't create more than one State";
-    }
-    singleton = this;
     gameover = 0;
     turn = 0;
+    bug.open("./debug.txt");
 };
 
 //deconstructor
 State::~State()
 {
+    bug.close();
 };
 
 //sets the state up
@@ -50,15 +46,9 @@ void State::makeMove(const Location &loc, int direction)
 
     Location nLoc = getLocation(loc, direction);
     if (grid[nLoc.row][nLoc.col].ant != -1) {
-        getDebugger() << "crash ant over ant" << endl;
+        getDebugger() << "crash" << endl;
         getDebugger() << turn << " " << loc << "->" << nLoc << endl;
     }
-
-    if (grid[loc.row][loc.col].ant == -1) {
-        getDebugger() << "crash ant not found" << endl;
-        getDebugger() << turn << " " << loc << "->" << nLoc << endl;
-    }
-    
     grid[nLoc.row][nLoc.col].ant = grid[loc.row][loc.col].ant;
     grid[loc.row][loc.col].ant = -1;
 };
@@ -212,10 +202,8 @@ istream& operator>>(istream &is, State &state)
                 is >> state.cols;
             else if(inputType == "turns")
                 is >> state.turns;
-            else if(inputType == "player_seed") {
+            else if(inputType == "player_seed")
                 is >> state.seed;
-                srand(state.seed);
-            }              
             else if(inputType == "viewradius2")
             {
                 is >> state.viewradius;
@@ -312,12 +300,3 @@ istream& operator>>(istream &is, State &state)
 
     return is;
 };
-
-
-
-State & State::getSingleton() {
-    if (!singleton) {
-        singleton = new State();
-    }
-    return *singleton;
-}

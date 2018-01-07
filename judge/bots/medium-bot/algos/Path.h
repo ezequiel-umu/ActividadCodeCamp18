@@ -24,11 +24,8 @@ namespace std
             return std::hash<Location>{}(s.point);
         }
     };
-
 }
 
 typedef std::vector<Step> Path;
-
-std::ostream & operator<<(std::ostream & o, const Path & p);
 
 #endif

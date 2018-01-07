@@ -35,13 +35,29 @@ void Bot::updateAlgorithms() {
 //makes the bots moves for the turn
 void Bot::makeMoves()
 {
-    getDebugger() << "turn " << state.turn << ":" << endl;
     sch.init(state);
-    
-    //getDebugger() << state << endl;
+
+    state.bug << "turn " << state.turn << ":" << endl;
+    state.bug << state << endl;
+
+    //picks out moves for each ant
+    for(int ant=0; ant<(int)state.myAnts.size(); ant++)
+    {
+        for(int d=0; d<TDIRECTIONS; d++)
+        {
+            Location loc = state.getLocation(state.myAnts[ant], d);
+
+            if(!state.grid[loc.row][loc.col].isWater)
+            {
+                state.makeMove(state.myAnts[ant], d);
+                break;
+            }
+        }
+    }
 
     sch.finish(state);
-    getDebugger() << "time taken: " << state.timer.getTime() << "ms" << endl << endl;
+
+    state.bug << "time taken: " << state.timer.getTime() << "ms" << endl << endl;
 };
 
 //finishes the turn

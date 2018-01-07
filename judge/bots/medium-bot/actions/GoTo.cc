@@ -9,7 +9,7 @@ GoTo::GoTo(Ant &worker, FWDirection target) : Action(worker), target(target), di
 
 GoTo::GoTo(Ant &worker, const Path & target) : Action(worker), target(target[0].origin), distance(target.size())
 {
-
+  getDebugger() << "GoTo" << std::endl;
 }
 
 bool GoTo::canDo()
