@@ -9,11 +9,12 @@ const std::string actionName = "EXPLORE";
 
 Explore::Explore(Ant &worker) : Action(worker)
 {
-    distance = 50;
+    distance = 50; 
 }
 
 Explore::Explore(Ant &worker, int distance) : Action(worker), distance(distance)
 {
+  
 }
 
 bool Explore::canDo()
@@ -32,6 +33,8 @@ bool Explore::canDo()
 
 void Explore::next()
 {
+    State & state = State::getSingleton();
+    
     if (fog.size() > 0)
     {
         auto last = fog.rbegin();

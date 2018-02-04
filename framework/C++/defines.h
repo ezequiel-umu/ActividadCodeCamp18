@@ -3,3 +3,4 @@
 // Desactivar un algoritmo podría hacer no funcionar partes
 // del framework de inteligencia artificial
 #define DEBUG 1
+#define CALCULATE_DANGER 1

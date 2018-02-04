@@ -16,6 +16,8 @@
 #include "Square.h"
 #include "Location.h"
 
+#define TEAM_MYSELF 0
+
 class Ant;
 
 /*
@@ -59,6 +61,9 @@ struct State
     double distance2(const Location &loc1, const Location &loc2);
     Location getLocation(const Location &startLoc, int direction);
     const Square & getGrid(const Location & loc) const;
+    Square & getGrid(const Location & loc);
+    const Ant & getAntAt(const Location & loc) const;
+    Ant & getAntAt(const Location & loc);
 
     void updateVisionInformation();
 

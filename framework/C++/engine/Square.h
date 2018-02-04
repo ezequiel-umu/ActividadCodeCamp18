@@ -2,8 +2,8 @@
 #define SQUARE_H_
 
 #include <vector>
-
-class Ant;
+#include <unordered_set>
+#include "Ant.h"
 
 /*
     struct for representing a square in the grid.
@@ -14,18 +14,22 @@ struct Square
   int ant, hillPlayer;
   int theAnt;
   std::vector<int> deadAnts;
+  std::unordered_set<Location> ownPresence;
+  std::unordered_set<Location> enemyPresence;
+  int danger;
 
   Square()
   {
     isVisible = isWater = isHill = isFood = 0;
     ant = hillPlayer = -1;
     theAnt = -1;
+    danger = 0;
   };
 
   /**
    * Devuelve verdadero si se puede andar: no hay otra hormiga ni hay agua.
    */
-  bool isWalkable()
+  bool isWalkable() const
   {
     return !isWater && ant == -1;
   }
@@ -39,6 +43,9 @@ struct Square
     ant = hillPlayer = -1;
     theAnt = -1;
     deadAnts.clear();
+    ownPresence.clear();
+    enemyPresence.clear();
+    danger = 0;
   };
 };
 

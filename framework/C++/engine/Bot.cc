@@ -1,6 +1,7 @@
 #include "Bot.h"
 #include "../defines.h"
 #include "../debug.h"
+#include "../algos/danger.h"
 
 using namespace std;
 
@@ -29,7 +30,9 @@ void Bot::playGame()
 };
 
 void Bot::updateAlgorithms() {
-
+  #ifdef CALCULATE_DANGER
+  calculateDanger(state);
+  #endif
 }
 
 //makes the bots moves for the turn

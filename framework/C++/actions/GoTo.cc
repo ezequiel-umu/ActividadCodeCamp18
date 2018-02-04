@@ -14,12 +14,17 @@ GoTo::GoTo(Ant &worker, const Path & target) : Action(worker), target(target[0].
 
 bool GoTo::canDo()
 { 
+  if (target == IMPOSSIBLE) {
+    return true;
+  }
   return worker.canWalkTo(target);
 }
 
 void GoTo::next()
 {
-  worker.walkTo(target);
+  if (target != IMPOSSIBLE) {
+    worker.walkTo(target);
+  }
 }
 
 const std::string actionName = "GOTO";

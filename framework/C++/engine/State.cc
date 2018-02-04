@@ -68,14 +68,14 @@ bool State::canMoveTo(const Location & loc, int direction) {
     return grid[nLoc.row][nLoc.col].isWalkable();
 }
 
-//returns the euclidean distance between two locations with the edges wrapped
+//returns the square of euclidean distance between two locations with the edges wrapped
 double State::distance(const Location &loc1, const Location &loc2)
 {
     int d1 = abs(loc1.row-loc2.row),
         d2 = abs(loc1.col-loc2.col),
         dr = min(d1, rows-d1),
         dc = min(d2, cols-d2);
-    return sqrt(dr*dr + dc*dc); 
+    return dr*dr + dc*dc; 
 };
 
 //returns the grid distance between two locations with the edges wrapped
@@ -96,6 +96,18 @@ Location State::getLocation(const Location &loc, int direction)
 };
 
 const Square & State::getGrid(const Location & loc) const {
+    return this->grid[loc.row][loc.col];
+}
+
+const Ant & State::getAntAt(const Location & loc) const {
+  return this->theAnts[this->getGrid(loc).theAnt];
+}
+
+Ant & State::getAntAt(const Location & loc) {
+  return this->theAnts[this->getGrid(loc).theAnt];
+}
+
+Square & State::getGrid(const Location & loc) {
     return this->grid[loc.row][loc.col];
 }
 
@@ -219,17 +231,17 @@ istream& operator>>(istream &is, State &state)
             else if(inputType == "viewradius2")
             {
                 is >> state.viewradius;
-                state.viewradius = sqrt(state.viewradius);
+                state.viewradius = state.viewradius;
             }
             else if(inputType == "attackradius2")
             {
                 is >> state.attackradius;
-                state.attackradius = sqrt(state.attackradius);
+                state.attackradius = state.attackradius;
             }
             else if(inputType == "spawnradius2")
             {
                 is >> state.spawnradius;
-                state.spawnradius = sqrt(state.spawnradius);
+                state.spawnradius = state.spawnradius;
             }
             else if(inputType == "ready") //end of parameter input
             {
@@ -270,7 +282,7 @@ istream& operator>>(istream &is, State &state)
                     Ant & ant = *state.theAnts.rbegin();
                     ant.position = Location(row, col);
                 }
-                else
+                else 
                     state.enemyAnts.push_back(Location(row, col));
             }
             else if(inputType == "d") //dead ant square

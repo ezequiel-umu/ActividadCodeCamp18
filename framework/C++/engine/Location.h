@@ -118,6 +118,16 @@ struct Location
     return !operator==(other);
   }
 
+  // TODO: Mejora si se cambia por el orden Z
+  bool operator <(const Location & other) const {
+    if (this->row < other.row) {
+      return true;
+    } else if (this->row > other.row) {
+      return false;
+    }
+    return this->col < other.col;
+  }
+
   FWDirection direction() const {
     FWDirection dir = IMPOSSIBLE;
     int m = 0;
