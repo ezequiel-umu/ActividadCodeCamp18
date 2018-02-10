@@ -21,6 +21,15 @@
   </div>
 </body>
 
+<style>
+  td {
+    padding-left: 10px;
+  }
+  tr {
+    border-bottom: 1px dashed black;
+  }
+</style>
+
 <script src="/framework/index.js"></script>
 <script>
   function valueFromSelector(selector) {
@@ -29,6 +38,7 @@
 
   (async function () {
     await mainPromise;
+    const {login} = getSessionInfo();
     doGet("/api/game")
       .then((data) => {
         const json = JSON.parse(data);
@@ -38,8 +48,13 @@
           const row = table.appendChild(document.createElement("tr"));
           const tdId = row.appendChild(document.createElement("td"));
           const tdTeams = row.appendChild(document.createElement("td"));
+          const tdDebug = row.appendChild(document.createElement("td"));
           tdId.innerHTML = `<a href="/api/game/${game.id}">Partida número ${game.id}</a>`;
           tdTeams.textContent = game.teams.map((team, i) =>  `${team}(${game.scores[i]})`).reduce((a, b) => a + ", " + b);
+          if (login && game.teams.includes(login)) {
+            tdDebug.classList.add("debug");
+            tdDebug.innerHTML = `<a href="/api/game/debug/${game.id}">Leer debug.log</a>`;
+          }
         }
       }).catch((err) => {
         swal("Algo no va demasiado bien", err.message, "error");

@@ -13,7 +13,7 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
 - [x] Planificar las distintas ligas.
   - [x] Planificar la agrupación y los equipos.
   - [x] Planificar el modo de clasificación.
-- [ ] Escribir el juez automático.
+- [x] Escribir el juez automático.
   - [x] API de usuario y contraseña.
   - [x] Base de datos de las partidas y sus puntuaciones.
   - [x] Script automático para comprobar y compilar/preparar los bots.
@@ -23,8 +23,8 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
   - [x] API para subir el nuevo bot de cada equipo.
   - [x] API para la lista de partidas.
   - [x] Emparejador automático.
-  - [ ] Reiniciar el emparejador cuando un equipo sube un bot nuevo.
-  - [ ] Comprobaciones mínimas de seguridad. 
+  - [x] Reiniciar el emparejador cuando un equipo sube un bot nuevo.
+  - [x] Comprobaciones mínimas de seguridad. 
   - [ ] **Opcional** API para pedir partidas manuales, sin ránking.
 - [ ] Una página web de interfaz de usuario
   - [x] Página de login.
@@ -36,7 +36,7 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
   - [x] Plantilla en C/C++.
   - [x] Bots en varios niveles.
   - [ ] Refactorizar código
-    - [ ] Eliminar state que no sea global
+    - [x] Eliminar state que no sea global
     - [ ] Eliminar la clase Ant
     - [ ] Refactorizar las acciones
 - [ ] Empaquetar todo (eliminar todas las posibles dependencias de internet).

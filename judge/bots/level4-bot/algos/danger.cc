@@ -23,13 +23,6 @@ void calculateDanger(State & s) {
             sq.danger += 1;
             sq.enemyPresence.insert(ant);
 
-            // if (sq.enemyPresence.size() > 4) {
-            //   getDebugger() << ant << " what" << endl;
-            //   for (const Location & l: sq.enemyPresence) {
-            //     getDebugger() << l << endl;                
-            //   }
-            // }
-
             for (auto dir: FDIRECTIONS) {
                 Location nl(l, dir);
                 nl.wrap(s.cols, s.rows);
@@ -56,14 +49,6 @@ void calculateDanger(State & s) {
             }
             sq.danger -= 1;
             sq.ownPresence.insert(ant);
-
-            // if (sq.ownPresence.size() > 4) {
-            //   getDebugger() << myAnts.size() << endl;              
-            //   getDebugger() << l << " what" << endl;
-            //   for (const Location & l2: sq.ownPresence) {
-            //     getDebugger() << l2 << " " << s.distance(l, l2) << endl;
-            //   }
-            // }
 
             for (auto dir: FDIRECTIONS) {
                 Location nl(l, dir);

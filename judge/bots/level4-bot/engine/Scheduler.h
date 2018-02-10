@@ -7,8 +7,8 @@
 
 class Scheduler {
 public:
-    virtual void init(State & s) = 0;
-    virtual void finish(State & s) = 0;
+    virtual void init() = 0;
+    virtual void finish() = 0;
 };
 
 #endif

@@ -19,16 +19,23 @@ execute() {
   python $dir/$pyscript.pyc
 }
 
-if [ $# -ne 1 ]
+if [ $# -lt 1 ]
 then
   usage
 else
   case "$1" in
   "exec")
-    execute
+    if [ $# -lt 2 ]
+    then
+      usage
+    else
+      execute $2
+    fi
   ;;
   "build")
     build
+  ;;
+  "finish")
   ;;
   *)
     usage

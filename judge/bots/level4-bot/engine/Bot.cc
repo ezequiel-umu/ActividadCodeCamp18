@@ -39,11 +39,11 @@ void Bot::updateAlgorithms() {
 void Bot::makeMoves()
 {
     getDebugger() << "turn " << state.turn << ":" << endl;
-    sch.init(state);
+    sch.init();
     
     //getDebugger() << state << endl;
 
-    sch.finish(state);
+    sch.finish();
     getDebugger() << "time taken: " << state.timer.getTime() << "ms" << endl << endl;
 };
 

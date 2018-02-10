@@ -6,13 +6,13 @@ import express = require("express");
 import session = require("express-session");
 import { HighPriorityQueue, LowPriorityQueue } from "./scheduler";
 import { AsyncArray } from "ts-modern-async";
-import { findTeamByLogin, restartElo, Team, BotRuntimeList, isBotRuntime, getTeams } from "./teams";
+import { findTeamByLogin, restartElo, Team, BotRuntimeList, isBotRuntime, getTeams, compile } from "./teams";
 import { acl } from "./acl";
 import { game, Game, nextGameId, findOpponents } from "./games";
 import { teamDB, gameDB } from "./db";
 import { expressAsync, randomInteger } from "./utils";
 
-function silentMkdir(dir: string) {
+export function silentMkdir(dir: string) {
   try {
     fs.mkdirSync(dir);
     return null;
@@ -27,6 +27,7 @@ silentMkdir(config.gameInProgressPath);
 silentMkdir(config.botsPath);
 silentMkdir(config.htmlPath);
 silentMkdir(config.uploadPath);
+silentMkdir(config.debugPath);
 
 const app = express();
 require("express-ws")(app);
@@ -83,13 +84,25 @@ api.get("/game/:id", acl, (req, res) => {
   }
 });
 
+api.get("/game/debug/:id", acl, (req, res) => {
+  const teamName = req.session && req.session.login as string;
+  const id = parseInt(req.params.id, 10);
+  if (fs.existsSync(config.debugPath + "/" + id + "-" + teamName + ".log")) {
+    res.setHeader("content-type", "text/plain");
+    fs.createReadStream(config.debugPath + "/" + id + "-" + teamName + ".log").pipe(res);
+  } else {
+    res.statusCode = 404;
+    res.send("Not found");
+  }
+});
+
 api.get("/game", acl, (req, res) => {
   const games = gameDB.getData("/") as Game[];
   res.send(games);
 });
 
-api.get("/", acl, (req, res) => {
-  const arrTeams = getTeams();
+function GenerateRoundGame() {
+  const arrTeams = getTeams().filter((t) => !t.disabled);
   const teams = new Set<string>(arrTeams.map((t) => t.login));
   while (teams.size) {
     const id = nextGameId(); 
@@ -107,24 +120,22 @@ api.get("/", acl, (req, res) => {
       game: () => game(opponents, id),
     });
   }
+}
+
+api.get("/", acl, (req, res) => {
+  GenerateRoundGame();
   res.send("Generating a whole round of games.");
 });
 
 api.post("/bot", acl, uploader.single("bot.tar.gz"), expressAsync(async (req, res) => {
-  const teamName = req.session && req.session.login as string;
-  const team = teamDB.getData("/" + teamName) as Team;
+  const teamName = (req.session && req.session.login) as string;
   const file = req.file;
   const kind = req.query.kind;
-  if (team && file && isBotRuntime(kind)) {
-    team.elo = config.initialElo;
-    team.botRuntime = kind;
-    teamDB.push("/" + teamName, team);
-    silentMkdir(config.botsPath + "/" + teamName);
-    await tar.x({
-      cwd: config.botsPath + "/" + teamName,
-      file: file.path
-    });
-    await fs.unlink(file.path);
+  if (teamName && file && isBotRuntime(kind)) {
+    LowPriorityQueue.length = 0;
+    HighPriorityQueue.length = 0;
+    await compile(teamName, file, kind);
+    GenerateRoundGame(); 
     res.send("OK");
   } else {
     res.statusCode = 400;
@@ -165,7 +176,7 @@ app.ws("/ws", (ws, req, res) => {
 
 });
 
-// restartElo();
+restartElo();
 
 app.listen(config.port, () => {
   console.log("Listening to port " + config.port);

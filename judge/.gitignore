@@ -1,6 +1,7 @@
 node_modules/
 game_finished/
 game_logs/
+game_debugs/
 db/
 bin/
 uploads/

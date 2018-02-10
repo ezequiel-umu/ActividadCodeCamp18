@@ -15,10 +15,10 @@ protected:
 
 public:
 
-    void init(State & s);
+    void init();
     void scheduleAnt(Ant & ant);
     bool solveConflicts();
-    void finish(State & s);
+    void finish();
 };
 
 #endif

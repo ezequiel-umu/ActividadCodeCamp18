@@ -19,8 +19,7 @@ Explore::Explore(Ant &worker, int distance) : Action(worker), distance(distance)
 
 bool Explore::canDo()
 {
-    State & state = State::getSingleton();
-    fog = findNearestFog(state, worker.position, this->distance);
+    fog = findNearestFog(worker.position, this->distance);
 
     if (fog.size() > 0) {
         auto last = fog.rbegin();
@@ -33,8 +32,6 @@ bool Explore::canDo()
 
 void Explore::next()
 {
-    State & state = State::getSingleton();
-    
     if (fog.size() > 0)
     {
         auto last = fog.rbegin();

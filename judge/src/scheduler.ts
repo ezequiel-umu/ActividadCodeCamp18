@@ -27,10 +27,22 @@ async function consumeGamesLoop(queues: AsyncArray<GameInProgress>[]) {
       console.log("Calculating game " + g.id + ".");
       const gameResult = await g.game();
       console.log("Finished game " + gameResult.id + ".");
+      
+      // Mover el debug
+      for (const team of gameResult.teams) {
+        try {
+          await move(config.botsPath + "/" + team + "/debug.log", config.debugPath + "/" + gameResult.id + "-" + team + ".log");
+        } catch (e) {
+          // Simplemente no hay debug.
+        }
+      }
+      
       // Mover las repeticiones 
       await move(config.gameInProgressPath + "/" + g.id + ".replay", config.gameFinishedPath + "/" + g.id + ".replay");
       await move(config.gameInProgressPath + "/replay." + g.id + ".html", config.htmlPath + "/" + g.id + ".html");
       fs.writeFileSync(config.htmlPath + "/" + g.id + ".html", fs.readFileSync(config.htmlPath + "/" + g.id + ".html").toString().replace(/\.\.\/\.\.\/ants\/linux/g, ""));
+
+      
 
       // Memorizar el orden actual de los equipos:
       const teams = getTeamsSortByElo();

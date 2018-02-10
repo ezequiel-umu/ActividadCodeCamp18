@@ -8,7 +8,8 @@
 
 using namespace std;
 
-Path findNearestAnt(const State & s, const Location & l, int team) {
+Path findNearestAnt(const Location & l, int team) {
+    const State & s = State::getSingleton();
     queue<Step> nodes;
     unordered_set<Step> visited; 
     Path path;
@@ -52,7 +53,8 @@ Path findNearestAnt(const State & s, const Location & l, int team) {
     return path;
 }
 
-Path findNearestFog(const State & s, const Location & l, int limit) {
+Path findNearestFog(const Location & l, int limit) {
+    const State & s = State::getSingleton();
     queue<Step> nodes;
     unordered_set<Step> visited; 
     Path path;

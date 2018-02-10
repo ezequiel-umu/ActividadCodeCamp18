@@ -177,7 +177,5 @@ vector<Decision> minimax(const vector<Location> & myAnts, const vector<Location>
 
   int score = recursiveMinimax(myAnts,enemyAnts, collisionIgnore, best, temp, true);
 
-  getDebugger() << "Max score " << score << endl;
-
   return best;
 }

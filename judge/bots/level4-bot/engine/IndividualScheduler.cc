@@ -24,7 +24,8 @@ void IndividualScheduler::scheduleAnt(Ant & ant) {
     delete command;    
 }
 
-void IndividualScheduler::init(State & s) {
+void IndividualScheduler::init() {
+    State & s = State::getSingleton();
     this->statistics.clear();
     this->conflicts.clear();
 
@@ -53,6 +54,6 @@ bool IndividualScheduler::solveConflicts() {
     return solved.size() > 0;
 }
 
-void IndividualScheduler::finish(State & s) {
+void IndividualScheduler::finish() {
     // ¿No hacer nada?
 }

@@ -10,6 +10,8 @@ export const config = {
   botsPath: "./bots",
   htmlPath: "html",
   uploadPath: "uploads",
+  debugPath: "game_debugs",
+  runtimes: "runtimes",
   
   // Elo config
   initialElo: 1200,                                     // Elo inicial al subir un nuevo bot.

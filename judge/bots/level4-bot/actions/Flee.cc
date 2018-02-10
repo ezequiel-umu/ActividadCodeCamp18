@@ -10,7 +10,6 @@ Flee::Flee(Ant &worker) : Action(worker)
 
 bool Flee::canDo()
 { 
-  getDebugger() << "canDo" << std::endl;      
   State & s = State::getSingleton();
   for (auto dir : FDIRECTIONS)
   {
@@ -26,13 +25,11 @@ bool Flee::canDo()
 
 void Flee::next()
 {
-  getDebugger() << "next" << std::endl;    
   State & s = State::getSingleton();
   for (auto dir : FDIRECTIONS)
   {
     Location l(worker.position, dir);
     l.wrap(s.cols, s.rows);
-    getDebugger() << "canWalkTo" << std::endl;    
     if (worker.canWalkTo(dir) && s.getGrid(l).danger == 0)
     {
       worker.walkTo(dir);

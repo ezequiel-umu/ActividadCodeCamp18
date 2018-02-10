@@ -54,8 +54,14 @@ export async function game(players: string[], id: number, options = defaultOptio
       "--turns", "" + options.turns,
     ];
     players.forEach((p) => {
-      args.push(`"sh ${config.botsPath}/${p}/bot.sh exec"`);
+      args.push(`"sh ${config.botsPath}/${p}/bot.sh exec ${p}-${id}"`);
     })
+
+    // Linea para ejecutar los finishes:
+    let finishes = "";
+    players.forEach((p) => {
+      finishes += `sh ${config.botsPath}/${p}/bot.sh finish ${p}-${id} ; `;
+    });
 
     const process = spawn("/bin/sh", [], { shell: true });
     const result = [] as Array<string | Buffer>;
@@ -64,8 +70,8 @@ export async function game(players: string[], id: number, options = defaultOptio
       result.push(data);
     });
 
-    console.log("python " + args.reduce((a, b) => a + " " + b) + " ; exit\n");
-    process.stdin.write("python " + args.reduce((a, b) => a + " " + b) + " ; exit\n")
+    console.log("python " + args.reduce((a, b) => a + " " + b) + " ; " + finishes + " exit\n");
+    process.stdin.write("python " + args.reduce((a, b) => a + " " + b) + " ; " + finishes + " exit\n")
 
     process.on("exit", (code) => {
       if (code === 0) {
@@ -89,7 +95,7 @@ export async function game(players: string[], id: number, options = defaultOptio
  * @param ts (Optional) Array of teams.
  */
 export function findOpponents(t: Team|string, size: number, ts?: Team[]) {
-  ts = ts || getTeamsSortByElo();
+  ts = ts || getTeamsSortByElo().filter((team) => !team.disabled);
   if (typeof t === "object") {
     t = t.login;
   }

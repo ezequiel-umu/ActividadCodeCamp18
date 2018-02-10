@@ -7,8 +7,8 @@
 
 class IA : public Scheduler {
 public:
-    void init(State & s);
-    void finish(State & s);
+    void init();
+    void finish();
 };
 
 #endif
