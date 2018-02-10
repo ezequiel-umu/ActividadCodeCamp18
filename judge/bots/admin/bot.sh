@@ -1,4 +1,4 @@
-# Versión Python del script de ejecución.
+# Versión C++ del script de ejecución.
 
 dir=$(realpath --relative-to=`pwd` "$(dirname "$0")")
 program=main  
