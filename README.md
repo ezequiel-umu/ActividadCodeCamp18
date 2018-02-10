@@ -33,15 +33,16 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
   - [x] Visualizador HTML de las partidas jugadas. 
   - [ ] Estilo que no dé sida.
 - [ ] Escribir las plantillas de código.
-  - [ ] Opcional: Hacer una encuesta para conocer qué lenguajes de programación se quieren usar.
-  - [ ] Listado de algoritmos y herramientas a ofrecer.
-  - [ ] Plantilla en pascal.
-  - [ ] Plantilla en C/C++.
-  - [ ] Plantilla en Java.
+  - [x] Plantilla en C/C++.
+  - [x] Bots en varios niveles.
+  - [ ] Refactorizar código
+    - [ ] Eliminar state que no sea global
+    - [ ] Eliminar la clase Ant
+    - [ ] Refactorizar las acciones
 - [ ] Empaquetar todo (eliminar todas las posibles dependencias de internet).
   - [x] Preparar imagen de Docker.
+  - [ ] Dependencias web (jQuery, sweetalert...)
   - [ ] Probar las dependencias de Node.
   - [ ] Hacer pruebas en entornos aislados, sin internet.
-- [ ] Preparar un tutorial para los alumnos.
-  - [ ] Preparar un previo también para los alumnos de primero (Pascal o C?).
+- [ ] Preparar un tutorial para los alumnos (C++).
 - [ ] Preparar una presentación (breve).  
