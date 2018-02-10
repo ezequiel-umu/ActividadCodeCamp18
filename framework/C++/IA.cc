@@ -2,8 +2,13 @@
 #include "actions/GoTo.h"
 #include "actions/Random.h"
 #include "actions/Explore.h"
+#include "actions/Fight.h"
+#include "actions/Flee.h"
+#include "actions/Support.h"
 #include "algos/bfs.h"
+#include "algos/Antgroup.h"
 #include <climits>
+#include "algos/minimax.h"
 
 using namespace std;
 
@@ -20,11 +25,13 @@ void IA::init(State & s) {
                 distance = ((GoTo*)(ant.action))->getDistance();
             }
             if (distance > nearestAnt.size()) {
+                if (ant.action == nullptr) {
+                    foodLooker++;
+                }
                 delete ant.action;
                 GoTo * action = new GoTo(ant, nearestAnt);
                 if (action->canDo()) {
                     ant.action = action;
-                    foodLooker++;
                 } else {
                     delete action;
                 }
@@ -34,14 +41,46 @@ void IA::init(State & s) {
 
     getDebugger() << "Food seeker: " << foodLooker << endl;
 
-    // Al resto que explore
+    // Al resto que luche, huya o explore
     for (Ant & ant: s.theAnts) {
-        ant.action = (ant.action ? ant.action : new Explore(ant));
-        if (ant.action->canDo()) {
-            ant.action->next();
+        if (ant.action == nullptr) {
+            getDebugger() << "General purpose ant: " << ant.position << endl;   
+            // En peligro: luchar o huir
+            Square & sq = s.getGrid(ant.position);
+            if (sq.enemyPresence.size()) {
+                AntGroup ag = AntGroup::getGroupBattleAt(ant.position, 7);
+                getDebugger() << "Group Battle " << ag.size() << endl;
+                auto own = ag.getOwnAnts();
+                auto enemy = ag.getEnemyAnts();
+                auto d = minimax(own, enemy);
+                getDebugger() << "Decision made " << d.size() << endl;
+                            
+                for (const Decision & dec: d) {
+                    getDebugger() << "Ant " << dec.ant << " to " << dec.to << endl;
+                    
+                    Ant & a = s.getAntAt(dec.ant);
+                    if (!a.action) {
+                        a.action = new GoTo(a, dec.to);
+                        a.action->next();
+                    } else {
+                        getDebugger() << "Busy ant" << endl;                        
+                    }
+                }
+            } else {
+                // Explorar si es posbile
+                ant.action = new Explore(ant);                
+                if (ant.action->canDo()) {
+                    ant.action->next();
+                } else {
+                    delete ant.action;
+                    ant.action = new Random(ant);
+                    if (ant.action->canDo()) {
+                        ant.action->next();
+                    }
+                }
+            }
         } else {
-            delete ant.action;
-            ant.action = new Random(ant);
+            // Buscadores de comida
             if (ant.action->canDo()) {
                 ant.action->next();
             }

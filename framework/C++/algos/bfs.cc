@@ -22,7 +22,7 @@ Path findNearestAnt(const State & s, const Location & l, int team) {
             Location l(n.point, dir);
             l.wrap(s.cols, s.rows);
 
-            // Evitar agua
+            // Evitar agua y peligro
             if (!s.getGrid(l).isWater) {
                 Step st({l, OPPOSITE[dir]});
                 if (!visited.count(st)) {
@@ -68,7 +68,7 @@ Path findNearestFog(const State & s, const Location & l, int limit) {
             Location l(n.point, dir);
             l.wrap(s.cols, s.rows);
 
-            // Evitar agua
+            // Evitar agua y suicidios
             if (!s.getGrid(l).isWater) {
                 realLimit--;
                 Step st({l, OPPOSITE[dir]});
