@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CodeCamp18 - Login</title>
+  <meta charset="utf-8" />
+
+</head>
+
+<body>
+  <form method="post" onsubmit="botSubmit(event)">
+    <input id="files" type="file" accept="application/gzip" />
+    <input type="submit" />
+  </form>
+  <form method="post" onsubmit="logout(event)">
+    <input type="submit" value="Logout"/>
+  </form>
+</body>
+
+<script>
+  function filesFromSelector(selector) {
+    return document.querySelector(selector).files;
+  }
+
+  function botSubmit(ev) {
+    ev.preventDefault();
+    const files = filesFromSelector("#files");
+    const selected = document.querySelector("option:checked");
+    const kind = encodeURIComponent("C++");
+    doPost("/api/bot?kind="+kind, files[0]).then((e) => {
+      document.location = "/";
+    }).catch((e) => {
+      swal("Algo no va muy bien que digamos", e.message, "error");
+    });
+  }
+
+  function logout(ev) {
+    ev.preventDefault();
+    doPost("/api/logout").then((e) => {
+      setSessionInfo({});
+      document.location = "/";
+    }).catch((e) => {
+      swal("Algo no va muy bien que digamos", e.message, "error");
+    });
+  }
+</script>
+
+<script src="/framework/index.js"></script>
+</html>

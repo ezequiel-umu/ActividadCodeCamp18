@@ -57,7 +57,7 @@ app.use(express.static("static", {
 
 const api = express.Router();
 
-api.get("/classification", acl, (req, res) => {
+api.get("/classification", (req, res) => {
   const teams = teamDB.getData("/");
   const arrTeams = [];
   for (const k in teams) {
@@ -69,7 +69,7 @@ api.get("/classification", acl, (req, res) => {
   res.send(arrTeams.sort((a, b) => a.elo - b.elo));
 });
 
-api.get("/game/:id", (req, res) => {
+api.get("/game/:id", acl, (req, res) => {
   const id = parseInt(req.params.id, 10);
   if (fs.existsSync(config.gameInProgressPath + "/" + id + ".replay")) {
     res.statusCode = 404;
@@ -83,7 +83,7 @@ api.get("/game/:id", (req, res) => {
   }
 });
 
-api.get("/game", (req, res) => {
+api.get("/game", acl, (req, res) => {
   const games = gameDB.getData("/") as Game[];
   res.send(games);
 });
@@ -150,6 +150,13 @@ api.post("/login", (req, res) => {
     res.statusCode = 400;
     res.send("Bad request.");
   }
+});
+
+api.post("/logout", (req, res) => {
+  if (req.session) {
+    delete req.session.login;
+  }
+  res.send("OK");
 });
 
 app.use("/api", api);

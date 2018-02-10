@@ -4,9 +4,6 @@ import { Game } from "./games";
 
 export const BotRuntimeList = {
   "C++": true,
-  "Java": true,
-  "Pascal": true,
-  "Python": true,
 } 
 
 type BotRuntime = keyof typeof BotRuntimeList;
