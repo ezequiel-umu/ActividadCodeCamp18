@@ -4,3 +4,4 @@
 // del framework de inteligencia artificial
 #define DEBUG 1
 #define CALCULATE_DANGER 1
+#define CALCULATE_LINEAR_INFLUENCE 1

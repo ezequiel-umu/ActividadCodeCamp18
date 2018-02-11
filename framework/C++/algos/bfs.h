@@ -1,6 +1,7 @@
 #ifndef BFS_H
 #define BFS_H
 
+#include <functional> 
 #include "Path.h"
 #include "../engine/State.h"
 
@@ -17,5 +18,15 @@ Path findNearestAnt(const Location & l, int team = 0);
  * Si el camino es vacío, no se encontró ninguna bajo ese límite.
  */
 Path findNearestFog(const Location & l, int limit = 15);
+
+enum BFS {
+  OBSTACLE,
+  CONTINUE,
+};
+
+/**
+ * Algoritmo general para expandirse. Evita duplicados y ofrece la distancia del origen.
+ */
+void BreadFirstExpansion(const Location & origin, std::function<BFS(const Location &, int)>);
 
 #endif

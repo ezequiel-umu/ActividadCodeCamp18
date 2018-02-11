@@ -17,7 +17,7 @@ Path findNearestAnt(const Location & l, int team) {
     nodes.push(Step({l, IMPOSSIBLE}));
     visited.insert(Step({l, IMPOSSIBLE}));
 
-    while(nodes.size()) {
+    while(nodes.size() && visited.size() < 50*50) {
         auto n = nodes.front(); nodes.pop();
         for (auto dir: FDIRECTIONS) {
             Location l(n.point, dir);
@@ -30,8 +30,8 @@ Path findNearestAnt(const Location & l, int team) {
                     visited.insert(st);
                     nodes.push(st);
 
-                    // Hormiga encontrada
-                    if (s.getGrid(l).ant == team) {
+                    // Hormiga encontrada que no esté en peligro
+                    if (s.getGrid(l).ant == team && s.getGrid(l).enemyPresence.size() == 0) {
                         Step & actSt = st;
                         while (actSt.origin != IMPOSSIBLE) {
                             Location origin(st.point, st.origin);
@@ -99,4 +99,29 @@ Path findNearestFog(const Location & l, int limit) {
     }
 
     return path;
+}
+
+void BreadFirstExpansion(const Location & origin, std::function<BFS(const Location &, int)> callback) {
+    State & s = State::getSingleton();
+
+    queue<pair<Location, int>> nodes;
+    unordered_set<Location> visited; 
+
+    nodes.push(make_pair(origin, 0));
+    visited.insert(origin);
+
+    while(nodes.size()) {
+        auto n = nodes.front(); nodes.pop();
+        BFS result = callback(n.first, n.second);
+        if (result == CONTINUE) {
+            for (auto dir: FDIRECTIONS) {
+                Location l(n.first, dir);
+                l.wrap(s.cols, s.rows);
+                if (!visited.count(l)) {
+                    visited.insert(l);
+                    nodes.push(make_pair(l, n.second+1));
+                }
+            }
+        }
+    }
 }

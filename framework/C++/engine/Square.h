@@ -17,13 +17,14 @@ struct Square
   std::unordered_set<Location> ownPresence;
   std::unordered_set<Location> enemyPresence;
   int danger;
+  double influence;
 
   Square()
   {
     isVisible = isWater = isHill = isFood = 0;
     ant = hillPlayer = -1;
     theAnt = -1;
-    danger = 0;
+    influence = danger = 0;
   };
 
   /**
@@ -45,7 +46,7 @@ struct Square
     deadAnts.clear();
     ownPresence.clear();
     enemyPresence.clear();
-    danger = 0;
+    influence = danger = 0;
   };
 };
 

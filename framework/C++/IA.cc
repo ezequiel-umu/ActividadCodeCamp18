@@ -40,31 +40,31 @@ void IA::init() {
         }
     }
 
-    // Darle órdenes a las hormigas para atacar hormigueros
-    for (auto hill: s.enemyHills) {
-        Path nearestAnt = findNearestAnt(hill);
-        if (nearestAnt.size() > 1) {
-            Ant & ant = s.theAnts[s.getGrid(nearestAnt[0].point).theAnt];
-            int distance = INT_MAX;
-            if (ant.action != nullptr && ant.action->actionName() == "GOTO") {                
-                distance = ((GoTo*)(ant.action))->getDistance();
-            }
-            if (distance > nearestAnt.size()) {
-                if (ant.action == nullptr) {
-                    foodLooker++;
-                }
-                delete ant.action;
-                GoTo * action = new GoTo(ant, nearestAnt);
-                if (action->canDo()) {
-                    ant.action = action;
-                } else {
-                    delete action;
-                }
-            }
-        }
-    }
+    // // Darle órdenes a las hormigas para atacar hormigueros
+    // for (auto hill: s.enemyHills) {
+    //     Path nearestAnt = findNearestAnt(hill);
+    //     if (nearestAnt.size() > 1) {
+    //         Ant & ant = s.theAnts[s.getGrid(nearestAnt[0].point).theAnt];
+    //         int distance = INT_MAX;
+    //         if (ant.action != nullptr && ant.action->actionName() == "GOTO") {                
+    //             distance = ((GoTo*)(ant.action))->getDistance();
+    //         }
+    //         if (distance > nearestAnt.size()) {
+    //             if (ant.action == nullptr) {
+    //                 foodLooker++;
+    //             }
+    //             delete ant.action;
+    //             GoTo * action = new GoTo(ant, nearestAnt);
+    //             if (action->canDo()) {
+    //                 ant.action = action;
+    //             } else {
+    //                 delete action;
+    //             }
+    //         }
+    //     }
+    // }
 
-    getDebugger() << "Food seeker: " << foodLooker << endl;
+    // getDebugger() << "Food seeker: " << foodLooker << endl;
 
     // Al resto que luche, huya o explore
     for (Ant & ant: s.theAnts) {
