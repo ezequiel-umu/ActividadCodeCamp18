@@ -3,6 +3,6 @@
 
 #include "../engine/State.h"
 
-void calculateDanger(State & s);
+void calculateDanger();
 
 #endif

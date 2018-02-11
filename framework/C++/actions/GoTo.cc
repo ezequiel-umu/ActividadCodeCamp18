@@ -2,12 +2,12 @@
 
 #include "../debug.h"
 
-GoTo::GoTo(Ant &worker, FWDirection target) : Action(worker), target(target), distance(1)
+GoTo::GoTo(const Location &worker, FWDirection target) : Action(worker), target(target), distance(1)
 {
 
 }
 
-GoTo::GoTo(Ant &worker, const Path & target) : Action(worker), target(target[0].origin), distance(target.size())
+GoTo::GoTo(const Location &worker, const Path & target) : Action(worker), target(target[0].origin), distance(target.size())
 {
 
 }

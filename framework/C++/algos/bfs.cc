@@ -21,7 +21,7 @@ Path findNearestAnt(const Location & l, int team) {
         auto n = nodes.front(); nodes.pop();
         for (auto dir: FDIRECTIONS) {
             Location l(n.point, dir);
-            l.wrap(s.cols, s.rows);
+            l.wrap();
 
             // Evitar agua y peligro
             if (!s.getGrid(l).isWater) {
@@ -35,7 +35,7 @@ Path findNearestAnt(const Location & l, int team) {
                         Step & actSt = st;
                         while (actSt.origin != IMPOSSIBLE) {
                             Location origin(st.point, st.origin);
-                            origin.wrap(s.cols, s.rows);
+                            origin.wrap();
                             path.push_back(st);
                             auto it = visited.find(Step({origin, IMPOSSIBLE}));
                             if (it == visited.end()) {
@@ -68,7 +68,7 @@ Path findNearestFog(const Location & l, int limit) {
         auto n = nodes.front(); nodes.pop();
         for (auto dir: FDIRECTIONS) {
             Location l(n.point, dir);
-            l.wrap(s.cols, s.rows);
+            l.wrap();
 
             // Evitar agua y suicidios
             if (!s.getGrid(l).isWater) {
@@ -83,7 +83,7 @@ Path findNearestFog(const Location & l, int limit) {
                         Step & actSt = st;
                         while (actSt.origin != IMPOSSIBLE) {
                             Location origin(st.point, st.origin);
-                            origin.wrap(s.cols, s.rows);
+                            origin.wrap();
                             path.push_back(st);
                             auto it = visited.find(Step({origin, IMPOSSIBLE}));
                             if (it == visited.end()) {
@@ -116,7 +116,7 @@ void BreadFirstExpansion(const Location & origin, std::function<BFS(const Locati
         if (result == CONTINUE) {
             for (auto dir: FDIRECTIONS) {
                 Location l(n.first, dir);
-                l.wrap(s.cols, s.rows);
+                l.wrap();
                 if (!visited.count(l)) {
                     visited.insert(l);
                     nodes.push(make_pair(l, n.second+1));

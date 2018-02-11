@@ -125,7 +125,7 @@ int recursiveMinimax(const vector<Location> & myAnts,
 
   for (FWDirection dir: FDIRECTIONS) {
     Location nl(actualAnt, dir);
-    nl.wrap(global.cols, global.rows);
+    nl.wrap();
     auto au = global.getGrid(nl);
     auto shouldIgnore = ignore.count(nl) > 0;
     if (!au.isWater && 

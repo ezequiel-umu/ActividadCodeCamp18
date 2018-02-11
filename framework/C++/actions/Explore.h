@@ -10,7 +10,7 @@ public:
   /**
    * Construir la acción explore
    */
-  Explore(Ant &worker);
+  Explore(const Location &worker);
   bool canDo();
   bool finished();
   void next();

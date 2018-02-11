@@ -3,27 +3,29 @@
 
 #include <vector>
 #include <unordered_set>
-#include "Ant.h"
+#include "Location.h"
 
 /*
     struct for representing a square in the grid.
 */
 struct Square
 {
-  bool isVisible, isWater, isHill, isFood;
+  bool isVisible, isWater, isHill, isFood, alreadyMoved;
   int ant, hillPlayer;
   int theAnt;
   std::vector<int> deadAnts;
   std::unordered_set<Location> ownPresence;
   std::unordered_set<Location> enemyPresence;
   int danger;
+  double influence;
 
   Square()
   {
     isVisible = isWater = isHill = isFood = 0;
     ant = hillPlayer = -1;
     theAnt = -1;
-    danger = 0;
+    influence = danger = 0;
+    alreadyMoved = false;
   };
 
   /**
@@ -45,7 +47,8 @@ struct Square
     deadAnts.clear();
     ownPresence.clear();
     enemyPresence.clear();
-    danger = 0;
+    influence = danger = 0;
+    alreadyMoved = false;
   };
 };
 

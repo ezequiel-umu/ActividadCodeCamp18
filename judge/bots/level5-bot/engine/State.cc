@@ -1,5 +1,4 @@
 #include "State.h"
-#include "Ant.h"
 #include "../debug.h"
 
 using namespace std;
@@ -32,7 +31,6 @@ void State::setup()
 void State::reset()
 {
     myAnts.clear();
-    theAnts.clear();
     enemyAnts.clear();
     myHills.clear();
     enemyHills.clear();
@@ -59,12 +57,19 @@ void State::makeMove(const Location &loc, int direction)
         getDebugger() << turn << " " << loc << "->" << nLoc << endl;
     }
     
+    int theAnt = grid[loc.row][loc.col].theAnt;
+    this->myAnts[theAnt] = nLoc;
+    grid[nLoc.row][nLoc.col].theAnt = theAnt;
+
     grid[nLoc.row][nLoc.col].ant = grid[loc.row][loc.col].ant;
+    grid[nLoc.row][nLoc.col].alreadyMoved = true;
     grid[loc.row][loc.col].ant = -1;
+    grid[loc.row][loc.col].theAnt = -1;
 };
 
 bool State::canMoveTo(const Location & loc, int direction) {
     Location nLoc = getLocation(loc, direction);
+    nLoc.wrap();
     return grid[nLoc.row][nLoc.col].isWalkable();
 }
 
@@ -97,14 +102,6 @@ Location State::getLocation(const Location &loc, int direction)
 
 const Square & State::getGrid(const Location & loc) const {
     return this->grid[loc.row][loc.col];
-}
-
-const Ant & State::getAntAt(const Location & loc) const {
-  return this->theAnts[this->getGrid(loc).theAnt];
-}
-
-Ant & State::getAntAt(const Location & loc) {
-  return this->theAnts[this->getGrid(loc).theAnt];
 }
 
 Square & State::getGrid(const Location & loc) {
@@ -277,10 +274,7 @@ istream& operator>>(istream &is, State &state)
                 state.grid[row][col].ant = player;
                 if(player == 0) {
                     state.myAnts.push_back(Location(row, col));                    
-                    state.grid[row][col].theAnt = state.theAnts.size();
-                    state.theAnts.push_back(Ant(state));
-                    Ant & ant = *state.theAnts.rbegin();
-                    ant.position = Location(row, col);
+                    state.grid[row][col].theAnt = state.myAnts.size();
                 }
                 else 
                     state.enemyAnts.push_back(Location(row, col));

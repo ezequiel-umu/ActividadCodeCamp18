@@ -36,23 +36,18 @@ void enemyAntInfluence(const Location &ant)
 void friendlyAntInfluence(const Location &ant)
 {
     State &s = State::getSingleton();
-    Square &sq = s.getGrid(ant);
-
-    int danger = sq.danger;
 
     BreadFirstExpansion(ant,
-                        [&s, &ant, danger](const Location &l, int distance) {
+                        [&s, &ant](const Location &l, int distance) {
                             Square &sq = s.getGrid(l);
-                            if (sq.isWater || distance >= HELP_RADIUS)
+                            int dist = s.distance(l, ant);
+                            if (sq.isWater || dist >= s.viewradius)
                             {
                                 return OBSTACLE;
                             }
                             else
-                            {   
-                                if (danger > 0) {
-                                    sq.influence += danger*5;
-                                }
-                                sq.influence += (distance - HELP_RADIUS);
+                            {
+                                sq.influence += (dist - s.viewradius) * 2;
                                 return CONTINUE;
                             }
                         });
@@ -75,13 +70,13 @@ void enemyHillInfluence(const Location &hill)
                         [&s, &hill, nearBonus](const Location &l, int distance) {
                             Square &sq = s.getGrid(l);
                             int dist = s.distance(l, hill);
-                            if (sq.isWater || distance >= HELP_RADIUS)
+                            if (sq.isWater || dist >= s.viewradius)
                             {
                                 return OBSTACLE;
                             }
                             else
                             {
-                                sq.influence += HELP_RADIUS - distance + nearBonus;
+                                sq.influence += s.viewradius - dist + nearBonus;
                                 return CONTINUE;
                             }
                         });
@@ -91,7 +86,6 @@ void antInfluence(const Location &ant)
 {
     State &s = State::getSingleton();
     auto &sq = s.getGrid(ant);
-    getDebugger() << ant << " " << sq.ant << std::endl;
     if (sq.ant == 0)
     {
         friendlyAntInfluence(ant);

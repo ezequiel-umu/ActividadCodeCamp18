@@ -9,10 +9,10 @@ class GoTo: public Action {
 public:
 
     GoTo() = delete;
-    GoTo(Ant&) = delete; 
+    GoTo(const Location &) = delete; 
 
-    GoTo(Ant & ant, FWDirection target);
-    GoTo(Ant & ant, const Path & target);
+    GoTo(const Location & ant, FWDirection target);
+    GoTo(const Location & ant, const Path & target);
 
     bool canDo();
     void next();

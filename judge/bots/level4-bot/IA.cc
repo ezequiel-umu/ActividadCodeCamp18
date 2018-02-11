@@ -49,10 +49,13 @@ void IA::init() {
             // En peligro: luchar o huir
             Square & sq = s.getGrid(ant.position);
             if (sq.enemyPresence.size()) {
-                AntGroup ag = AntGroup::getGroupBattleAt(ant.position, 7);
+                AntGroup ag = AntGroup::getGroupBattleAt(ant.position, 8);
                 getDebugger() << "Group Battle " << ag.size() << endl;
                 auto own = ag.getOwnAnts();
                 auto enemy = ag.getEnemyAnts();
+                if (own.size() == 0 || enemy.size() == 0) {
+                  continue;
+                }
                 auto d = minimax(own, enemy);
                 getDebugger() << "Decision made " << d.size() << endl;
                             

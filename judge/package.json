@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@types/node-json-db": "0.0.1",
+    "@types/rimraf": "^2.0.2",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
@@ -31,6 +32,7 @@
     "mv": "^2.1.1",
     "mz": "^2.7.0",
     "node-json-db": "^0.7.3",
+    "rimraf": "^2.6.2",
     "tar": "^4.0.2",
     "ts-modern-async": "git+https://github.com/lilezek/node-ts-modern-async.git"
   }

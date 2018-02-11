@@ -32,7 +32,9 @@ void Bot::playGame()
 
 void Bot::updateAlgorithms() {
   #ifdef CALCULATE_DANGER
+  getDebugger() << "time before danger: " << state.timer.getTime() << "ms" << endl << endl;  
   calculateDanger();
+  getDebugger() << "danger done: " << state.timer.getTime() << "ms" << endl << endl;    
   #endif
   #ifdef CALCULATE_LINEAR_INFLUENCE
   getDebugger() << "time before influence: " << state.timer.getTime() << "ms" << endl << endl;

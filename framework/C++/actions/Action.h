@@ -1,12 +1,12 @@
 #ifndef ACTION_H
 #define ACTION_H
 
-#include "../engine/Ant.h"
+#include "../engine/Location.h"
 
 class Action
 {
 public:
-  Action(Ant &worker);
+  Action(const Location &worker);
   virtual bool canDo() = 0;
   virtual bool finished() = 0;
   virtual void next() = 0;
@@ -14,7 +14,7 @@ public:
 
   virtual ~Action() = 0;
 protected:
-  Ant &worker;
+  Location worker;
 };
 
 #endif

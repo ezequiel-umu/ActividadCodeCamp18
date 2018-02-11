@@ -2,6 +2,7 @@
 #include "../defines.h"
 #include "../debug.h"
 #include "../algos/danger.h"
+#include "../algos/linearinfluence.h"
 
 using namespace std;
 
@@ -31,7 +32,28 @@ void Bot::playGame()
 
 void Bot::updateAlgorithms() {
   #ifdef CALCULATE_DANGER
-  calculateDanger(state);
+  getDebugger() << "time before danger: " << state.timer.getTime() << "ms" << endl << endl;  
+  calculateDanger();
+  getDebugger() << "danger done: " << state.timer.getTime() << "ms" << endl << endl;    
+  #endif
+  #ifdef CALCULATE_LINEAR_INFLUENCE
+  getDebugger() << "time before influence: " << state.timer.getTime() << "ms" << endl << endl;
+  for (auto & ant: state.myAnts) {
+    antInfluence(ant);
+  }
+  for (auto & ant: state.enemyAnts) {
+    antInfluence(ant);
+  }
+  for (auto & hill: state.myHills) {
+    hillInfluence(hill);
+  }
+  for (auto & hill: state.enemyHills) {
+    hillInfluence(hill);
+  }
+  for (auto & food: state.food) {
+    foodInfluence(food);
+  }
+  getDebugger() << "influence done " << state.timer.getTime() << "ms" << endl << endl;  
   #endif
 }
 

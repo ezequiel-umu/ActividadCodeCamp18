@@ -1,17 +1,16 @@
 #include <climits>
 #include "Random.h"
 #include "../engine/State.h"
-#include "../engine/Location.h"
 #include "../debug.h"
 
 const std::string actionName = "RANDOM";
 
-Random::Random(Ant &worker) : Action(worker)
+Random::Random(const Location &worker) : Action(worker)
 {
   times = INT_MAX;
 }
 
-Random::Random(Ant &worker, int times) : Action(worker), times(times)
+Random::Random(const Location &worker, int times) : Action(worker), times(times)
 {
 }
 

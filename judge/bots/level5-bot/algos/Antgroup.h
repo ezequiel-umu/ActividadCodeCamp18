@@ -3,7 +3,7 @@
 
 #include <unordered_set>
 #include <vector>
-#include "../engine/Ant.h"
+#include "../engine/Location.h"
 
 class AntGroup: public std::unordered_set<Location> {
 

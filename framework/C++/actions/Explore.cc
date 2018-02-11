@@ -7,31 +7,40 @@
 #include "../debug.h"
 
 #define WORST_INFLUENCE -999999
+#define INFLUENCE_DISTANCE 30
 
 const std::string actionName = "EXPLORE";
 
-Explore::Explore(Ant &worker) : Action(worker)
+Explore::Explore(const Location &worker) : Action(worker)
 {
+  bestdir = IMPOSSIBLE;
 }
 
 bool Explore::canDo()
 {
+    if (bestdir != IMPOSSIBLE) {
+      return worker.canWalkTo(bestdir);
+    }
+
     State &s = State::getSingleton();
     double bestInfluence = WORST_INFLUENCE;
     Location bestLoc;
 
-    BreadFirstExpansion(worker.position,
+    BreadFirstExpansion(worker,
         [&s, &bestInfluence, &bestLoc, this](const Location &l, int distance) {
             Square &sq = s.getGrid(l);
-            int dist = s.distance(l, worker.position);
-            if (dist >= s.viewradius)
+            if (distance >= INFLUENCE_DISTANCE || sq.isWater)
             {
                 return OBSTACLE;
             }
             else
             {
-                if (bestInfluence < sq.influence && !sq.isWater && l != worker.position) {
-                    bestInfluence = sq.influence;
+                double score = sq.influence;
+                if (sq.isVisible) {
+                  score += 30;
+                }
+                if (bestInfluence < score && l != worker) {
+                    bestInfluence = score;
                     bestLoc = l;
                 }
                 return CONTINUE;
@@ -39,8 +48,7 @@ bool Explore::canDo()
         });
     
     if (bestInfluence > WORST_INFLUENCE + 10) {
-        getDebugger() << worker.position << " wants to go to " << bestLoc << std::endl;
-        Path p = AStar(worker.position, bestLoc);
+        Path p = AStar(worker, bestLoc);
         bestdir = p[0].origin;
         return worker.canWalkTo(bestdir);
     }

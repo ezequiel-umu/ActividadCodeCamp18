@@ -35,10 +35,10 @@ He aquí un listado de los hitos para trabajar sobre la actividad.
 - [ ] Escribir las plantillas de código.
   - [x] Plantilla en C/C++.
   - [x] Bots en varios niveles.
-  - [ ] Refactorizar código
+  - [x] Refactorizar código
     - [x] Eliminar state que no sea global
-    - [ ] Eliminar la clase Ant
-    - [ ] Refactorizar las acciones
+    - [x] Eliminar la clase Ant
+    - [x] Refactorizar las acciones
 - [ ] Empaquetar todo (eliminar todas las posibles dependencias de internet).
   - [x] Preparar imagen de Docker.
   - [ ] Dependencias web (jQuery, sweetalert...)

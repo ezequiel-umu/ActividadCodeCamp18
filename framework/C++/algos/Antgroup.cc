@@ -37,8 +37,8 @@ AntGroup AntGroup::getGroupBattleAt(const Location & at, int limit) {
             for (const Location & lant: sq.ownPresence) {
                 if (!result.count(lant)) {
                     // No insertar hormigas que ya se hayan movido 
-                    Ant & a = s.getAntAt(lant);
-                    if (!a.alreadyMoved) {
+                    Square & sqlant = s.getGrid(lant);
+                    if (!sqlant.alreadyMoved) {
                         result.strength++;
                         result.insert(lant);
                     }

@@ -9,11 +9,11 @@ public:
   /**
    * Construir la acción random
    */
-  Random(Ant &worker);
+  Random(const Location &worker);
   /**
    * Construir la acción random, pero solo para andar aleatoriamente `times` veces
    */
-  Random(Ant &worker, int times);
+  Random(const Location &worker, int times);
   bool canDo();
   bool finished();
   void next();

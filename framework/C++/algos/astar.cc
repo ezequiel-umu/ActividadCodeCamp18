@@ -17,7 +17,7 @@ Path reconstruct_path(const unordered_map<Location, FWDirection> & cameFrom, con
         auto currentDir = cameFrom.at(current);        
         total_path.push_back(Step{current, currentDir});
         current = Location(current, currentDir);
-        current.wrap(s.cols, s.rows);
+        current.wrap();
     }
     
     return total_path;
@@ -65,7 +65,7 @@ Path AStar(const Location & goal, const Location & start) {
 
         for (FWDirection dir: FDIRECTIONS) {
             Location neighbor(current, dir);
-            neighbor.wrap(s.cols, s.rows);
+            neighbor.wrap();
             if (closedSet.count(neighbor)) {
                 continue;		// Ignore the neighbor which is already evaluated.
             }

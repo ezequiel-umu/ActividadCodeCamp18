@@ -6,6 +6,11 @@ import fs = require("mz/fs");
 import {copyFileSync} from "fs"
 import { silentMkdir } from "./app";
 import { spawn } from "mz/child_process";
+import util = require("util");
+import rr = require("rimraf");
+
+const rimraf = util.promisify(rr);
+
 
 export const BotRuntimeList = {
   "C++": true,
@@ -103,6 +108,7 @@ export async function compile(teamName: string, file: Express.Multer.File, kind:
   team.elo = config.initialElo;
   team.botRuntime = kind;
   teamDB.push("/" + teamName, team);
+  await rimraf(config.botsPath + "/" + teamName);
   silentMkdir(config.botsPath + "/" + teamName);
   await tar.x({
     cwd: config.botsPath + "/" + teamName,

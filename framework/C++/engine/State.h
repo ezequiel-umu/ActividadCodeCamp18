@@ -18,8 +18,6 @@
 
 #define TEAM_MYSELF 0
 
-class Ant;
-
 /*
     struct to store current state information
 */
@@ -41,7 +39,6 @@ struct State
 
     std::vector<std::vector<Square> > grid;
     std::vector<Location> myAnts, enemyAnts, myHills, enemyHills, food;
-    std::vector<Ant> theAnts;
 
     Timer timer;
 
@@ -62,8 +59,6 @@ struct State
     Location getLocation(const Location &startLoc, int direction);
     const Square & getGrid(const Location & loc) const;
     Square & getGrid(const Location & loc);
-    const Ant & getAntAt(const Location & loc) const;
-    Ant & getAntAt(const Location & loc);
 
     void updateVisionInformation();
 
