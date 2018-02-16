@@ -1,6 +1,11 @@
 export const config = {
   // Server:
-  port: parseInt(process.env.PORT || "3000", 10),
+  port: parseInt(process.env.PORT || "8080", 10),
+  httpsPort: parseInt(process.env.HTTPS || "4443", 10),
+
+  // Certs:
+  certPath: "/home/codecampia/codecampia.cert",
+  keyPath: "/home/codecampia/codecampia.key",
   
   // Paths:
   antsPath: "../ants/linux",
