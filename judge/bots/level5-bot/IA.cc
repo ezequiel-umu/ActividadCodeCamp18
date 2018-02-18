@@ -23,6 +23,7 @@ void IA::init()
         if (nearestAnt.size() > 1)
         {
             Location &ant = nearestAnt[0].point;
+            getDebugger() << nearestAnt << endl;
             int distance = INT_MAX;
             if (actions[ant] != nullptr && actions[ant]->actionName() == "GOTO")
             {
@@ -65,37 +66,48 @@ void IA::init()
     getDebugger() << "Food seeker: " << foodLooker << endl;
 
     // Al resto que luche, huya o explore
-    for (Location & ant: s.myAnts) {
+    for (Location &ant : s.myAnts)
+    {
         getDebugger() << "General purpose ant: " << ant << endl;
-        if (actions[ant] == nullptr) {
-            Square & sq = s.getGrid(ant);
-            if (sq.enemyPresence.size()) {
+        if (actions[ant] == nullptr)
+        {
+            Square &sq = s.getGrid(ant);
+            if (sq.enemyPresence.size())
+            {
+                getDebugger() << "Enemy presence" << endl;
                 AntGroup ag = AntGroup::getGroupBattleAt(ant, 7);
                 getDebugger() << "Group Battle " << ag.size() << endl;
                 auto own = ag.getOwnAnts();
                 auto enemy = ag.getEnemyAnts();
-                if (own.size() != 0 && enemy.size() != 0) {
+                if (own.size() != 0 && enemy.size() != 0)
+                {
                     auto d = minimax(own, enemy);
                     getDebugger() << s.timer.getTime() << "ms" << endl;
                     getDebugger() << "Decision made " << d.size() << endl;
 
-                    for (const Decision & dec: d) {
+                    for (const Decision &dec : d)
+                    {
                         getDebugger() << "The Ant " << dec.ant << " to " << dec.to << endl;
 
-                        const Location & ant = dec.ant;
+                        const Location &ant = dec.ant;
 
                         getDebugger() << "Location post" << endl;
-                        
-                        if (actions[ant] != nullptr) {
-                            getDebugger() << "Pre GoTo" << endl;                          
+
+                        if (actions[ant] == nullptr)
+                        {
+                            getDebugger() << "Pre GoTo" << endl;
                             actions[ant] = new GoTo(ant, dec.to);
-                            getDebugger() << "Post GoTo" << endl;                          
-                        } else {
+                            getDebugger() << "Post GoTo" << endl;
+                        }
+                        else
+                        {
                             getDebugger() << "Busy ant" << endl;
                         }
                     }
                 }
-            } else {
+            }
+            else
+            {
                 // Explorar si es posbile
                 actions[ant] = new Explore(ant);
                 // if (actions[ant]->canDo()) {
@@ -114,7 +126,7 @@ void IA::init()
     int moved = 1;
     while (moved)
     {
-        getDebugger() << "Try" << endl;        
+        getDebugger() << "Try" << endl;
         moved = 0;
         for (auto it = actions.begin(); it != actions.end(); it++)
         {

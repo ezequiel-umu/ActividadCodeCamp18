@@ -45,13 +45,13 @@ async function consumeGamesLoop(queues: AsyncArray<GameInProgress>[]) {
       
 
       // Memorizar el orden actual de los equipos:
-      const teams = getTeamsSortByElo();
+      const teams = getTeamsSortByElo().filter((team) => !team.disabled);
 
       // Registrar el juego acabado:
       registerFinishedGame(gameResult);
 
       // Comprobar si los equipos han cambiado de orden después de la partida
-      const teams2 = getTeamsSortByElo();
+      const teams2 = getTeamsSortByElo().filter((team) => !team.disabled);
 
       /**
        * Lista de equipos que han cambiado su orden.

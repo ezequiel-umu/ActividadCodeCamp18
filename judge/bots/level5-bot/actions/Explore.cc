@@ -35,8 +35,12 @@ bool Explore::canDo()
             }
             else
             {
-                if (bestInfluence < sq.influence && !sq.isWater && l != worker) {
-                    bestInfluence = sq.influence;
+                double score = sq.influence;
+                if (sq.isVisible) {
+                  score += 30;
+                }
+                if (bestInfluence < score && l != worker) {
+                    bestInfluence = score;
                     bestLoc = l;
                 }
                 return CONTINUE;
@@ -44,7 +48,6 @@ bool Explore::canDo()
         });
     
     if (bestInfluence > WORST_INFLUENCE + 10) {
-        getDebugger() << worker << " wants to go to " << bestLoc << std::endl;
         Path p = AStar(worker, bestLoc);
         bestdir = p[0].origin;
         return worker.canWalkTo(bestdir);

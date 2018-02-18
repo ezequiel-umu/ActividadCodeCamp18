@@ -48,9 +48,10 @@ void friendlyAntInfluence(const Location &ant)
                                 return OBSTACLE;
                             }
                             else
-                            {   
-                                if (danger > 0) {
-                                    sq.influence += danger*5;
+                            {
+                                if (danger > 0)
+                                {
+                                    sq.influence += danger * 5;
                                 }
                                 sq.influence += (distance - HELP_RADIUS);
                                 return CONTINUE;

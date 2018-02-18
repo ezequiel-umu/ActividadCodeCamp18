@@ -22,11 +22,17 @@ Path findNearestFog(const Location & l, int limit = 15);
 enum BFS {
   OBSTACLE,
   CONTINUE,
+  TARGET,
 };
 
 /**
  * Algoritmo general para expandirse. Evita duplicados y ofrece la distancia del origen.
  */
 void BreadFirstExpansion(const Location & origin, std::function<BFS(const Location &, int)>);
+
+/**
+ * Algoritmo general para encontrar caminos. Parecido al BreadFirstExpansion pero devuelve un path con los pasos a seguir. 
+ */
+Path BreadFirstSearch(const Location & origin, std::function<BFS(const Location &, int)>);
 
 #endif

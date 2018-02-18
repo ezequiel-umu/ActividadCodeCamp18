@@ -8,120 +8,122 @@
 
 using namespace std;
 
-Path findNearestAnt(const Location & l, int team) {
-    const State & s = State::getSingleton();
-    queue<Step> nodes;
-    unordered_set<Step> visited; 
-    Path path;
-
-    nodes.push(Step({l, IMPOSSIBLE}));
-    visited.insert(Step({l, IMPOSSIBLE}));
-
-    while(nodes.size() && visited.size() < 50*50) {
-        auto n = nodes.front(); nodes.pop();
-        for (auto dir: FDIRECTIONS) {
-            Location l(n.point, dir);
-            l.wrap();
-
-            // Evitar agua y peligro
-            if (!s.getGrid(l).isWater) {
-                Step st({l, OPPOSITE[dir]});
-                if (!visited.count(st)) {
-                    visited.insert(st);
-                    nodes.push(st);
-
-                    // Hormiga encontrada que no esté en peligro
-                    if (s.getGrid(l).ant == team && s.getGrid(l).enemyPresence.size() == 0) {
-                        Step & actSt = st;
-                        while (actSt.origin != IMPOSSIBLE) {
-                            Location origin(st.point, st.origin);
-                            origin.wrap();
-                            path.push_back(st);
-                            auto it = visited.find(Step({origin, IMPOSSIBLE}));
-                            if (it == visited.end()) {
-                                getDebugger() << "crash Ant" << origin << endl;
-                            }
-                            actSt = *it;
-                        }
-                        return path;
-                    }
-                }
-            }
-        }
-    }
-
-    return path;
-}
-
-Path findNearestFog(const Location & l, int limit) {
-    const State & s = State::getSingleton();
-    queue<Step> nodes;
-    unordered_set<Step> visited; 
-    Path path;
-
-    nodes.push(Step({l, IMPOSSIBLE}));
-    visited.insert(Step({l, IMPOSSIBLE}));
-
-    double realLimit = 2*limit*limit + 2*limit + 1;
-
-    while(nodes.size() && realLimit > 0) {
-        auto n = nodes.front(); nodes.pop();
-        for (auto dir: FDIRECTIONS) {
-            Location l(n.point, dir);
-            l.wrap();
-
-            // Evitar agua y suicidios
-            if (!s.getGrid(l).isWater) {
-                realLimit--;
-                Step st({l, OPPOSITE[dir]});
-                if (!visited.count(st)) {
-                    visited.insert(st);
-                    nodes.push(st);
-
-                    // Niebla encontrada
-                    if (!s.getGrid(l).isVisible) {
-                        Step & actSt = st;
-                        while (actSt.origin != IMPOSSIBLE) {
-                            Location origin(st.point, st.origin);
-                            origin.wrap();
-                            path.push_back(st);
-                            auto it = visited.find(Step({origin, IMPOSSIBLE}));
-                            if (it == visited.end()) {
-                                getDebugger() << "crash Fog" << origin << endl;
-                            }
-                            actSt = *it;
-                        }
-                        return path;
-                    }
-                }
-            }
-        }
-    }
-
-    return path;
-}
-
-void BreadFirstExpansion(const Location & origin, std::function<BFS(const Location &, int)> callback) {
-    State & s = State::getSingleton();
+void BreadFirstExpansion(const Location &origin, std::function<BFS(const Location &, int)> callback)
+{
+    State &s = State::getSingleton();
 
     queue<pair<Location, int>> nodes;
-    unordered_set<Location> visited; 
+    unordered_set<Location> visited;
 
     nodes.push(make_pair(origin, 0));
     visited.insert(origin);
 
-    while(nodes.size()) {
-        auto n = nodes.front(); nodes.pop();
+    while (nodes.size())
+    {
+        auto n = nodes.front();
+        nodes.pop();
         BFS result = callback(n.first, n.second);
-        if (result == CONTINUE) {
-            for (auto dir: FDIRECTIONS) {
+        if (result == CONTINUE || result == TARGET)
+        {
+            for (auto dir : FDIRECTIONS)
+            {
                 Location l(n.first, dir);
                 l.wrap();
-                if (!visited.count(l)) {
+                if (!visited.count(l))
+                {
                     visited.insert(l);
-                    nodes.push(make_pair(l, n.second+1));
+                    nodes.push(make_pair(l, n.second + 1));
+                }
+            }
+        }
+        if (result == TARGET)
+        {
+            return;
+        }
+    }
+}
+
+Path BreadFirstSearch(const Location &origin, std::function<BFS(const Location &, int)> callback)
+{
+    const State &s = State::getSingleton();
+    queue<Step> nodes;
+    unordered_set<Step> visited;
+    Path path;
+
+    nodes.push(Step({origin, IMPOSSIBLE, 0}));
+    visited.insert(Step({origin, IMPOSSIBLE, 0}));
+
+    while (nodes.size())
+    {
+        auto n = nodes.front();
+        nodes.pop();
+        for (auto dir : FDIRECTIONS)
+        {
+            Location l(n.point, dir);
+            l.wrap();
+            BFS result = callback(l, n.distance + 1);
+
+            // Evitar obstáculos
+            if (result != OBSTACLE)
+            {
+                Step st({l, OPPOSITE[dir], n.distance + 1});
+                if (!visited.count(st))
+                {
+                    visited.insert(st);
+                    nodes.push(st);
+
+                    // Objetivo encontrado
+                    if (result == TARGET)
+                    {
+                        Step &actSt = st;
+                        while (actSt.origin != IMPOSSIBLE)
+                        {
+                            Location origin(st.point, st.origin);
+                            origin.wrap();
+                            path.push_back(st);
+                            auto it = visited.find(Step({origin, IMPOSSIBLE}));
+                            if (it == visited.end())
+                            {
+                                getDebugger() << "crash BFS" << origin << endl;
+                            }
+                            actSt = *it;
+                        }
+                        return path;
+                    }
                 }
             }
         }
     }
+    return path;
+}
+
+Path findNearestFog(const Location &origin, int limit)
+{
+    const State &s = State::getSingleton();
+    double realLimit = 2 * limit * limit + 2 * limit + 1;
+
+    return BreadFirstSearch(origin, [&s](const Location & l, int distance) {
+        if (s.getGrid(l).isWater) {
+            return OBSTACLE;
+        }
+        if (!s.getGrid(l).isVisible) {
+            return TARGET;
+        }
+        return CONTINUE;
+    });
+}
+
+Path findNearestAnt(const Location &origin, int team)
+{
+    const State &s = State::getSingleton();
+
+    return BreadFirstSearch(origin, [&s, &team](const Location & l, int distance) {
+        if (s.getGrid(l).isWater) {
+            return OBSTACLE;
+        }
+        if (s.getGrid(l).ant == team) {
+            return TARGET;
+        }
+        return CONTINUE;
+    });
 }

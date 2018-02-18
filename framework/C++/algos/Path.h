@@ -7,6 +7,7 @@
 struct Step {
     Location point;
     FWDirection origin;
+    int distance;
 
     bool operator ==(const Step & other) const {
         return point == other.point;

@@ -53,7 +53,6 @@ int evalState(const TemporalState & local, const vector<Location> & myAnts, cons
         if (it2->second != DEFAULT && 
           it2->second != EMPTY && 
           it1->second != it2->second) {
-          score -= global.distance2(it1->first, it2->first);
           if (global.distance(it1->first, it2->first) <= global.attackradius) {
             auto & v  = neighs[it1->first];
             auto & v2 = neighs[it2->first];
@@ -75,9 +74,9 @@ int evalState(const TemporalState & local, const vector<Location> & myAnts, cons
       } 
     }
     if (dies && local[attack.first] == MYSELF) {
-      score -= 1100;
+      score -= 1;
     } else if (dies) {
-      score += 1000;
+      score += 1;
     }
   }
   return score;
