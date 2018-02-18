@@ -1,7 +1,7 @@
 import { mapList, mapName } from "./maplist";
 import { config } from "./config";
 import { spawn } from "child_process";
-import { gameDB, teamDB } from "./db";
+import { gameDB, teamDB, lastPlayedDB } from "./db";
 import { updateElo, Team, getTeamsSortByElo } from "./teams";
 import { readFileSync, writeFileSync } from "fs";
 import { randomInteger } from "./utils";
@@ -117,6 +117,15 @@ export function findOpponents(t: Team|string, size: number, ts?: Team[]) {
 }
 
 export function registerFinishedGame(g: Game) {
+  lastPlayedDB.push("/lastplayed", g.id+"");
   gameDB.push(`/${g.id}`, g);
   updateElo(g);
+}
+
+export function lastPlayedGame() {
+  try {
+    return lastPlayedDB.getData("/lastplayed") as string;
+  } catch (e) {
+    return null;
+  }
 }

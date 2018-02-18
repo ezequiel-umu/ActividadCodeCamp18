@@ -8,7 +8,7 @@ import { HighPriorityQueue, LowPriorityQueue } from "./scheduler";
 import { AsyncArray } from "ts-modern-async";
 import { findTeamByLogin, restartElo, Team, BotRuntimeList, isBotRuntime, getTeams, compile } from "./teams";
 import { acl } from "./acl";
-import { game, Game, nextGameId, findOpponents } from "./games";
+import { game, Game, nextGameId, findOpponents, lastPlayedGame } from "./games";
 import { teamDB, gameDB } from "./db";
 import { expressAsync, randomInteger } from "./utils";
 import https = require('https');
@@ -169,6 +169,11 @@ api.post("/bot", acl, uploader.single("bot.tar.gz"), expressAsync(async (req, re
     res.statusCode = 400;
     res.send("Something wrong");
   }
+}));
+
+api.get("/lastgame", acl, expressAsync(async (req, res) => {
+  const lastgame = lastPlayedGame() || "nogame";
+  res.send(lastgame);
 }));
 
 api.post("/login", (req, res) => {
