@@ -78,8 +78,7 @@ async function loadCss(source) {
 async function scriptDeps() {
   await loadScript("https://code.jquery.com/jquery-3.2.1.slim.min.js");
   await loadScript("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js");
-  await loadScript("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js");
-  await loadScript("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js");
+  await loadScript("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js");
   await loadScript("https://unpkg.com/sweetalert/dist/sweetalert.min.js");
   await Promise.all([
     loadScript("/js/store.js"),
@@ -88,7 +87,7 @@ async function scriptDeps() {
 }
 
 async function cssDeps() {
-  await loadCss("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css")    
+  await loadCss("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")    
 }
 
 async function deps() {
