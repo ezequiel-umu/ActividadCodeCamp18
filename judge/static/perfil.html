@@ -9,7 +9,7 @@
 
 <body>
 <div class="container" style="padding-top: 50px;">
-<nav class="nav justify-content-end" style="padding-bottom: 20px;>
+<nav class="nav justify-content-end" style="padding-bottom: 20px;">
 <ul class="nav justify-content-end">
    <form method="post" onsubmit="logout(event)">
 	<button class="btn btn-secondary" type="submit">Logout</button>
@@ -20,11 +20,11 @@
   <form method="post" onsubmit="botSubmit(event)">
   <div class="input-group">
     <div class="custom-file">
-      <input id="files" class="custom-file-input" type="file" accept="application/gzip" />
-      <label class="custom-file-label" for="files">Elige archivo</label>
+      <input onchange="onSelectFile(event)" id="files" class="custom-file-input" type="file" accept="application/gzip" />
+      <label id="filesLabel" class="custom-file-label" for="files">Elige archivo</label>
     </div>
     <div class="input-group-append">
-	<button class="btn btn-outline-secondary" type="submit">Enviar consulta</button>
+	<button class="btn btn-outline-secondary" type="submit">Enviar bot</button>
     </div>
   </div>
   </form>
@@ -32,41 +32,45 @@
 </div>
 </body>
 
-
-
-
-    
-
-
-
-
-
-
 <script>
+  function onSelectFile(ev) {
+    $("#filesLabel").text("Archivo seleccionado");
+  }
+
   function filesFromSelector(selector) {
     return document.querySelector(selector).files;
   }
 
-  function botSubmit(ev) {
+  async function botSubmit(ev) {
     ev.preventDefault();
     const files = filesFromSelector("#files");
     const selected = document.querySelector("option:checked");
     const kind = encodeURIComponent("C++");
-    doPost("/api/bot?kind="+kind, files[0]).then((e) => {
+    try {
+      swal({
+        title: "Espera",
+        buttons: false, 
+        text: "El bot se está subiendo y se va a compilar. Llevará unos segundos.",
+        icon: "info",
+        closeOnClickOutside: false
+      });
+      await doPost("/api/bot?kind="+kind, files[0]);
+      await swal("¡Subido!", "Clica para continuar", "success");
       document.location = "/";
-    }).catch((e) => {
+    } catch(e) {
       swal("Algo no va muy bien que digamos", e.message, "error");
-    });
+    };
   }
 
-  function logout(ev) {
+  async function logout(ev) {
     ev.preventDefault();
-    doPost("/api/logout").then((e) => {
+    try {
+      await doPost("/api/logout");
       setSessionInfo({});
       document.location = "/";
-    }).catch((e) => {
+    } catch(e) {
       swal("Algo no va muy bien que digamos", e.message, "error");
-    });
+    };
   }
 </script>
 

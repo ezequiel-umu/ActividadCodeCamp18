@@ -153,9 +153,18 @@ api.post("/bot", acl, uploader.single("bot.tar.gz"), expressAsync(async (req, re
   if (teamName && file && isBotRuntime(kind)) {
     LowPriorityQueue.length = 0;
     HighPriorityQueue.length = 0;
-    await compile(teamName, file, kind);
+    try {
+      await compile(teamName, file, kind);
+      res.send("OK");
+    } catch (e) {
+      res.statusCode = 400;
+      if (e instanceof Error) {
+        res.send(e.message + "\n" + e.stack);
+      } else {
+        res.send("Something wrong");
+      }
+    }
     GenerateRoundGame(); 
-    res.send("OK");
   } else {
     res.statusCode = 400;
     res.send("Something wrong");
