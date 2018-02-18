@@ -2,20 +2,45 @@
 <html>
 
 <head>
-  <title>CodeCamp18 - Login</title>
+  <title>CodeCamp18 - Perfil</title>
   <meta charset="utf-8" />
 
 </head>
 
 <body>
+<div class="container" style="padding-top: 50px;">
+<nav class="nav justify-content-end" style="padding-bottom: 20px;>
+<ul class="nav justify-content-end">
+   <form method="post" onsubmit="logout(event)">
+	<button class="btn btn-secondary" type="submit">Logout</button>
+  </form>
+</ul>
+</nav>
+<div class="jumbotron">
   <form method="post" onsubmit="botSubmit(event)">
-    <input id="files" type="file" accept="application/gzip" />
-    <input type="submit" />
+  <div class="input-group">
+    <div class="custom-file">
+      <input id="files" class="custom-file-input" type="file" accept="application/gzip" />
+      <label class="custom-file-label" for="files">Elige archivo</label>
+    </div>
+    <div class="input-group-append">
+	<button class="btn btn-outline-secondary" type="submit">Enviar consulta</button>
+    </div>
+  </div>
   </form>
-  <form method="post" onsubmit="logout(event)">
-    <input type="submit" value="Logout"/>
-  </form>
+</div>
+</div>
 </body>
+
+
+
+
+    
+
+
+
+
+
 
 <script>
   function filesFromSelector(selector) {
