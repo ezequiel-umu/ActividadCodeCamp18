@@ -11,14 +11,6 @@ import { acl } from "./acl";
 import { game, Game, nextGameId, findOpponents } from "./games";
 import { teamDB, gameDB } from "./db";
 import { expressAsync, randomInteger } from "./utils";
-import https = require('https');
-import express_enforces_ssl = require('express-enforces-ssl');
-
-// HTTPS options
-const httpsoptions = {
-  cert: fs.readFileSync(config.certPath),
-  key:  fs.readFileSync(config.keyPath)
-};
 
 export function silentMkdir(dir: string) {
   try {
@@ -52,8 +44,6 @@ const uploader = multer({
       cb(null, false);
   }
 });
-
-app.use(express_enforces_ssl());
 
 app.use(bodyParser.json());
 app.use(session({
@@ -192,5 +182,3 @@ app.listen(config.port, () => {
   console.log("Listening to port " + config.port);
 });
 
-console.log("Listening to httpsPort "+ config.httpsPort);
-https.createServer(httpsoptions, app).listen(config.httpsPort);
