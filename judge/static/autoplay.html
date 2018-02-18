@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visor concurso IA</title>
+
+    <script>
+        let lastGame = "nogame";
+        async function gamesWatcher() {
+            while(true) {
+                checkLastGame();
+                await sleep(60000);
+            }
+        };
+
+        function checkLastGame() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    if(lastGame != xhttp.responseText) {
+                        console.log("Loading game " + xhttp.responseText);
+                        document.getElementById("gameframe").src="/api/game/"+xhttp.responseText;
+                        lastGame = xhttp.responseText;
+                    }
+                }
+            };
+            xhttp.open("GET", "/api/lastgame", true);
+            xhttp.send();
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+    </script>
+    <style type="text/css"> body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; } </style>
+</head>
+
+<body onload="gamesWatcher();">
+    <div id="content" style="position:absolute; left: 0; right: 0; bottom: 0; top: 0px;">
+        <iframe id="gameframe" width="100%" height="100%" frameborder="0" src="" />
+    </div>
+</body>
+</html>

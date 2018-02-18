@@ -7,6 +7,7 @@ const router = {
   "inicio": "/",
   "clasificacion": "/clasificacion.html",
   "visualizador": "/visualizador.html",
+  "autoplay": "/autoplay.html",
   "login": "/login.html",
   "perfil": "/perfil.html",
 }
@@ -34,6 +35,9 @@ const navbar = `
       </li>
       <li id="visualizador" class="nav-item">
         <a class="nav-link" href="./visualizador.html">Ver partidas</a>
+      </li>
+      <li id="autoplay" class="nav-item">
+        <a class="nav-link" href="./autoplay.html">Autoplay</a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">
