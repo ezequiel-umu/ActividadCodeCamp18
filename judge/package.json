@@ -19,7 +19,7 @@
     "@types/node": "^8.0.47",
     "@types/tar": "^4.0.0",
     "@types/ws": "^3.2.0",
-    "typescript": "^2.5.3"
+    "typescript": "^2.8.0-dev.20180217"
   },
   "dependencies": {
     "@types/express-enforces-ssl": "^1.1.1",

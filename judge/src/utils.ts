@@ -8,9 +8,12 @@ export class FunnelPriorityArray<T> extends AsyncArray<T> {
   constructor(arrays: AsyncArray<T>[]) {
     super();
 
-    if (!arrays)
+    
+    if (!arrays) {
+      this.indexes = [];
       return;
-
+    }
+    
     this.indexes = arrays.map((e) => 0);
 
     const registerFunnelConsumer = (e: AsyncArray<T>, i: number) => {
