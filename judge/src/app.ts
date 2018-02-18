@@ -37,6 +37,15 @@ silentMkdir(config.htmlPath);
 silentMkdir(config.uploadPath);
 silentMkdir(config.debugPath);
 
+const acceptedMimetypes = {
+  "application/x-gzip": true,
+  "application/gzip": true,
+}
+
+function isCorrectMimetype(mime: string): mime is keyof typeof acceptedMimetypes {
+  return mime in acceptedMimetypes;
+}
+
 const app = express();
 require("express-ws")(app);
 const bodyParser = require("body-parser");
@@ -46,7 +55,7 @@ const uploader = multer({
     fileSize: 524288, // 512KiB
   },
   fileFilter: (req, file, cb) => {
-    if (file.mimetype === "application/gzip")
+    if (isCorrectMimetype(file.mimetype))
       cb(null, true);
     else
       cb(null, false);
