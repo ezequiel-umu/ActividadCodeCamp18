@@ -50,8 +50,10 @@ async function consumeGamesLoop(queues: AsyncArray<GameInProgress>[]) {
       // Registrar el juego acabado:
       registerFinishedGame(gameResult);
 
+      let teams2 = gameResult.teams.map((team, i) => ({login: team, score: gameResult.scores[i]}));
+
       // Comprobar si los equipos han cambiado de orden después de la partida
-      const teams2 = getTeamsSortByElo().filter((team) => !team.disabled);
+      teams2 = teams2.sort((a,b) => a.score - b.score)
 
       /**
        * Lista de equipos que han cambiado su orden.
@@ -68,9 +70,9 @@ async function consumeGamesLoop(queues: AsyncArray<GameInProgress>[]) {
       // Generar partidas para los equipos que han cambiado de puesto.
       while (highPriorityTeams.size) {
         const team = highPriorityTeams.keys().next().value;
-        const size = randomInteger(2, Math.min(5, teams2.length));
+        const size = randomInteger(2, Math.min(5, teams.length));
 
-        const opponents = findOpponents(team, size, teams2);
+        const opponents = findOpponents(team, size, teams);
         
         for (const opponent of opponents) {
           highPriorityTeams.delete(opponent);
